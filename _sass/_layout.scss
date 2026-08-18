@@ -40,12 +40,27 @@ body.sticky-bottom-footer {
   }
 }
 
+/* Base styles (Desktop & Larger Screens) */
 .navbar-brand .header-logo {
-  height: 50px !important; /* Forces the larger height */
-  width: auto !important;  /* Keeps the aspect ratio proportional */
+  height: 45px !important;
+  width: auto !important;
   max-width: 400px;
   object-fit: contain;
   vertical-align: middle;
+}
+
+/* Mobile Screens (Width under 768px) */
+@media (max-width: 768px) {
+  .navbar-brand {
+    /* Prevents the logo container from taking up the whole navbar width */
+    max-width: 70% !important; 
+  }
+  
+  .navbar-brand .header-logo {
+    height: auto !important;
+    max-height: 30px !important; /* Reduces height on smaller screens */
+    max-width: 100% !important;  /* Constrains width so it never overflows */
+  }
 }
 
 // Content layout uses Bootstrap's grid system with responsive columns
