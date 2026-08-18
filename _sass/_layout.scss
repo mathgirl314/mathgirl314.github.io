@@ -52,14 +52,13 @@ body.sticky-bottom-footer {
 /* Mobile Screens (Width under 768px) */
 @media (max-width: 768px) {
   .navbar-brand {
-    /* Prevents the logo container from taking up the whole navbar width */
-    max-width: 70% !important; 
+    max-width: 80% !important; /* Gives the logo a bit more horizontal space */
   }
   
   .navbar-brand .header-logo {
     height: auto !important;
-    max-height: 30px !important; /* Reduces height on smaller screens */
-    max-width: 100% !important;  /* Constrains width so it never overflows */
+    max-height: 42px !important; /* Increased from 30px to make it noticeably larger */
+    max-width: 100% !important;
   }
 }
 
