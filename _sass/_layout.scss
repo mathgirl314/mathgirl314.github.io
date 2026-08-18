@@ -41,9 +41,9 @@ body.sticky-bottom-footer {
 }
 
 .navbar-brand .header-logo {
-  height: 30px;      /* Caps max height to align with navigation text */
-  max-width: 250px;  /* Prevents overly wide images from pushing nav items off-screen */
-  width: auto;       /* Preserves aspect ratio */
+  height: 45px;      /* Increased to make the logo larger */
+  width: auto;       /* Keeps the aspect ratio intact */
+  max-width: 350px;  /* Raised to prevent clipping wide math formulas */
   object-fit: contain;
   vertical-align: middle;
 }
