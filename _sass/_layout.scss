@@ -67,6 +67,34 @@ body.sticky-bottom-footer {
   }
 }
 
+/* Fixed Background Images for Day/Night Modes */
+body {
+  background-image: url('../img/day_background.png');
+  background-repeat: repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: auto;
+}
+
+html[data-theme="dark"] body {
+  background-image: url('../img/night_background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Translucent Header Overlay */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+html[data-theme="dark"] .navbar {
+  background-color: rgba(33, 33, 33, 0.75) !important;
+}
+
 // Content layout uses Bootstrap's grid system with responsive columns
 // Main content flows naturally through container-mt-5 and Bootstrap grid classes
 // See _layouts/default.liquid and _includes/projects.liquid for examples
