@@ -206,3 +206,13 @@
     crossorigin="anonymous"
   >
 {% endif %}
+
+<!-- Open Graph & Social Preview Tags -->
+<meta property="og:title" content="{{ site.title }}" />
+<meta property="og:description" content="{{ site.description }}" />
+<meta property="og:url" content="{{ site.url }}" />
+{% if site.og_image %}
+  <meta property="og:image" content="{{ site.url }}{{ site.og_image }}" />
+  <meta name="twitter:image" content="{{ site.url }}{{ site.og_image }}" />
+{% endif %}
+<meta name="twitter:card" content="summary_large_image" />
