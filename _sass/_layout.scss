@@ -95,15 +95,20 @@ html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
 
-/* Resize social media icons at the bottom of the page */
-.social .contact-icons {
-  font-size: 1.8rem !important; /* Adjust size (default is usually ~3rem) */
+/* Force shrink social icons and SVGs */
+.social i,
+.social svg,
+.social a {
+  font-size: 1.5rem !important; /* Adjust size here (e.g., 1.2rem, 1.5rem, 2rem) */
+  width: auto !important;
+  height: 1.5rem !important;
+  line-height: 1 !important;
 }
 
-/* Resize image-based icons (like custom avatar/Einstein icon) */
-.social .contact-icons img {
-  max-height: 1.8rem !important;
+.social img {
+  max-height: 1.5rem !important;
   width: auto !important;
+  vertical-align: middle;
 }
 
 // Content layout uses Bootstrap's grid system with responsive columns
