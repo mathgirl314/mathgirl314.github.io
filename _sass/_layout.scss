@@ -95,6 +95,29 @@ html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
 
+/* Fix Dark/Light Mode Toggle Visibility on Mobile / iOS Safari */
+.navbar #light-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  color: var(--global-text-color) !important; /* Ensures the icon isn't invisible/transparent */
+  cursor: pointer;
+}
+
+.navbar #light-toggle i,
+.navbar #light-toggle-icon {
+  display: inline-block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  font-size: 1.2rem !important;
+  line-height: 1 !important;
+  color: inherit !important;
+}
+
 /* Social Section Container Sizing & Margins */
 .social {
   margin-top: 1rem !important; /* Reduces gap above icons and below publications */
