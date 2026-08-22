@@ -20,12 +20,10 @@ body {
 }
 
 body.fixed-top-nav {
-  // Add some padding for the nav-bar.
   padding-top: 57px;
 }
 
 body.sticky-bottom-footer {
-  // Remove padding below footer.
   padding-bottom: 0;
 }
 
@@ -49,15 +47,15 @@ body.sticky-bottom-footer {
   vertical-align: middle;
 }
 
-/* Mobile Screens (Width under 768px) */
+/* Mobile Screens Header Logo */
 @media (max-width: 768px) {
   .navbar-brand {
-    max-width: 80% !important; /* Gives the logo a bit more horizontal space */
+    max-width: 80% !important;
   }
   
   .navbar-brand .header-logo {
     height: auto !important;
-    max-height: 42px !important; /* Noticeably larger logo on mobile */
+    max-height: 42px !important;
     max-width: 100% !important;
   }
 }
@@ -91,10 +89,10 @@ html[data-theme="dark"] .navbar {
 }
 
 /* ==========================================================================
-   Navbar Alignment & Icon Fixes
+   Navbar Line & Icon Baseline Alignment Fixes
    ========================================================================== */
 
-/* Force hide gear/system theme toggle completely */
+/* Hide gear system theme toggle */
 #light-toggle-system,
 button#light-toggle-system,
 .fa-gear,
@@ -102,71 +100,54 @@ button#light-toggle-system,
 .ti-device-desktop {
   display: none !important;
   visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
-/* Base Navbar Item Styling */
-.navbar-nav {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.15rem;
-}
-
+/* Universal Nav Item Layout */
 .navbar-nav .nav-item {
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  height: auto !important;
 }
 
-/* Standardize text links and button elements */
-.navbar-nav button#light-toggle,
-.navbar-nav .search-toggle,
-.navbar-nav a.nav-link {
-  background: transparent !important;
-  border: none !important;
-  padding: 0.4rem 0.4rem !important;
-  margin: 0 !important;
+.navbar-nav .nav-link {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  padding: 0.25rem 0.4rem !important;
   font-size: 0.95rem !important;
   line-height: 1 !important;
   color: var(--global-text-color) !important;
-  transition: color 0.2s ease-in-out;
-  vertical-align: middle !important;
+  cursor: pointer;
+  height: 2rem !important;
 }
 
-/* Hover effect */
-.navbar-nav a.nav-link:hover,
-.navbar-nav button#light-toggle:hover,
-.navbar-nav .search-toggle:hover {
+.navbar-nav .nav-link:hover {
   color: var(--global-theme-color) !important;
 }
 
-/* Universal Icon Centering */
-.navbar-nav i,
-.navbar-nav svg,
-#light-toggle-light,
-#light-toggle-dark {
-  font-size: 0.85rem !important;
-  line-height: 1 !important;
+/* Align Search text and Icon */
+.navbar-nav .search-toggle span {
   display: inline-block !important;
-  vertical-align: middle !important;
-  margin: 0 0 0 0.25rem !important;
-  transform: none !important;
+  line-height: 1 !important;
 }
 
-/* Theme toggle sun/moon icon overrides */
+/* Standardize icons inside navbar */
+.navbar-nav i,
+.navbar-nav svg {
+  font-size: 0.9rem !important;
+  line-height: 1 !important;
+  margin-left: 0.3rem !important;
+  vertical-align: middle !important;
+}
+
+/* Specific theme toggle icon rules */
 #light-toggle-light,
 #light-toggle-dark {
   margin-left: 0 !important;
+  font-size: 0.9rem !important;
+  line-height: 1 !important;
 }
 
-/* Control Sun/Moon visibility depending on theme state */
+/* Control Sun/Moon visibility */
 html[data-theme="dark"] #light-toggle-light {
   display: none !important;
 }
@@ -185,29 +166,22 @@ html:not([data-theme="dark"]) #light-toggle-light {
   display: inline-block !important;
 }
 
-.navbar #light-toggle {
-  opacity: 1 !important;
-  visibility: visible !important;
-  cursor: pointer;
-}
-
-/* Mobile Layout Adjustment (Collapsible view) */
+/* Mobile Specific Collapsible Adjustments */
 @media (max-width: 575.98px) {
   .navbar-collapse .navbar-nav {
+    display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 !important;
   }
 
   .navbar-nav .nav-item {
-    width: 100%;
+    width: 100% !important;
     justify-content: flex-end !important;
   }
 
-  .navbar-nav a.nav-link,
-  .navbar-nav .search-toggle,
-  .navbar-nav button#light-toggle {
-    padding: 0.5rem 0 !important;
+  .navbar-nav .nav-link {
+    padding: 0.4rem 0 !important;
   }
 }
 
@@ -215,7 +189,6 @@ html:not([data-theme="dark"]) #light-toggle-light {
    Social Section Styling
    ========================================================================== */
 
-/* Social Section Container Sizing & Margins */
 .social {
   margin-top: 1rem !important;
   display: flex !important;
@@ -224,7 +197,6 @@ html:not([data-theme="dark"]) #light-toggle-light {
   gap: 1rem !important;
 }
 
-/* Icons Row Horizontal Alignment */
 .social .contact-icons {
   display: flex !important;
   flex-direction: row !important;
@@ -233,7 +205,6 @@ html:not([data-theme="dark"]) #light-toggle-light {
   gap: 0.8rem !important;
 }
 
-/* Icon Elements Styling */
 .social .contact-icons a {
   display: inline-flex !important;
   align-items: center !important;
@@ -256,7 +227,6 @@ html:not([data-theme="dark"]) #light-toggle-light {
   vertical-align: middle !important;
 }
 
-/* Contact Note Text Styling */
 .social .contact-note {
   text-align: center !important;
   margin-top: 0.2rem !important;
