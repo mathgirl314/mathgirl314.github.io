@@ -87,9 +87,8 @@ html[data-theme="dark"] body {
 html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
-
 /* ==========================================================================
-   Navbar Line & Icon Baseline Alignment Fixes
+   Navbar Vertically Centered Alignment Fix
    ========================================================================== */
 
 /* Hide gear system theme toggle */
@@ -102,26 +101,45 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Base Navbar Flexbox - Align along text baseline */
+/* Ensure navbar wrapper centers its children vertically */
+.navbar {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 57px; /* Matches fixed header height */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.navbar > .container,
+.navbar-collapse {
+  align-items: center !important;
+}
+
+/* Align navigation list along the central horizontal axis */
 .navbar-nav {
   display: flex !important;
-  align-items: baseline !important;
+  align-items: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   gap: 0.15rem;
 }
 
 .navbar-nav .nav-item {
   display: inline-flex !important;
-  align-items: baseline !important;
+  align-items: center !important;
+  justify-content: center !important;
   height: auto !important;
 }
 
+/* Ensure links and icons share identical line-height and height bounds */
 .navbar-nav .nav-link {
   display: inline-flex !important;
-  align-items: baseline !important;
+  align-items: center !important;
   justify-content: center !important;
   padding: 0.25rem 0.4rem !important;
   font-size: 0.95rem !important;
   line-height: 1 !important;
+  height: 2.2rem !important; /* Fixed inner height forces strict vertical centering */
   color: var(--global-text-color) !important;
   cursor: pointer;
 }
@@ -130,36 +148,42 @@ button#light-toggle-system,
   color: var(--global-theme-color) !important;
 }
 
-/* Search shortcut text alignment */
+/* Search text and icon layout */
 .navbar-nav .search-toggle span {
-  display: inline-block !important;
+  display: inline-flex !important;
+  align-items: center !important;
   line-height: 1 !important;
 }
 
-/* Align magnifying glass icon */
-.navbar-nav .search-toggle i {
+/* Standardize icons and remove vertical transforms */
+.navbar-nav i,
+.navbar-nav svg {
   font-size: 0.85rem !important;
   line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
   margin-left: 0.3rem !important;
-  transform: translateY(-1px) !important;
+  transform: none !important;
 }
 
-/* Align sun and moon icons precisely with text baseline */
+/* Moon / Sun toggle icon centering */
 #light-toggle-light,
 #light-toggle-dark {
   margin-left: 0 !important;
   font-size: 0.85rem !important;
   line-height: 1 !important;
-  transform: translateY(-2px) !important; /* Lifts the moon/sun glyph onto text baseline */
+  display: inline-flex !important;
+  align-items: center !important;
+  transform: none !important;
 }
 
-/* Control Sun/Moon visibility */
+/* Theme toggle visibility */
 html[data-theme="dark"] #light-toggle-light {
   display: none !important;
 }
 
 html[data-theme="dark"] #light-toggle-dark {
-  display: inline-block !important;
+  display: inline-flex !important;
 }
 
 html[data-theme="light"] #light-toggle-dark,
@@ -169,26 +193,7 @@ html:not([data-theme="dark"]) #light-toggle-dark {
 
 html[data-theme="light"] #light-toggle-light,
 html:not([data-theme="dark"]) #light-toggle-light {
-  display: inline-block !important;
-}
-
-/* Mobile Specific Collapsible Adjustments */
-@media (max-width: 575.98px) {
-  .navbar-collapse .navbar-nav {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    padding: 0.5rem 0 !important;
-  }
-
-  .navbar-nav .nav-item {
-    width: 100% !important;
-    justify-content: flex-end !important;
-  }
-
-  .navbar-nav .nav-link {
-    padding: 0.4rem 0 !important;
-  }
+  display: inline-flex !important;
 }
 
 /* ==========================================================================
