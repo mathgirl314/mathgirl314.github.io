@@ -94,7 +94,7 @@ html[data-theme="dark"] .navbar {
    Navbar Baseline Alignment & Icon Fixes
    ========================================================================== */
 
-/* Force hide the secondary gear/system theme button */
+/* Force hide gear/system theme toggle completely */
 #light-toggle-system,
 button#light-toggle-system,
 .fa-gear,
@@ -108,45 +108,67 @@ button#light-toggle-system,
   padding: 0 !important;
 }
 
-/* Align all navbar menu links and icon triggers vertically */
+/* Align navbar elements onto the exact same vertical midline */
 .navbar-nav {
   display: flex !important;
   align-items: center !important;
-  gap: 0.5rem;
+  gap: 0.2rem;
 }
 
 .navbar-nav .nav-item {
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   height: 100% !important;
 }
 
-/* Reset button element styles inside navbar to match text links */
+/* Standardize navbar links and button triggers */
 .navbar-nav button#light-toggle,
 .navbar-nav .search-toggle,
 .navbar-nav a.nav-link {
   background: none !important;
   border: none !important;
-  padding: 0.5rem 0.6rem !important;
+  padding: 0.3rem 0.5rem !important;
   margin: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   font-size: 0.95rem !important;
   line-height: 1 !important;
   color: var(--global-text-color) !important;
 }
 
-/* Align search icon & moon/sun icons flush with the text baseline */
+/* Match icon size to text height and align midlines */
 .navbar-nav i,
-.navbar-nav svg,
-#light-toggle-icon {
-  position: relative !important;
-  top: 1px !important;
-  font-size: 0.9rem !important;
+.navbar-nav svg {
+  font-size: 0.85rem !important;
   line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
 }
 
-/* Keep theme button visible and interactive */
+/* Control Sun/Moon visibility depending on theme state */
+html[data-theme="dark"] #light-toggle-light {
+  display: none !important;
+}
+
+html[data-theme="dark"] #light-toggle-dark {
+  display: inline-block !important;
+}
+
+html[data-theme="light"] #light-toggle-dark,
+html:not([data-theme="dark"]) #light-toggle-dark {
+  display: none !important;
+}
+
+html[data-theme="light"] #light-toggle-light,
+html:not([data-theme="dark"]) #light-toggle-light {
+  display: inline-block !important;
+}
+
+/* Keep the theme button interactive */
 .navbar #light-toggle {
   opacity: 1 !important;
   visibility: visible !important;
