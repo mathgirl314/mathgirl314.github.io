@@ -98,21 +98,23 @@
               {% endif %}
             {% endif %}
           {% endfor %}
+
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">
-              <button id="search-toggle" class="nav-link search-toggle" title="Search" onclick="openSearchModal()" type="button">
-                &#8984; k <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
+              <a class="nav-link search-toggle" id="search-toggle" title="Search" onclick="openSearchModal()" role="button">
+                <span>&#8984; k</span><i class="fa-solid fa-magnifying-glass"></i>
+              </a>
             </li>
           {% endif %}
+
           {% if site.enable_darkmode %}
             <!-- Toggle theme mode -->
             <li class="nav-item toggle-container">
-              <button id="light-toggle" title="Change theme" type="button">
+              <a class="nav-link" id="light-toggle" title="Change theme" role="button">
                 <i class="fa-solid fa-sun" id="light-toggle-light"></i>
                 <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
-              </button>
+              </a>
             </li>
           {% endif %}
         </ul>
