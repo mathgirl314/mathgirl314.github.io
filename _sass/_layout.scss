@@ -2,6 +2,10 @@
  * Content
  ******************************************************************************/
 
+/******************************************************************************
+ * Content
+ ******************************************************************************/
+
 @use "variables" as v;
 
 body {
@@ -40,9 +44,18 @@ body.sticky-bottom-footer {
   }
 }
 
-/* Hides the half-sun/half-moon auto icon */
-#light-toggle-system {
+/* Force Hide System/Gear Theme Toggle Elements */
+#light-toggle-system,
+button#light-toggle-system,
+.fa-gear,
+.fa-cog,
+.ti-device-desktop {
   display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Base styles (Desktop & Larger Screens) */
