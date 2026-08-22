@@ -95,6 +95,17 @@ html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
 
+/* Resize social media icons at the bottom of the page */
+.social .contact-icons {
+  font-size: 1.8rem !important; /* Adjust size (default is usually ~3rem) */
+}
+
+/* Resize image-based icons (like custom avatar/Einstein icon) */
+.social .contact-icons img {
+  max-height: 1.8rem !important;
+  width: auto !important;
+}
+
 // Content layout uses Bootstrap's grid system with responsive columns
 // Main content flows naturally through container-mt-5 and Bootstrap grid classes
 // See _layouts/default.liquid and _includes/projects.liquid for examples
