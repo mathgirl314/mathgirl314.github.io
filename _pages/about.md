@@ -1,6 +1,6 @@
 ---
 layout: about
-title: Jamie T. Le
+title: about
 permalink: /
 subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
