@@ -2,14 +2,6 @@
  * Content
  ******************************************************************************/
 
-/******************************************************************************
- * Content
- ******************************************************************************/
-
-/******************************************************************************
- * Content
- ******************************************************************************/
-
 @use "variables" as v;
 
 body {
@@ -99,7 +91,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* ==========================================================================
-   Header Navbar Icons Fixes (Sizing, Alignment, and Gear Hiding)
+   Navbar Baseline Alignment & Icon Fixes
    ========================================================================== */
 
 /* Force hide the secondary gear/system theme button */
@@ -116,32 +108,48 @@ button#light-toggle-system,
   padding: 0 !important;
 }
 
-/* Vertically center all navbar items */
+/* Align all navbar menu links and icon triggers vertically */
+.navbar-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem;
+}
+
 .navbar-nav .nav-item {
   display: inline-flex !important;
   align-items: center !important;
+  height: 100% !important;
 }
 
-/* Scale down and proportion theme/search icons to match nav text size */
-.navbar-nav #light-toggle,
+/* Reset button element styles inside navbar to match text links */
+.navbar-nav button#light-toggle,
 .navbar-nav .search-toggle,
-.navbar-nav #light-toggle i,
-.navbar-nav #light-toggle-icon,
-.navbar-nav .fa-magnifying-glass,
-.navbar-nav .fa-moon,
-.navbar-nav .fa-sun {
-  font-size: 0.95rem !important; /* Matches nav link font size */
-  line-height: 1 !important;
-  vertical-align: middle !important;
+.navbar-nav a.nav-link {
+  background: none !important;
+  border: none !important;
+  padding: 0.5rem 0.6rem !important;
+  margin: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
+  font-size: 0.95rem !important;
+  line-height: 1 !important;
+  color: var(--global-text-color) !important;
 }
 
-/* Keep the toggle button stable on mobile and desktop */
+/* Align search icon & moon/sun icons flush with the text baseline */
+.navbar-nav i,
+.navbar-nav svg,
+#light-toggle-icon {
+  position: relative !important;
+  top: 1px !important;
+  font-size: 0.9rem !important;
+  line-height: 1 !important;
+}
+
+/* Keep theme button visible and interactive */
 .navbar #light-toggle {
   opacity: 1 !important;
   visibility: visible !important;
-  color: var(--global-text-color) !important;
   cursor: pointer;
 }
 
