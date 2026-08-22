@@ -91,7 +91,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* ==========================================================================
-   Navbar Baseline Alignment, Hover & Icon Fixes
+   Navbar Alignment & Icon Fixes
    ========================================================================== */
 
 /* Force hide gear/system theme toggle completely */
@@ -108,13 +108,27 @@ button#light-toggle-system,
   padding: 0 !important;
 }
 
-/* Standardize navbar links and button triggers */
+/* Base Navbar Item Styling */
+.navbar-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.15rem;
+}
+
+.navbar-nav .nav-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: auto !important;
+}
+
+/* Standardize text links and button elements */
 .navbar-nav button#light-toggle,
 .navbar-nav .search-toggle,
 .navbar-nav a.nav-link {
-  background: none !important;
+  background: transparent !important;
   border: none !important;
-  padding: 0.3rem 0.5rem !important;
+  padding: 0.4rem 0.4rem !important;
   margin: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -123,46 +137,33 @@ button#light-toggle-system,
   line-height: 1 !important;
   color: var(--global-text-color) !important;
   transition: color 0.2s ease-in-out;
+  vertical-align: middle !important;
 }
 
-/* Hover effect: Accent theme color on hover */
+/* Hover effect */
 .navbar-nav a.nav-link:hover,
 .navbar-nav button#light-toggle:hover,
 .navbar-nav .search-toggle:hover {
   color: var(--global-theme-color) !important;
 }
 
-/* Desktop Alignment (sm and larger) */
-@media (min-width: 576px) {
-  .navbar-nav {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 0.2rem;
-  }
+/* Universal Icon Centering */
+.navbar-nav i,
+.navbar-nav svg,
+#light-toggle-light,
+#light-toggle-dark {
+  font-size: 0.85rem !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 0 0 0.25rem !important;
+  transform: none !important;
+}
 
-  .navbar-nav .nav-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 100% !important;
-  }
-
-  .navbar-nav i,
-  .navbar-nav svg {
-    font-size: 0.85rem !important;
-    line-height: 1 !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-    transform: translateY(-1px) !important;
-    margin-left: 0.2rem !important;
-  }
-
-  #light-toggle-light,
-  #light-toggle-dark {
-    margin-left: 0 !important;
-    transform: translateY(-0.5px) !important;
-  }
+/* Theme toggle sun/moon icon overrides */
+#light-toggle-light,
+#light-toggle-dark {
+  margin-left: 0 !important;
 }
 
 /* Control Sun/Moon visibility depending on theme state */
@@ -184,48 +185,29 @@ html:not([data-theme="dark"]) #light-toggle-light {
   display: inline-block !important;
 }
 
-/* Keep the theme button interactive */
 .navbar #light-toggle {
   opacity: 1 !important;
   visibility: visible !important;
   cursor: pointer;
 }
 
-/* Mobile Alignment Fixes (below sm breakpoint) */
+/* Mobile Layout Adjustment (Collapsible view) */
 @media (max-width: 575.98px) {
   .navbar-collapse .navbar-nav {
-    display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem 0;
   }
 
   .navbar-nav .nav-item {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
     width: 100%;
+    justify-content: flex-end !important;
   }
 
   .navbar-nav a.nav-link,
   .navbar-nav .search-toggle,
   .navbar-nav button#light-toggle {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    height: 36px !important;
-    padding: 0 0.5rem !important;
-    width: auto !important;
-  }
-
-  .navbar-nav i,
-  .navbar-nav svg,
-  #light-toggle-light,
-  #light-toggle-dark {
-    transform: none !important;
-    margin-left: 0.35rem !important;
-    vertical-align: middle !important;
+    padding: 0.5rem 0 !important;
   }
 }
 
