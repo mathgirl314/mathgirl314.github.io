@@ -94,35 +94,52 @@ html[data-theme="dark"] body {
 html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
-/* Adjusted Social Icons: Sizing, Middle Alignment, and Spacing */
+
+/* Social Section Container Sizing & Margins */
 .social {
+  margin-top: 1rem !important; /* Reduces gap above icons and below publications */
   display: flex !important;
-  justify-content: center;
-  align-items: center;
-  gap: 0.8rem !important; /* Reduces gap between icons (default is wider) */
+  flex-direction: column !important; /* Forces text onto its own new line below icons */
+  align-items: center !important;
+  gap: 1rem !important; /* Vertical spacing between icons row and text */
 }
 
-.social a {
+/* Icons Row Horizontal Alignment */
+.social .contact-icons {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important; /* Perfect middle-vertical alignment for all icons */
+  justify-content: center !important;
+  gap: 0.8rem !important; /* Horizontal spacing between individual icons */
+}
+
+/* Icon Elements Styling */
+.social .contact-icons a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  text-decoration: none !important;
-  margin: 0 !important; /* Removes default margins */
+  line-height: 1 !important;
 }
 
-.social i,
-.social svg {
-  font-size: 2.2rem !important; /* Increased size (up from 1.5rem) */
+.social .contact-icons i,
+.social .contact-icons svg {
+  font-size: 2.2rem !important;
   height: 2.2rem !important;
   width: auto !important;
   vertical-align: middle !important;
 }
 
-.social img {
-  max-height: 2.2rem !important; /* Keeps custom image icon matching icon height */
+.social .contact-icons img {
+  height: 2.2rem !important; /* Ensures image matches exact height of SVGs/fonts */
   width: auto !important;
+  object-fit: contain !important;
   vertical-align: middle !important;
-  object-fit: contain;
+}
+
+/* Contact Note Text Styling */
+.social .contact-note {
+  text-align: center !important;
+  margin-top: 0.2rem !important;
 }
 
 // Content layout uses Bootstrap's grid system with responsive columns
