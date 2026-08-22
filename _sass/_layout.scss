@@ -94,21 +94,35 @@ html[data-theme="dark"] body {
 html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
+/* Adjusted Social Icons: Sizing, Middle Alignment, and Spacing */
+.social {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem !important; /* Reduces gap between icons (default is wider) */
+}
 
-/* Force shrink social icons and SVGs */
-.social i,
-.social svg,
 .social a {
-  font-size: 1.5rem !important; /* Adjust size here (e.g., 1.2rem, 1.5rem, 2rem) */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  margin: 0 !important; /* Removes default margins */
+}
+
+.social i,
+.social svg {
+  font-size: 2.2rem !important; /* Increased size (up from 1.5rem) */
+  height: 2.2rem !important;
   width: auto !important;
-  height: 1.5rem !important;
-  line-height: 1 !important;
+  vertical-align: middle !important;
 }
 
 .social img {
-  max-height: 1.5rem !important;
+  max-height: 2.2rem !important; /* Keeps custom image icon matching icon height */
   width: auto !important;
-  vertical-align: middle;
+  vertical-align: middle !important;
+  object-fit: contain;
 }
 
 // Content layout uses Bootstrap's grid system with responsive columns
