@@ -107,11 +107,10 @@
             </li>
           {% endif %}
           {% if site.enable_darkmode %}
-            <!-- Toogle theme mode -->
-            <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
-                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
-                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+            <!-- Toggle theme mode -->
+            <li class="nav-item toggle-container">
+              <button id="light-toggle" title="Change theme" type="button">
+                <i id="light-toggle-icon" class="fa-solid fa-moon"></i>
               </button>
             </li>
           {% endif %}
