@@ -102,49 +102,55 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Universal Nav Item Layout */
+/* Base Navbar Flexbox - Align along text baseline */
+.navbar-nav {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 0.15rem;
+}
+
 .navbar-nav .nav-item {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: baseline !important;
+  height: auto !important;
 }
 
 .navbar-nav .nav-link {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: baseline !important;
   justify-content: center !important;
   padding: 0.25rem 0.4rem !important;
   font-size: 0.95rem !important;
   line-height: 1 !important;
   color: var(--global-text-color) !important;
   cursor: pointer;
-  height: 2rem !important;
 }
 
 .navbar-nav .nav-link:hover {
   color: var(--global-theme-color) !important;
 }
 
-/* Align Search text and Icon */
+/* Search shortcut text alignment */
 .navbar-nav .search-toggle span {
   display: inline-block !important;
   line-height: 1 !important;
 }
 
-/* Standardize icons inside navbar */
-.navbar-nav i,
-.navbar-nav svg {
-  font-size: 0.9rem !important;
+/* Align magnifying glass icon */
+.navbar-nav .search-toggle i {
+  font-size: 0.85rem !important;
   line-height: 1 !important;
   margin-left: 0.3rem !important;
-  vertical-align: middle !important;
+  transform: translateY(-1px) !important;
 }
 
-/* Specific theme toggle icon rules */
+/* Align sun and moon icons precisely with text baseline */
 #light-toggle-light,
 #light-toggle-dark {
   margin-left: 0 !important;
-  font-size: 0.9rem !important;
+  font-size: 0.85rem !important;
   line-height: 1 !important;
+  transform: translateY(-2px) !important; /* Lifts the moon/sun glyph onto text baseline */
 }
 
 /* Control Sun/Moon visibility */
