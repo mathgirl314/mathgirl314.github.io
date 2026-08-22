@@ -6,6 +6,10 @@
  * Content
  ******************************************************************************/
 
+/******************************************************************************
+ * Content
+ ******************************************************************************/
+
 @use "variables" as v;
 
 body {
@@ -44,20 +48,6 @@ body.sticky-bottom-footer {
   }
 }
 
-/* Force Hide System/Gear Theme Toggle Elements */
-#light-toggle-system,
-button#light-toggle-system,
-.fa-gear,
-.fa-cog,
-.ti-device-desktop {
-  display: none !important;
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
 /* Base styles (Desktop & Larger Screens) */
 .navbar-brand .header-logo {
   height: 45px !important;
@@ -75,7 +65,7 @@ button#light-toggle-system,
   
   .navbar-brand .header-logo {
     height: auto !important;
-    max-height: 42px !important; /* Increased from 30px to make it noticeably larger */
+    max-height: 42px !important; /* Noticeably larger logo on mobile */
     max-width: 100% !important;
   }
 }
@@ -108,45 +98,73 @@ html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
 
-/* Fix Dark/Light Mode Toggle Visibility on Mobile / iOS Safari */
-.navbar #light-toggle {
+/* ==========================================================================
+   Header Navbar Icons Fixes (Sizing, Alignment, and Gear Hiding)
+   ========================================================================== */
+
+/* Force hide the secondary gear/system theme button */
+#light-toggle-system,
+button#light-toggle-system,
+.fa-gear,
+.fa-cog,
+.ti-device-desktop {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Vertically center all navbar items */
+.navbar-nav .nav-item {
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
+}
+
+/* Scale down and proportion theme/search icons to match nav text size */
+.navbar-nav #light-toggle,
+.navbar-nav .search-toggle,
+.navbar-nav #light-toggle i,
+.navbar-nav #light-toggle-icon,
+.navbar-nav .fa-magnifying-glass,
+.navbar-nav .fa-moon,
+.navbar-nav .fa-sun {
+  font-size: 0.95rem !important; /* Matches nav link font size */
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* Keep the toggle button stable on mobile and desktop */
+.navbar #light-toggle {
   opacity: 1 !important;
   visibility: visible !important;
-  min-width: 24px !important;
-  min-height: 24px !important;
-  color: var(--global-text-color) !important; /* Ensures the icon isn't invisible/transparent */
+  color: var(--global-text-color) !important;
   cursor: pointer;
 }
 
-.navbar #light-toggle i,
-.navbar #light-toggle-icon {
-  display: inline-block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  font-size: 1.2rem !important;
-  line-height: 1 !important;
-  color: inherit !important;
-}
+/* ==========================================================================
+   Social Section Styling
+   ========================================================================== */
 
 /* Social Section Container Sizing & Margins */
 .social {
-  margin-top: 1rem !important; /* Reduces gap above icons and below publications */
+  margin-top: 1rem !important;
   display: flex !important;
-  flex-direction: column !important; /* Forces text onto its own new line below icons */
+  flex-direction: column !important;
   align-items: center !important;
-  gap: 1rem !important; /* Vertical spacing between icons row and text */
+  gap: 1rem !important;
 }
 
 /* Icons Row Horizontal Alignment */
 .social .contact-icons {
   display: flex !important;
   flex-direction: row !important;
-  align-items: center !important; /* Perfect middle-vertical alignment for all icons */
+  align-items: center !important;
   justify-content: center !important;
-  gap: 0.8rem !important; /* Horizontal spacing between individual icons */
+  gap: 0.8rem !important;
 }
 
 /* Icon Elements Styling */
@@ -166,7 +184,7 @@ html[data-theme="dark"] .navbar {
 }
 
 .social .contact-icons img {
-  height: 2.2rem !important; /* Ensures image matches exact height of SVGs/fonts */
+  height: 2.2rem !important;
   width: auto !important;
   object-fit: contain !important;
   vertical-align: middle !important;
