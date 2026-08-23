@@ -203,6 +203,14 @@ html:not([data-theme="dark"]) #light-toggle-dark { display: none !important; }
 html[data-theme="light"] #light-toggle-light,
 html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !important; }
 
+@media (hover: none) {
+  #light-toggle-light,
+  #light-toggle-dark,
+  .navbar-nav .nav-link {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 /* ==========================================================================
    Social Section Styling
    ========================================================================== */
