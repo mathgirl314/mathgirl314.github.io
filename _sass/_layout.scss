@@ -192,7 +192,7 @@ button#light-toggle-system,
   margin: 0 !important;
   padding: 0 !important;
   position: relative !important;
-  top: -1px !important;
+  top: -3.5px !important; /* Negative value pulls the moon UP to match text cap-height */
 }
 
 /* Theme toggle visibility controls */
