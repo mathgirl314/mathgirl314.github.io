@@ -89,7 +89,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* ==========================================================================
-   Navbar Strict Midpoint & Hover Sync Fix
+   Navbar Right-Aligned, Vertical Centering & Hover Sync Fix
    ========================================================================== */
 
 /* Hide gear system theme toggle */
@@ -102,7 +102,7 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* 1. Force header container vertical midpoint */
+/* 1. FORCE HEADER CONTAINER VERTICAL MIDPOINT */
 .navbar {
   display: flex !important;
   align-items: center !important;
@@ -112,17 +112,27 @@ button#light-toggle-system,
   padding-bottom: 0 !important;
 }
 
-.navbar > .container,
+.navbar > .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important; /* Pushes brand left, menu right */
+  height: 100% !important;
+  max-width: v.$max-content-width;
+}
+
 .navbar-collapse {
   display: flex !important;
   align-items: center !important;
+  justify-content: flex-end !important; /* Forces right alignment */
+  flex-grow: 1 !important;
   height: 100% !important;
 }
 
 .navbar-nav {
   display: flex !important;
   align-items: center !important;
-  margin: 0 !important;
+  justify-content: flex-end !important;
+  margin: 0 0 0 auto !important; /* Margin-left auto pushes list to right margin */
   gap: 0.15rem;
   height: 100% !important;
 }
@@ -133,7 +143,7 @@ button#light-toggle-system,
   height: 100% !important;
 }
 
-/* 2. Standardize link bounding boxes */
+/* 2. STANDARDIZE LINK BOUNDING BOXES */
 .navbar-nav .nav-link,
 .navbar-nav button.nav-link {
   display: inline-flex !important;
@@ -150,7 +160,7 @@ button#light-toggle-system,
   border: none !important;
 }
 
-/* 3. Synchronized hover (⌘ k + Magnifying Glass) */
+/* 3. SYNCHRONIZED HOVER (⌘ k + Magnifying Glass) */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:hover *,
 .navbar-nav .search-toggle:hover * {
@@ -171,7 +181,7 @@ button#light-toggle-system,
   margin-left: 0.35rem !important;
 }
 
-/* 4. Moon icon internal offset correction */
+/* 4. MOON ICON INTERNAL OFFSET CORRECTION */
 #light-toggle-light,
 #light-toggle-dark {
   display: inline-flex !important;
@@ -182,7 +192,7 @@ button#light-toggle-system,
   margin: 0 !important;
   padding: 0 !important;
   position: relative !important;
-  top: -2px !important; /* Counteracts Font Awesome's internal bottom pad */
+  top: -1px !important;
 }
 
 /* Theme toggle visibility controls */
