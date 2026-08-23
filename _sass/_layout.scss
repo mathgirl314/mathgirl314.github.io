@@ -89,7 +89,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* ==========================================================================
-   Navbar Line, Hover & Icon Baseline Alignment Fixes
+   Navbar Strict Center Alignment Fix
    ========================================================================== */
 
 /* Hide gear system theme toggle */
@@ -102,7 +102,7 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Ensure navbar wrapper centers items vertically relative to logo */
+/* Ensure navbar parent wrapper centers all content vertically */
 .navbar {
   display: flex !important;
   align-items: center !important;
@@ -113,13 +113,14 @@ button#light-toggle-system,
 
 .navbar > .container,
 .navbar-collapse {
+  display: flex !important;
   align-items: center !important;
 }
 
-/* Align navigation items along baseline */
+/* Force navigation container to align items along their horizontal center */
 .navbar-nav {
   display: flex !important;
-  align-items: baseline !important;
+  align-items: center !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   gap: 0.15rem;
@@ -127,33 +128,36 @@ button#light-toggle-system,
 
 .navbar-nav .nav-item {
   display: inline-flex !important;
-  align-items: baseline !important;
-  height: auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
 }
 
-/* Universal text & link styling */
+/* Universal button & anchor wrapper centering */
 .navbar-nav .nav-link {
   display: inline-flex !important;
-  align-items: baseline !important;
+  align-items: center !important;
   justify-content: center !important;
   padding: 0.25rem 0.4rem !important;
   font-size: 0.95rem !important;
   line-height: 1 !important;
+  height: 2rem !important;
   color: var(--global-text-color) !important;
   cursor: pointer;
   text-decoration: none !important;
 }
 
-/* Hover effect updates BOTH text (⌘ k) and icon together */
+/* Hover highlights BOTH text (⌘ k) and icon simultaneously */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:hover span,
 .navbar-nav .nav-link:hover i {
   color: var(--global-theme-color) !important;
 }
 
-/* Search text wrapper */
+/* Search shortcut text alignment */
 .navbar-nav .search-toggle span {
-  display: inline-block !important;
+  display: inline-flex !important;
+  align-items: center !important;
   line-height: 1 !important;
   color: inherit !important;
   transition: color 0.2s ease-in-out;
@@ -163,20 +167,26 @@ button#light-toggle-system,
 .navbar-nav .search-toggle i {
   font-size: 0.85rem !important;
   line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
   margin-left: 0.35rem !important;
   color: inherit !important;
   transition: color 0.2s ease-in-out;
+  transform: none !important;
 }
 
-/* Moon/Sun Icon Vertical Baseline Alignment */
+/* Moon/Sun Icon Vertical Centering */
 #light-toggle-light,
 #light-toggle-dark {
-  margin-left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
   font-size: 0.85rem !important;
   line-height: 1 !important;
-  display: inline-block !important;
-  vertical-align: baseline !important;
-  transform: translateY(1px) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  transform: none !important;
 }
 
 /* Theme toggle visibility controls */
@@ -185,7 +195,7 @@ html[data-theme="dark"] #light-toggle-light {
 }
 
 html[data-theme="dark"] #light-toggle-dark {
-  display: inline-block !important;
+  display: inline-flex !important;
 }
 
 html[data-theme="light"] #light-toggle-dark,
@@ -195,7 +205,7 @@ html:not([data-theme="dark"]) #light-toggle-dark {
 
 html[data-theme="light"] #light-toggle-light,
 html:not([data-theme="dark"]) #light-toggle-light {
-  display: inline-block !important;
+  display: inline-flex !important;
 }
 
 /* ==========================================================================
