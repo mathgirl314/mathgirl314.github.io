@@ -20,7 +20,7 @@ body {
 }
 
 body.fixed-top-nav {
-  padding-top: 0px;
+  padding-top: 57px;
 }
 
 body.sticky-bottom-footer {
@@ -87,7 +87,6 @@ html[data-theme="dark"] body {
 html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
-
 /* ==========================================================================
    Navbar Responsive, Alignment & Hover Sync Fix
    ========================================================================== */
@@ -102,7 +101,7 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Base Navbar Overlay */
+/* Base Header Overlay */
 .navbar {
   background-color: rgba(255, 255, 255, 0.75) !important;
   backdrop-filter: blur(8px);
@@ -118,45 +117,58 @@ html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
 
-/* Ensure Navbar Toggler / Hamburger Button is Always Visible on Small Screens */
+/* Custom Hamburger Icon for Toggler Button */
 .navbar-toggler {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   border: none !important;
+  outline: none !important;
   background: transparent !important;
-  padding: 0.5rem !important;
+  padding: 0.25rem 0.5rem !important;
   color: var(--global-text-color) !important;
+  box-shadow: none !important;
   cursor: pointer;
   z-index: 1060;
 }
 
-.navbar-toggler:focus {
+.navbar-toggler:focus,
+.navbar-toggler:active {
   outline: none !important;
   box-shadow: none !important;
+  border: none !important;
+}
+
+/* Clean Hamburger Icon Lines */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+html[data-theme="light"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
 /* --------------------------------------------------------------------------
-   Mobile & Tablet Screens (< 992px)
+   Mobile & Tablet Screens (< 769px) - Floating Absolute Overlay
    -------------------------------------------------------------------------- */
-@media (max-width: 991.98px) {
-  /* Hide static collapse menu unless expanded */
+@media (max-width: 768.98px) {
+  /* Hide collapse container unless toggled open */
   .navbar-collapse:not(.show) {
     display: none !important;
   }
 
-  /* Overlay Dropdown Card */
+  /* Overlay card configuration */
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
     position: absolute !important;
     top: 100% !important;
     right: 15px !important;
     width: auto !important;
-    min-width: 200px !important;
-    background-color: var(--global-card-bg-color, var(--global-bg-color)) !important;
+    min-width: 190px !important;
+    background-color: var(--global-bg-color) !important;
     padding: 1rem 1.25rem !important;
     border-radius: 12px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
     z-index: 1050 !important;
     backdrop-filter: blur(12px);
@@ -174,8 +186,6 @@ html[data-theme="dark"] .navbar {
 
   .navbar-nav .nav-item {
     height: auto !important;
-    width: 100% !important;
-    text-align: right !important;
   }
 
   .navbar-nav .nav-link,
@@ -186,11 +196,11 @@ html[data-theme="dark"] .navbar {
 }
 
 /* --------------------------------------------------------------------------
-   Desktop Screens (>= 992px)
+   Desktop Screens (>= 769px) - Inline Horizontal Navigation
    -------------------------------------------------------------------------- */
-@media (min-width: 992px) {
+@media (min-width: 769px) {
   .navbar-toggler {
-    display: none !important; /* Hide hamburger button on full desktop */
+    display: none !important;
   }
 
   .navbar {
@@ -253,7 +263,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* --------------------------------------------------------------------------
-   Global Alignment & Interactions
+   Global Alignment & Hover Sync
    -------------------------------------------------------------------------- */
 
 .navbar-nav .nav-link:hover,
