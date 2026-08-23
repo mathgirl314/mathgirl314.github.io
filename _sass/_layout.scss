@@ -20,7 +20,7 @@ body {
 }
 
 body.fixed-top-nav {
-  padding-top: 57px;
+  padding-top: 0px;
 }
 
 body.sticky-bottom-footer {
@@ -87,6 +87,7 @@ html[data-theme="dark"] body {
 html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
+
 /* ==========================================================================
    Navbar Responsive, Alignment & Hover Sync Fix
    ========================================================================== */
@@ -101,7 +102,7 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Translucent Header Overlay Base */
+/* Base Navbar Overlay */
 .navbar {
   background-color: rgba(255, 255, 255, 0.75) !important;
   backdrop-filter: blur(8px);
@@ -110,35 +111,56 @@ button#light-toggle-system,
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   position: relative;
+  z-index: 1040;
 }
 
 html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
 
+/* Ensure Navbar Toggler / Hamburger Button is Always Visible on Small Screens */
+.navbar-toggler {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0.5rem !important;
+  color: var(--global-text-color) !important;
+  cursor: pointer;
+  z-index: 1060;
+}
+
+.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* --------------------------------------------------------------------------
-   Mobile & Tablet Screens (< 992px) - Floating Absolute Overlay
+   Mobile & Tablet Screens (< 992px)
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
-  /* Hide collapse container unless toggled open */
+  /* Hide static collapse menu unless expanded */
   .navbar-collapse:not(.show) {
     display: none !important;
   }
 
-  /* Overlay card configuration */
+  /* Overlay Dropdown Card */
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
     position: absolute !important;
     top: 100% !important;
     right: 15px !important;
     width: auto !important;
-    min-width: 180px !important;
-    background-color: var(--global-bg-color) !important;
+    min-width: 200px !important;
+    background-color: var(--global-card-bg-color, var(--global-bg-color)) !important;
     padding: 1rem 1.25rem !important;
     border-radius: 12px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     z-index: 1050 !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .navbar-nav {
@@ -152,6 +174,8 @@ html[data-theme="dark"] .navbar {
 
   .navbar-nav .nav-item {
     height: auto !important;
+    width: 100% !important;
+    text-align: right !important;
   }
 
   .navbar-nav .nav-link,
@@ -162,9 +186,13 @@ html[data-theme="dark"] .navbar {
 }
 
 /* --------------------------------------------------------------------------
-   Desktop Screens (>= 992px) - Inline Right-Aligned Horizontal Navbar
+   Desktop Screens (>= 992px)
    -------------------------------------------------------------------------- */
 @media (min-width: 992px) {
+  .navbar-toggler {
+    display: none !important; /* Hide hamburger button on full desktop */
+  }
+
   .navbar {
     display: flex !important;
     align-items: center !important;
@@ -225,7 +253,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* --------------------------------------------------------------------------
-   Global Element Adjustments & Icon Alignment
+   Global Alignment & Interactions
    -------------------------------------------------------------------------- */
 
 .navbar-nav .nav-link:hover,
