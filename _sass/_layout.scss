@@ -89,7 +89,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* ==========================================================================
-   Navbar Right-Aligned, Vertical Centering & Hover Sync Fix
+   Navbar Responsive, Alignment & Hover Sync Fix
    ========================================================================== */
 
 /* Hide gear system theme toggle */
@@ -102,65 +102,116 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* 1. FORCE HEADER CONTAINER VERTICAL MIDPOINT */
+/* Translucent Header Overlay */
 .navbar {
-  display: flex !important;
-  align-items: center !important;
-  height: 57px !important;
-  min-height: 57px !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  min-height: 57px;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
-.navbar > .container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important; /* Pushes brand left, menu right */
-  height: 100% !important;
-  max-width: v.$max-content-width;
+html[data-theme="dark"] .navbar {
+  background-color: rgba(33, 33, 33, 0.75) !important;
 }
 
-.navbar-collapse {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-end !important; /* Forces right alignment */
-  flex-grow: 1 !important;
-  height: 100% !important;
+/* --------------------------------------------------------------------------
+   Mobile Screens (Collapsible Menu Behavior)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: var(--global-bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 0.5rem;
+  }
+
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.5rem !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  .navbar-nav .nav-item {
+    height: auto !important;
+  }
+
+  .navbar-nav .nav-link,
+  .navbar-nav button.nav-link {
+    height: auto !important;
+    padding: 0.4rem 0 !important;
+  }
 }
 
-.navbar-nav {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  margin: 0 0 0 auto !important; /* Margin-left auto pushes list to right margin */
-  gap: 0.15rem;
-  height: 100% !important;
+/* --------------------------------------------------------------------------
+   Desktop Screens (Horizontal Midpoint Alignment)
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) {
+  .navbar {
+    display: flex !important;
+    align-items: center !important;
+    height: 57px !important;
+  }
+
+  .navbar > .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    max-width: v.$max-content-width;
+  }
+
+  .navbar-collapse {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-grow: 1 !important;
+    height: 100% !important;
+  }
+
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 0 0 auto !important;
+    gap: 0.15rem;
+    height: 100% !important;
+  }
+
+  .navbar-nav .nav-item {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+  }
+
+  .navbar-nav .nav-link,
+  .navbar-nav button.nav-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    padding: 0 0.4rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1 !important;
+    color: var(--global-text-color) !important;
+    cursor: pointer;
+    text-decoration: none !important;
+    background: transparent !important;
+    border: none !important;
+  }
 }
 
-.navbar-nav .nav-item {
-  display: flex !important;
-  align-items: center !important;
-  height: 100% !important;
-}
+/* --------------------------------------------------------------------------
+   Global Element Adjustments
+   -------------------------------------------------------------------------- */
 
-/* 2. STANDARDIZE LINK BOUNDING BOXES */
-.navbar-nav .nav-link,
-.navbar-nav button.nav-link {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 100% !important;
-  padding: 0 0.4rem !important;
-  font-size: 0.95rem !important;
-  line-height: 1 !important;
-  color: var(--global-text-color) !important;
-  cursor: pointer;
-  text-decoration: none !important;
-  background: transparent !important;
-  border: none !important;
-}
-
-/* 3. SYNCHRONIZED HOVER (⌘ k + Magnifying Glass) */
+/* Hover sync for Search & Links */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:hover *,
 .navbar-nav .search-toggle:hover * {
@@ -181,7 +232,7 @@ button#light-toggle-system,
   margin-left: 0.35rem !important;
 }
 
-/* 4. MOON ICON INTERNAL OFFSET CORRECTION */
+/* Moon icon offset alignment */
 #light-toggle-light,
 #light-toggle-dark {
   display: inline-flex !important;
@@ -192,7 +243,7 @@ button#light-toggle-system,
   margin: 0 !important;
   padding: 0 !important;
   position: relative !important;
-  top: -3.5px !important; /* Negative value pulls the moon UP to match text cap-height */
+  top: -3.5px !important;
 }
 
 /* Theme toggle visibility controls */
