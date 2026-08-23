@@ -1,5 +1,5 @@
 /******************************************************************************
- * Content Layout & Header Fixes
+ * Content Layout & Fixed Header Sync
  ******************************************************************************/
 
 @use "variables" as v;
@@ -18,12 +18,14 @@ body.sticky-bottom-footer {
   padding-bottom: 0;
 }
 
-/* Force top offset directly on content wrapper to stop title/text overlap */
+/* Force container well below header bar */
 .container.mt-5,
 div.container.mt-5,
 main .container {
-  margin-top: 80px !important;
+  margin-top: 90px !important;
   max-width: v.$max-content-width;
+  position: relative;
+  z-index: 1;
 }
 
 /* Background Images */
@@ -43,28 +45,8 @@ html[data-theme="dark"] body {
   background-size: cover;
 }
 
-/* Logo Alignment */
-.navbar-brand .header-logo {
-  height: 40px !important;
-  width: auto !important;
-  max-width: 350px;
-  object-fit: contain;
-  vertical-align: middle;
-}
-
-@media (max-width: 768px) {
-  .navbar-brand {
-    max-width: 75% !important;
-  }
-  .navbar-brand .header-logo {
-    height: auto !important;
-    max-height: 38px !important;
-    max-width: 100% !important;
-  }
-}
-
 /* ==========================================================================
-   Fixed Header Bar
+   Header Bar Alignment & Clickability
    ========================================================================== */
 
 header,
@@ -76,7 +58,8 @@ body.fixed-top-nav header#header {
   right: 0 !important;
   width: 100% !important;
   height: 60px !important;
-  z-index: 1040 !important;
+  z-index: 9999 !important; /* Elevate above content layer */
+  pointer-events: auto !important;
 }
 
 .navbar {
@@ -85,9 +68,12 @@ body.fixed-top-nav header#header {
   -webkit-backdrop-filter: blur(10px);
   height: 60px !important;
   min-height: 60px !important;
-  padding: 0 1rem !important;
+  padding: 0 1.5rem !important;
   border: none !important;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 
 html[data-theme="dark"] .navbar {
@@ -95,7 +81,27 @@ html[data-theme="dark"] .navbar {
   box-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
 }
 
-/* Hide extra gear toggle icon */
+/* Prevent Title text from overlapping header elements */
+.navbar-brand {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin-right: 1rem !important;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+  white-space: nowrap !important;
+}
+
+.navbar-brand .header-logo {
+  height: 38px !important;
+  width: auto !important;
+  max-width: 300px;
+  object-fit: contain;
+}
+
+/* Hide unused gear menu */
 #light-toggle-system,
 button#light-toggle-system,
 .fa-gear,
@@ -106,111 +112,7 @@ button#light-toggle-system,
 }
 
 /* --------------------------------------------------------------------------
-   Mobile Hamburger Icon (Border-Line 3-Bar Fix)
-   -------------------------------------------------------------------------- */
-
-.navbar-toggler {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 30px !important;
-  height: 20px !important;
-  padding: 0 !important;
-  border: none !important;
-  outline: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  cursor: pointer;
-  z-index: 1060;
-}
-
-.navbar-toggler:focus,
-.navbar-toggler:active {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* Hide original background icon element */
-.navbar-toggler .navbar-toggler-icon {
-  display: none !important;
-}
-
-/* Draw 3 distinct horizontal lines directly with borders & pseudos */
-.navbar-toggler::before,
-.navbar-toggler::after,
-.navbar-toggler span.toggler-icon-bar {
-  content: "" !important;
-  display: block !important;
-  width: 100% !important;
-  height: 3px !important;
-  background-color: var(--global-text-color) !important;
-  border-radius: 3px !important;
-}
-
-/* Middle bar fallback if no span exists in Liquid */
-.navbar-toggler {
-  border-top: 3px solid var(--global-text-color) !important;
-  border-bottom: 3px solid var(--global-text-color) !important;
-  position: relative !important;
-}
-
-.navbar-toggler::before {
-  position: absolute !important;
-  top: 50% !important;
-  left: 0 !important;
-  transform: translateY(-50%) !important;
-  margin: 0 !important;
-}
-
-.navbar-toggler::after {
-  display: none !important;
-}
-
-/* --------------------------------------------------------------------------
-   Mobile Floating Card Dropdown (< 769px)
-   -------------------------------------------------------------------------- */
-@media (max-width: 768.98px) {
-  .navbar-toggler {
-    display: flex !important;
-  }
-
-  .navbar-collapse:not(.show) {
-    display: none !important;
-  }
-
-  .navbar-collapse.show,
-  .navbar-collapse.collapsing {
-    position: absolute !important;
-    top: 60px !important;
-    right: 15px !important;
-    width: auto !important;
-    min-width: 190px !important;
-    background-color: var(--global-bg-color) !important;
-    padding: 1rem 1.25rem !important;
-    border-radius: 12px !important;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    z-index: 1050 !important;
-  }
-
-  .navbar-nav {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    gap: 0.6rem !important;
-    margin: 0 !important;
-  }
-
-  .navbar-nav .nav-link {
-    padding: 0.2rem 0 !important;
-    font-size: 1rem !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   Desktop Navigation Layout (>= 769px)
+   Desktop Navigation & Icon Alignment (>= 769px)
    -------------------------------------------------------------------------- */
 @media (min-width: 769px) {
   .navbar-toggler {
@@ -225,14 +127,16 @@ button#light-toggle-system,
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
+    pointer-events: auto !important;
   }
 
   .navbar-nav {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 0.8rem !important;
+    gap: 1.2rem !important;
     margin: 0 !important;
+    padding: 0 !important;
     height: 100% !important;
   }
 
@@ -247,26 +151,30 @@ button#light-toggle-system,
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0 0.3rem !important;
+    padding: 0 !important;
     font-size: 0.95rem !important;
     line-height: 1 !important;
     color: var(--global-text-color) !important;
-    height: auto !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
   }
 }
 
-/* Align Sun/Moon Icon Centered */
+/* Precise vertical baseline alignment for Moon & Search icons */
 #light-toggle-light,
-#light-toggle-dark {
+#light-toggle-dark,
+.search-toggle,
+.navbar-nav .nav-link i,
+.navbar-nav .nav-link svg {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 0.9rem !important;
+  vertical-align: middle !important;
+  font-size: 0.95rem !important;
   line-height: 1 !important;
   margin: 0 !important;
   padding: 0 !important;
-  position: relative !important;
-  top: 0 !important;
+  transform: translateY(-1px) !important; /* Perfect pixel baseline shift */
 }
 
 html[data-theme="dark"] #light-toggle-light { display: none !important; }
@@ -280,6 +188,74 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
 .navbar-nav .nav-link:hover *,
 .navbar-nav .search-toggle:hover * {
   color: var(--global-theme-color) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile View (< 769px) - Clean 3-Bar SVG Icon & Menu
+   -------------------------------------------------------------------------- */
+@media (max-width: 768.98px) {
+  .navbar-toggler {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4px !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    z-index: 10001 !important;
+  }
+
+  .navbar-toggler::before,
+  .navbar-toggler::after {
+    display: none !important;
+  }
+
+  .navbar-toggler .navbar-toggler-icon {
+    display: inline-block !important;
+    width: 24px !important;
+    height: 24px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+  }
+
+  html[data-theme="light"] .navbar-toggler-icon,
+  html:not([data-theme="dark"]) .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.85)' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+  }
+
+  html[data-theme="dark"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.85)' stroke-width='3' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+  }
+
+  .navbar-collapse:not(.show) {
+    display: none !important;
+  }
+
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    position: absolute !important;
+    top: 60px !important;
+    right: 15px !important;
+    width: auto !important;
+    min-width: 180px !important;
+    background-color: var(--global-bg-color) !important;
+    padding: 1rem 1.25rem !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    z-index: 10000 !important;
+  }
+
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.8rem !important;
+    margin: 0 !important;
+  }
 }
 
 /* Social Section */
