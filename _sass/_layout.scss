@@ -87,8 +87,9 @@ html[data-theme="dark"] body {
 html[data-theme="dark"] .navbar {
   background-color: rgba(33, 33, 33, 0.75) !important;
 }
+
 /* ==========================================================================
-   Navbar Vertically Centered Alignment Fix
+   Navbar Line, Hover & Icon Baseline Alignment Fixes
    ========================================================================== */
 
 /* Hide gear system theme toggle */
@@ -101,11 +102,11 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Ensure navbar wrapper centers its children vertically */
+/* Ensure navbar wrapper centers items vertically relative to logo */
 .navbar {
   display: flex !important;
   align-items: center !important;
-  min-height: 57px; /* Matches fixed header height */
+  min-height: 57px;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
@@ -115,10 +116,10 @@ button#light-toggle-system,
   align-items: center !important;
 }
 
-/* Align navigation list along the central horizontal axis */
+/* Align navigation items along baseline */
 .navbar-nav {
   display: flex !important;
-  align-items: center !important;
+  align-items: baseline !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   gap: 0.15rem;
@@ -126,64 +127,65 @@ button#light-toggle-system,
 
 .navbar-nav .nav-item {
   display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  align-items: baseline !important;
   height: auto !important;
 }
 
-/* Ensure links and icons share identical line-height and height bounds */
+/* Universal text & link styling */
 .navbar-nav .nav-link {
   display: inline-flex !important;
-  align-items: center !important;
+  align-items: baseline !important;
   justify-content: center !important;
   padding: 0.25rem 0.4rem !important;
   font-size: 0.95rem !important;
   line-height: 1 !important;
-  height: 2.2rem !important; /* Fixed inner height forces strict vertical centering */
   color: var(--global-text-color) !important;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
-.navbar-nav .nav-link:hover {
+/* Hover effect updates BOTH text (⌘ k) and icon together */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:hover span,
+.navbar-nav .nav-link:hover i {
   color: var(--global-theme-color) !important;
 }
 
-/* Search text and icon layout */
+/* Search text wrapper */
 .navbar-nav .search-toggle span {
-  display: inline-flex !important;
-  align-items: center !important;
+  display: inline-block !important;
   line-height: 1 !important;
+  color: inherit !important;
+  transition: color 0.2s ease-in-out;
 }
 
-/* Standardize icons and remove vertical transforms */
-.navbar-nav i,
-.navbar-nav svg {
+/* Search magnifying glass icon alignment */
+.navbar-nav .search-toggle i {
   font-size: 0.85rem !important;
   line-height: 1 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  margin-left: 0.3rem !important;
-  transform: none !important;
+  margin-left: 0.35rem !important;
+  color: inherit !important;
+  transition: color 0.2s ease-in-out;
 }
 
-/* Moon / Sun toggle icon centering */
+/* Moon/Sun Icon Vertical Baseline Alignment */
 #light-toggle-light,
 #light-toggle-dark {
   margin-left: 0 !important;
   font-size: 0.85rem !important;
   line-height: 1 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  transform: none !important;
+  display: inline-block !important;
+  vertical-align: baseline !important;
+  transform: translateY(1px) !important;
 }
 
-/* Theme toggle visibility */
+/* Theme toggle visibility controls */
 html[data-theme="dark"] #light-toggle-light {
   display: none !important;
 }
 
 html[data-theme="dark"] #light-toggle-dark {
-  display: inline-flex !important;
+  display: inline-block !important;
 }
 
 html[data-theme="light"] #light-toggle-dark,
@@ -193,7 +195,7 @@ html:not([data-theme="dark"]) #light-toggle-dark {
 
 html[data-theme="light"] #light-toggle-light,
 html:not([data-theme="dark"]) #light-toggle-light {
-  display: inline-flex !important;
+  display: inline-block !important;
 }
 
 /* ==========================================================================
