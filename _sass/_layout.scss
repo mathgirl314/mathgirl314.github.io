@@ -89,7 +89,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* ==========================================================================
-   Navbar Strict Center Alignment Fix
+   Navbar Strict Midpoint & Hover Sync Fix
    ========================================================================== */
 
 /* Hide gear system theme toggle */
@@ -102,11 +102,12 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Ensure navbar parent wrapper centers all content vertically */
+/* 1. Force header container vertical midpoint */
 .navbar {
   display: flex !important;
   align-items: center !important;
-  min-height: 57px;
+  height: 57px !important;
+  min-height: 57px !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
@@ -115,98 +116,82 @@ button#light-toggle-system,
 .navbar-collapse {
   display: flex !important;
   align-items: center !important;
+  height: 100% !important;
 }
 
-/* Force navigation container to align items along their horizontal center */
 .navbar-nav {
   display: flex !important;
   align-items: center !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin: 0 !important;
   gap: 0.15rem;
+  height: 100% !important;
 }
 
 .navbar-nav .nav-item {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+/* 2. Standardize link bounding boxes */
+.navbar-nav .nav-link,
+.navbar-nav button.nav-link {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   height: 100% !important;
-}
-
-/* Universal button & anchor wrapper centering */
-.navbar-nav .nav-link {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0.25rem 0.4rem !important;
+  padding: 0 0.4rem !important;
   font-size: 0.95rem !important;
   line-height: 1 !important;
-  height: 2rem !important;
   color: var(--global-text-color) !important;
   cursor: pointer;
   text-decoration: none !important;
+  background: transparent !important;
+  border: none !important;
 }
 
-/* Hover highlights BOTH text (⌘ k) and icon simultaneously */
+/* 3. Synchronized hover (⌘ k + Magnifying Glass) */
 .navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:hover span,
-.navbar-nav .nav-link:hover i {
+.navbar-nav .nav-link:hover *,
+.navbar-nav .search-toggle:hover * {
   color: var(--global-theme-color) !important;
 }
 
-/* Search shortcut text alignment */
-.navbar-nav .search-toggle span {
+.navbar-nav .search-toggle span,
+.navbar-nav .search-toggle i {
   display: inline-flex !important;
   align-items: center !important;
   line-height: 1 !important;
   color: inherit !important;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.15s ease-in-out;
 }
 
-/* Search magnifying glass icon alignment */
 .navbar-nav .search-toggle i {
   font-size: 0.85rem !important;
-  line-height: 1 !important;
-  display: inline-flex !important;
-  align-items: center !important;
   margin-left: 0.35rem !important;
-  color: inherit !important;
-  transition: color 0.2s ease-in-out;
-  transform: none !important;
 }
 
-/* Moon/Sun Icon Vertical Centering */
+/* 4. Moon icon internal offset correction */
 #light-toggle-light,
 #light-toggle-dark {
-  margin: 0 !important;
-  padding: 0 !important;
-  font-size: 0.85rem !important;
-  line-height: 1 !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  vertical-align: middle !important;
-  transform: none !important;
+  font-size: 0.85rem !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  top: -2px !important; /* Counteracts Font Awesome's internal bottom pad */
 }
 
 /* Theme toggle visibility controls */
-html[data-theme="dark"] #light-toggle-light {
-  display: none !important;
-}
-
-html[data-theme="dark"] #light-toggle-dark {
-  display: inline-flex !important;
-}
-
+html[data-theme="dark"] #light-toggle-light { display: none !important; }
+html[data-theme="dark"] #light-toggle-dark { display: inline-flex !important; }
 html[data-theme="light"] #light-toggle-dark,
-html:not([data-theme="dark"]) #light-toggle-dark {
-  display: none !important;
-}
-
+html:not([data-theme="dark"]) #light-toggle-dark { display: none !important; }
 html[data-theme="light"] #light-toggle-light,
-html:not([data-theme="dark"]) #light-toggle-light {
-  display: inline-flex !important;
-}
+html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !important; }
 
 /* ==========================================================================
    Social Section Styling
