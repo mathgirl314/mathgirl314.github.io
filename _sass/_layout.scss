@@ -20,7 +20,7 @@ body {
 }
 
 body.fixed-top-nav {
-  padding-top: 57px;
+  padding-top: 57px !important;
 }
 
 body.sticky-bottom-footer {
@@ -77,16 +77,6 @@ html[data-theme="dark"] body {
   background-size: cover;
 }
 
-/* Translucent Header Overlay */
-.navbar {
-  background-color: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-html[data-theme="dark"] .navbar {
-  background-color: rgba(33, 33, 33, 0.75) !important;
-}
 /* ==========================================================================
    Navbar Responsive, Alignment & Hover Sync Fix
    ========================================================================== */
@@ -101,16 +91,27 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Base Header Overlay */
+/* Base Header Setup - Ensures Navigation Bar Scrolls Smoothly with Viewport */
+header.fixed-top {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1040 !important;
+}
+
 .navbar {
   background-color: rgba(255, 255, 255, 0.75) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   min-height: 57px;
+  height: 57px !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
   position: relative;
-  z-index: 1040;
 }
 
 html[data-theme="dark"] .navbar {
@@ -118,7 +119,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* --------------------------------------------------------------------------
-   Navbar Toggler / Hamburger Button Clean Styling
+   Hamburger Button & Stacked Bar SVG Icons
    -------------------------------------------------------------------------- */
 .navbar-toggler {
   display: inline-flex !important;
@@ -128,10 +129,11 @@ html[data-theme="dark"] .navbar {
   outline: none !important;
   background: transparent !important;
   padding: 0.25rem 0.5rem !important;
-  color: var(--global-text-color) !important;
   box-shadow: none !important;
   cursor: pointer;
   z-index: 1060;
+  height: 38px !important;
+  width: 44px !important;
 }
 
 .navbar-toggler:focus,
@@ -143,43 +145,43 @@ html[data-theme="dark"] .navbar {
   background: transparent !important;
 }
 
-/* Replace default Bootstrap icon spans with clean FontAwesome lines */
 .navbar-toggler .navbar-toggler-icon {
-  background-image: none !important;
-  width: auto !important;
-  height: auto !important;
+  display: inline-block !important;
+  width: 1.5em !important;
+  height: 1.5em !important;
+  vertical-align: middle !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
 }
 
-.navbar-toggler .navbar-toggler-icon::before {
-  content: "\f0c9"; /* FontAwesome Bars Icon */
-  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
-  font-weight: 900;
-  font-size: 1.25rem;
-  color: var(--global-text-color);
+/* Light Theme: Dark Vertical Stacked Hamburger Bars */
+html[data-theme="light"] .navbar-toggler-icon,
+html:not([data-theme="dark"]) .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.85)' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
-  content: "\f00d"; /* FontAwesome Times / X Icon */
+/* Dark Theme: Light Vertical Stacked Hamburger Bars */
+html[data-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
 /* --------------------------------------------------------------------------
-   Mobile & Medium Screens (< 992px) - Floating Absolute Overlay
+   Mobile View (< 769px) - Floating Menu Card Overlay
    -------------------------------------------------------------------------- */
-@media (max-width: 991.98px) {
+@media (max-width: 768.98px) {
   .navbar-toggler {
     display: inline-flex !important;
   }
 
-  /* Hide collapse container unless open */
   .navbar-collapse:not(.show) {
     display: none !important;
   }
 
-  /* Floating card overlay */
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
     position: absolute !important;
-    top: 100% !important;
+    top: 57px !important;
     right: 15px !important;
     width: auto !important;
     min-width: 190px !important;
@@ -214,9 +216,9 @@ html[data-theme="dark"] .navbar {
 }
 
 /* --------------------------------------------------------------------------
-   Desktop Screens (>= 992px) - Horizontal Layout
+   Desktop View (>= 769px) - Horizontal Layout
    -------------------------------------------------------------------------- */
-@media (min-width: 992px) {
+@media (min-width: 769px) {
   .navbar-toggler {
     display: none !important;
   }
@@ -224,7 +226,6 @@ html[data-theme="dark"] .navbar {
   .navbar {
     display: flex !important;
     align-items: center !important;
-    height: 57px !important;
   }
 
   .navbar > .container {
