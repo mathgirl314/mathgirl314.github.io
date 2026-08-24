@@ -18,11 +18,11 @@ body.sticky-bottom-footer {
   padding-bottom: 0;
 }
 
-/* Clear content top margin so title scrolls naturally with page content */
+/* Page body main container offset and alignment */
 .container.mt-5,
 div.container.mt-5,
 main .container {
-  margin-top: 85px !important;
+  margin-top: 90px !important;
   max-width: v.$max-content-width !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -65,7 +65,7 @@ body.fixed-top-nav header#header {
   background-color: rgba(255, 255, 255, 0.45) !important; /* Increased translucency */
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 html[data-theme="dark"] header,
@@ -75,6 +75,7 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
+/* Align header container bounds directly to match body frame */
 .navbar {
   height: 60px !important;
   min-height: 60px !important;
@@ -93,14 +94,36 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
+  position: relative !important;
 }
 
-/* Hide header text title so it only appears in main page body */
+/* Brand Logo/Title Fix: Positioned absolute so it stays at the top and scrolls off-screen */
 .navbar-brand {
-  display: none !important;
+  position: absolute !important;
+  top: 15px !important;
+  left: 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+  white-space: nowrap !important;
+  color: var(--global-text-color) !important;
+  text-decoration: none !important;
 }
 
-/* Hide system gear icon */
+.navbar-brand .header-logo,
+.navbar-brand img {
+  height: 32px !important;
+  width: auto !important;
+  max-width: 300px;
+  object-fit: contain;
+  display: block !important;
+}
+
+/* Hide unused gear menu */
 #light-toggle-system,
 button#light-toggle-system,
 .fa-gear,
@@ -126,6 +149,7 @@ button#light-toggle-system,
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
+    margin-left: auto !important;
   }
 
   .navbar-nav {
@@ -206,6 +230,7 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     cursor: pointer !important;
     position: relative !important;
     z-index: 10001 !important;
+    margin-left: auto !important;
   }
 
   .navbar-toggler:focus,
@@ -218,15 +243,15 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     display: none !important;
   }
 
-  /* Three horizontal bars of uniform thickness */
+  /* Three horizontal bars of uniform 2px thickness */
   .navbar-toggler::before,
   .navbar-toggler::after,
   .navbar-toggler .icon-bar,
-  .navbar-toggler span.toggler-icon-bar {
+  .navbar-toggler span {
     content: "" !important;
     display: block !important;
     width: 24px !important;
-    height: 2px !important; /* Uniform line thickness */
+    height: 2px !important;
     background-color: var(--global-text-color) !important;
     border-radius: 2px !important;
     transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out !important;
@@ -238,7 +263,7 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
   }
 
   .navbar-toggler:not(.collapsed) .icon-bar,
-  .navbar-toggler:not(.collapsed) span.toggler-icon-bar {
+  .navbar-toggler:not(.collapsed) span {
     opacity: 0 !important;
   }
 
