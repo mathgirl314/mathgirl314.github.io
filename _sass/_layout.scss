@@ -18,11 +18,11 @@ body.sticky-bottom-footer {
   padding-bottom: 0;
 }
 
-/* Page body main container offset and alignment */
+/* Clear content top margin so title scrolls naturally with page content */
 .container.mt-5,
 div.container.mt-5,
 main .container {
-  margin-top: 90px !important;
+  margin-top: 85px !important;
   max-width: v.$max-content-width !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -48,7 +48,7 @@ html[data-theme="dark"] body {
 }
 
 /* ==========================================================================
-   Fixed Header Bar & Frame Alignment
+   Translucent Fixed Header Bar
    ========================================================================== */
 
 header,
@@ -62,20 +62,19 @@ body.fixed-top-nav header#header {
   height: 60px !important;
   z-index: 9999 !important;
   pointer-events: auto !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.45) !important; /* Increased translucency */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 html[data-theme="dark"] header,
 html[data-theme="dark"] header.fixed-top,
 html[data-theme="dark"] body.fixed-top-nav header#header {
-  background-color: rgba(20, 20, 20, 0.95) !important;
+  background-color: rgba(18, 18, 18, 0.45) !important; /* Translucent dark mode */
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Align header container bounds exactly to match body frame */
 .navbar {
   height: 60px !important;
   min-height: 60px !important;
@@ -96,28 +95,12 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
   justify-content: space-between !important;
 }
 
-/* Brand Title Fix: Prevents background bleed during scroll */
+/* Hide header text title so it only appears in main page body */
 .navbar-brand {
-  position: relative !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  height: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  z-index: 10000 !important;
-  pointer-events: auto !important;
-  white-space: nowrap !important;
-  color: var(--global-text-color) !important;
+  display: none !important;
 }
 
-.navbar-brand .header-logo {
-  height: 38px !important;
-  width: auto !important;
-  max-width: 300px;
-  object-fit: contain;
-}
-
-/* Hide unused gear menu */
+/* Hide system gear icon */
 #light-toggle-system,
 button#light-toggle-system,
 .fa-gear,
@@ -174,7 +157,7 @@ button#light-toggle-system,
   }
 }
 
-/* Vertical Moon & Search Baseline Realignment */
+/* Vertical Moon & Search Baseline Alignment */
 #light-toggle-light,
 #light-toggle-dark,
 .search-toggle,
@@ -213,7 +196,7 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     flex-direction: column !important;
     justify-content: space-between !important;
     align-items: center !important;
-    width: 26px !important;
+    width: 24px !important;
     height: 18px !important;
     padding: 0 !important;
     border: none !important;
@@ -235,27 +218,27 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     display: none !important;
   }
 
-  /* Construct three clean horizontal lines using pseudoclasses & span */
+  /* Three horizontal bars of uniform thickness */
   .navbar-toggler::before,
   .navbar-toggler::after,
   .navbar-toggler .icon-bar,
-  .navbar-toggler span {
+  .navbar-toggler span.toggler-icon-bar {
     content: "" !important;
     display: block !important;
-    width: 100% !important;
-    height: 2px !important;
+    width: 24px !important;
+    height: 2px !important; /* Uniform line thickness */
     background-color: var(--global-text-color) !important;
     border-radius: 2px !important;
     transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out !important;
   }
 
-  /* Smooth Morph Transformation into an 'X' shape on toggle click */
+  /* Centered X morph transformation */
   .navbar-toggler:not(.collapsed)::before {
     transform: translateY(8px) rotate(45deg) !important;
   }
 
   .navbar-toggler:not(.collapsed) .icon-bar,
-  .navbar-toggler:not(.collapsed) span {
+  .navbar-toggler:not(.collapsed) span.toggler-icon-bar {
     opacity: 0 !important;
   }
 
@@ -274,7 +257,7 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     top: 60px !important;
     right: 15px !important;
     width: auto !important;
-    min-width: 180px !important;
+    min-width: 170px !important;
     background-color: var(--global-bg-color) !important;
     padding: 1rem 1.25rem !important;
     border-radius: 10px !important;
@@ -283,12 +266,20 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     z-index: 10000 !important;
   }
 
+  /* Right-centered menu text alignment */
   .navbar-nav {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
+    text-align: right !important;
     gap: 0.8rem !important;
     margin: 0 !important;
+  }
+
+  .navbar-nav .nav-link {
+    width: 100% !important;
+    text-align: right !important;
+    justify-content: flex-end !important;
   }
 }
 
