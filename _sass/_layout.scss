@@ -1,15 +1,24 @@
 /******************************************************************************
- * al-folio Clean Responsive Layout & Navbar Setup
+ * Custom Layout & Navigation Adjustments
  ******************************************************************************/
 
 @use "variables" as v;
 
-/* Base page spacing */
+/* ----------------------------------------------------------------------------
+ * 1. Day / Night Background Image Restoration
+ * -------------------------------------------------------------------------- */
 body {
   padding-top: 100px;
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
+
+  /* Day mode background */
+  background-image: url('../img/day_background.png');
+  background-repeat: repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: auto;
 
   &.sticky-bottom-footer {
     padding-bottom: 0;
@@ -20,15 +29,18 @@ body {
   }
 }
 
-/* Page container top offset to prevent header collision */
-.container.mt-5,
-div.container.mt-5,
-header.post-header,
-.post-header {
-  margin-top: 30px !important;
+/* Night mode background */
+html[data-theme="dark"] body {
+  background-image: url('../img/night_background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-/* Translucent Fixed Navbar Bar */
+/* ----------------------------------------------------------------------------
+ * 2. Header & Translucent Navigation Bar
+ * -------------------------------------------------------------------------- */
 header.fixed-top,
 header#header,
 body.fixed-top-nav header#header {
@@ -39,20 +51,22 @@ body.fixed-top-nav header#header {
   width: 100% !important;
   height: 60px !important;
   z-index: 9999 !important;
-  background-color: rgba(255, 255, 255, 0.55) !important;
+  
+  /* Light Mode Translucent Frosted Glass */
+  background-color: rgba(255, 255, 255, 0.45) !important;
   backdrop-filter: blur(12px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
+/* Dark Mode Translucent Frosted Glass */
 html[data-theme="dark"] header.fixed-top,
 html[data-theme="dark"] header#header,
 html[data-theme="dark"] body.fixed-top-nav header#header {
-  background-color: rgba(20, 20, 20, 0.55) !important;
+  background-color: rgba(30, 30, 30, 0.55) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Dynamic Navbar Alignment to Body Margin */
 .navbar {
   height: 60px !important;
   padding: 0 !important;
@@ -68,7 +82,7 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
   background: transparent !important;
 }
 
-/* Math Logo / Navbar Brand */
+/* Math Brand / Logo Styling */
 .navbar-brand {
   display: inline-flex !important;
   align-items: center !important;
@@ -87,21 +101,32 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
   object-fit: contain;
 }
 
-/* Ensure Nav Links retain high contrast & visibility */
+/* ----------------------------------------------------------------------------
+ * 3. Responsive Nav Item Spacing & Hover Fixes (Including Cmd+K Search)
+ * -------------------------------------------------------------------------- */
 .navbar-nav .nav-link,
-.navbar-nav button.nav-link {
+.navbar-nav button.nav-link,
+.search-toggle,
+.open-search {
   color: var(--global-text-color) !important;
   font-weight: 500;
-  opacity: 0.9;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.navbar-nav .nav-link:hover {
-  opacity: 1;
+/* Hover color for all nav links, search text (⌘k), and icons */
+.navbar-nav .nav-item:hover .nav-link,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:hover *,
+.search-toggle:hover,
+.search-toggle:hover *,
+.open-search:hover,
+.open-search:hover * {
   color: var(--global-theme-color) !important;
 }
 
-/* Desktop Navigation Alignment (>= 769px) */
-@media (min-width: 769px) {
+/* Desktop Spacing */
+@media (min-width: 992px) {
   .navbar-collapse {
     display: flex !important;
     align-items: center !important;
@@ -113,13 +138,37 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 1.2rem !important;
+    gap: 1.2rem !important; /* Clean desktop gap */
     margin: 0 !important;
     padding: 0 !important;
   }
 }
 
-/* Mobile Navigation Alignment (< 769px) */
+/* Medium Screens / Narrower Window Spacing Fix */
+@media (min-width: 769px) and (max-width: 991.98px) {
+  .navbar-collapse {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    height: 100% !important;
+  }
+
+  /* Tightens navigation link gap so elements don't wrap onto 2 lines */
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.6rem !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.88rem !important;
+  }
+}
+
+/* Mobile Dropdown Menu */
 @media (max-width: 768.98px) {
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
@@ -131,7 +180,31 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
     border-radius: 8px !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
   }
+
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.5rem !important;
+  }
 }
+
+/* Icon Alignment Fixes */
+#light-toggle-light,
+#light-toggle-dark,
+.search-toggle i,
+.navbar-nav .nav-link i {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+}
+
+html[data-theme="dark"] #light-toggle-light { display: none !important; }
+html[data-theme="dark"] #light-toggle-dark { display: inline-flex !important; }
+html[data-theme="light"] #light-toggle-dark,
+html:not([data-theme="dark"]) #light-toggle-dark { display: none !important; }
+html[data-theme="light"] #light-toggle-light,
+html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !important; }
 
 
 // Content layout uses Bootstrap's grid system with responsive columns
