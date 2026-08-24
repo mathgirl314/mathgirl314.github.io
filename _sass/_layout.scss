@@ -20,18 +20,19 @@ body.sticky-bottom-footer {
 
 /* ==========================================================================
    Page Body Main Content Pushdown
-   Ensures page content starts cleanly below the translucent top bar
+   Pushes all body content ("Affiliations...", biography, etc.) safely below header
    ========================================================================== */
 
 header + .container,
 header + main,
+main,
 .container.mt-5,
 div.container.mt-5,
 main .container,
 main > .container,
 .post {
   margin-top: 100px !important;
-  padding-top: 10px !important;
+  padding-top: 20px !important;
   max-width: v.$max-content-width !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -107,21 +108,20 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
 }
 
 /* ==========================================================================
-   Brand / Title Decoupling
-   Positions the header formula/name absolutely at the top page flow
-   so it scrolls away naturally rather than remaining sticky.
+   Header Title / Math Logo Fix
+   Keeps title cleanly vertically centered in top left of header
    ========================================================================== */
 
 .navbar-brand {
-  position: absolute !important;
-  top: 70px !important; /* Positions title below the translucent top bar */
-  left: 15px !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
   display: inline-flex !important;
   align-items: center !important;
-  height: auto !important;
+  height: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
-  z-index: 1 !important;
+  z-index: 10000 !important;
   pointer-events: auto !important;
   white-space: nowrap !important;
   color: var(--global-text-color) !important;
@@ -132,9 +132,9 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
 .navbar-brand img,
 .navbar-brand .title {
   height: auto !important;
-  max-height: 35px;
+  max-height: 30px !important;
   width: auto !important;
-  max-width: 400px;
+  max-width: 350px;
   object-fit: contain;
   display: block !important;
 }
