@@ -1,18 +1,18 @@
 /******************************************************************************
- * Absolute Layout & Header Sync Overrides
+ * Content Layout & Fluid Sync Settings
  ******************************************************************************/
 
 @use "variables" as v;
 
-/* Page Body Offsets & Container Alignment */
+/* Base Page Padding to push page content cleanly below the fixed navbar */
 body {
-  padding-top: 130px !important;
+  padding-top: 140px !important;
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
 
   h1, h2, h3, h4, h5, h6 {
-    scroll-margin-top: 110px;
+    scroll-margin-top: 100px;
   }
 }
 
@@ -20,24 +20,32 @@ body.sticky-bottom-footer {
   padding-bottom: 0;
 }
 
-/* Force body text and header inner content to share identical width bounds */
+/* Fluid Responsive Container for Page Content */
 main,
-main .container,
 .container,
-.container-fluid,
 header.post-header,
 .post-header,
 .post-title,
 h1.post-title,
 .profile,
 header + div {
-  max-width: 800px !important; /* Adjust to match your preferred body width */
+  width: 100% !important;
+  max-width: v.$max-content-width !important; /* Expands smoothly with viewport */
   margin-left: auto !important;
   margin-right: auto !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
   position: relative;
   z-index: 1;
+}
+
+/* Clear top overlap specifically on page titles */
+header.post-header,
+.post-header,
+h1.post-title,
+.post-title {
+  margin-top: 20px !important;
+  padding-top: 10px !important;
 }
 
 /* Background Images */
@@ -57,7 +65,7 @@ html[data-theme="dark"] body {
   background-size: cover;
 }
 
-/* Fixed Translucent Navigation Bar Header */
+/* Semi-Translucent Fixed Header Bar */
 header.fixed-top,
 body.fixed-top-nav header#header,
 header#header,
@@ -66,26 +74,24 @@ header {
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  width: 100vw !important;
+  width: 100% !important;
   height: 60px !important;
   z-index: 99999 !important;
   pointer-events: auto !important;
 
-  /* Translucent Glassmorphic styling */
-  background-color: rgba(255, 255, 255, 0.35) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  /* Translucent frosted glass effect */
+  background-color: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
 }
 
 html[data-theme="dark"] header.fixed-top,
 html[data-theme="dark"] body.fixed-top-nav header#header,
 html[data-theme="dark"] header#header,
 html[data-theme="dark"] header {
-  background-color: rgba(20, 20, 20, 0.45) !important;
+  background-color: rgba(18, 18, 18, 0.45) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
 }
 
 .navbar {
@@ -98,15 +104,15 @@ html[data-theme="dark"] header {
   width: 100% !important;
 }
 
-/* Inner Navbar Container Alignment */
+/* Navbar Inner Container: Fluidly syncs with the body text bounds */
 .navbar > .container,
 .navbar > .container-fluid {
-  max-width: 800px !important;
   width: 100% !important;
+  max-width: v.$max-content-width !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
   height: 100% !important;
   display: flex !important;
   align-items: center !important;
@@ -115,7 +121,7 @@ html[data-theme="dark"] header {
   background: transparent !important;
 }
 
-/* Leftmost Math Brand / Title */
+/* Leftmost Brand/Logo Element */
 .navbar-brand {
   display: inline-flex !important;
   align-items: center !important;
@@ -140,7 +146,7 @@ html[data-theme="dark"] header {
   display: block !important;
 }
 
-/* Hide extra gear toggles */
+/* Hide unused gear icon */
 #light-toggle-system,
 button#light-toggle-system,
 .fa-gear,
@@ -150,7 +156,7 @@ button#light-toggle-system,
   visibility: hidden !important;
 }
 
-/* Desktop Alignment (>= 769px) */
+/* Desktop Navigation (>= 769px) */
 @media (min-width: 769px) {
   .navbar-toggler {
     display: none !important;
@@ -197,7 +203,7 @@ button#light-toggle-system,
   }
 }
 
-/* Icon Baselines */
+/* Vertical Baseline Alignment for Moon & Search Icons */
 #light-toggle-light,
 #light-toggle-dark,
 .search-toggle,
@@ -227,7 +233,7 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
   color: var(--global-theme-color) !important;
 }
 
-/* Mobile Drawer (< 769px) */
+/* Mobile Drawer View (< 769px) */
 @media (max-width: 768.98px) {
   .navbar-toggler {
     display: flex !important;
