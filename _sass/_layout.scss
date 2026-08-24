@@ -20,15 +20,18 @@ body.sticky-bottom-footer {
 
 /* ==========================================================================
    Page Body Main Content Pushdown
-   Prevents body text ("Jamie T. Le", "Affiliations", etc.) from sticking 
-   underneath or scrolling directly inside the fixed top header area.
+   Ensures page content starts cleanly below the translucent top bar
    ========================================================================== */
 
+header + .container,
+header + main,
 .container.mt-5,
 div.container.mt-5,
 main .container,
-main > .container {
-  margin-top: 110px !important; /* Pushes page content fully below fixed header */
+main > .container,
+.post {
+  margin-top: 100px !important;
+  padding-top: 10px !important;
   max-width: v.$max-content-width !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -54,7 +57,7 @@ html[data-theme="dark"] body {
 }
 
 /* ==========================================================================
-   Fixed Header Bar - Highly Translucent / See-Through
+   Translucent Fixed Header Bar
    ========================================================================== */
 
 header,
@@ -68,7 +71,7 @@ body.fixed-top-nav header#header {
   height: 60px !important;
   z-index: 9999 !important;
   pointer-events: auto !important;
-  background-color: rgba(255, 255, 255, 0.25) !important; /* Highly translucent Light Mode */
+  background-color: rgba(255, 255, 255, 0.25) !important; /* Translucent Light Mode */
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -77,11 +80,11 @@ body.fixed-top-nav header#header {
 html[data-theme="dark"] header,
 html[data-theme="dark"] header.fixed-top,
 html[data-theme="dark"] body.fixed-top-nav header#header {
-  background-color: rgba(15, 15, 15, 0.25) !important; /* Highly translucent Dark Mode */
+  background-color: rgba(15, 15, 15, 0.25) !important; /* Translucent Dark Mode */
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Align header container bounds directly to match body frame */
+/* Align navbar container bounds */
 .navbar {
   height: 60px !important;
   min-height: 60px !important;
@@ -103,15 +106,22 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
   position: relative !important;
 }
 
-/* Header Brand / Logo positioning inside navigation bar */
+/* ==========================================================================
+   Brand / Title Decoupling
+   Positions the header formula/name absolutely at the top page flow
+   so it scrolls away naturally rather than remaining sticky.
+   ========================================================================== */
+
 .navbar-brand {
-  position: relative !important;
+  position: absolute !important;
+  top: 70px !important; /* Positions title below the translucent top bar */
+  left: 15px !important;
   display: inline-flex !important;
   align-items: center !important;
-  height: 100% !important;
+  height: auto !important;
   padding: 0 !important;
   margin: 0 !important;
-  z-index: 10000 !important;
+  z-index: 1 !important;
   pointer-events: auto !important;
   white-space: nowrap !important;
   color: var(--global-text-color) !important;
@@ -119,10 +129,12 @@ html[data-theme="dark"] body.fixed-top-nav header#header {
 }
 
 .navbar-brand .header-logo,
-.navbar-brand img {
-  height: 32px !important;
+.navbar-brand img,
+.navbar-brand .title {
+  height: auto !important;
+  max-height: 35px;
   width: auto !important;
-  max-width: 300px;
+  max-width: 400px;
   object-fit: contain;
   display: block !important;
 }
@@ -247,7 +259,6 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     display: none !important;
   }
 
-  /* Three horizontal bars of uniform 2px thickness */
   .navbar-toggler::before,
   .navbar-toggler::after,
   .navbar-toggler .icon-bar,
@@ -261,7 +272,6 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out !important;
   }
 
-  /* Centered X morph transformation */
   .navbar-toggler:not(.collapsed)::before {
     transform: translateY(8px) rotate(45deg) !important;
   }
@@ -275,7 +285,6 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     transform: translateY(-8px) rotate(-45deg) !important;
   }
 
-  /* Floating mobile card positioning */
   .navbar-collapse:not(.show) {
     display: none !important;
   }
@@ -295,7 +304,6 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
     z-index: 10000 !important;
   }
 
-  /* Right-centered menu text alignment */
   .navbar-nav {
     display: flex !important;
     flex-direction: column !important;
