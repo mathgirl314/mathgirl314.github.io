@@ -1,223 +1,134 @@
 /******************************************************************************
- * Content Layout & Fluid Sync Settings
+ * al-folio Standard Layout & Fixed Header Reset
  ******************************************************************************/
 
 @use "variables" as v;
 
-/* Base Page Padding to push page content cleanly below the fixed navbar */
+/* Standard Body Offsets to ensure titles sit below the navbar */
 body {
-  padding-top: 140px !important;
+  padding-top: 80px;
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
 
+  &.fixed-top-nav {
+    padding-top: 80px;
+  }
+
+  &.sticky-bottom-footer {
+    padding-bottom: 0;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 70px;
   }
 }
 
-body.sticky-bottom-footer {
-  padding-bottom: 0;
+/* Base Page Title Spacing */
+.post-header,
+header.post-header {
+  margin-top: 0;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Fluid Responsive Container for Page Content */
-main,
-.container,
-header.post-header,
-.post-header,
-.post-title,
-h1.post-title,
-.profile,
-header + div {
-  width: 100% !important;
-  max-width: v.$max-content-width !important; /* Expands smoothly with viewport */
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  position: relative;
-  z-index: 1;
-}
-
-/* Clear top overlap specifically on page titles */
-header.post-header,
-.post-header,
-h1.post-title,
 .post-title {
-  margin-top: 20px !important;
-  padding-top: 10px !important;
+  font-weight: 500;
+  color: var(--global-text-color);
 }
 
-/* Background Images */
-body {
-  background-image: url('../img/day_background.png');
-  background-repeat: repeat;
-  background-position: center top;
-  background-attachment: fixed;
-  background-size: auto;
-}
-
-html[data-theme="dark"] body {
-  background-image: url('../img/night_background.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-/* Semi-Translucent Fixed Header Bar */
+/* Translucent Navigation Bar Header */
 header.fixed-top,
-body.fixed-top-nav header#header,
 header#header,
 header {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  height: 60px !important;
-  z-index: 99999 !important;
-  pointer-events: auto !important;
-
-  /* Translucent frosted glass effect */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 999;
   background-color: rgba(255, 255, 255, 0.45) !important;
-  backdrop-filter: blur(12px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 html[data-theme="dark"] header.fixed-top,
-html[data-theme="dark"] body.fixed-top-nav header#header,
 html[data-theme="dark"] header#header,
 html[data-theme="dark"] header {
   background-color: rgba(18, 18, 18, 0.45) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Navbar Container */
 .navbar {
-  height: 60px !important;
-  min-height: 60px !important;
-  padding: 0 !important;
+  height: 60px;
+  padding: 0;
   background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  width: 100% !important;
 }
 
-/* Navbar Inner Container: Fluidly syncs with the body text bounds */
 .navbar > .container,
 .navbar > .container-fluid {
-  width: 100% !important;
-  max-width: v.$max-content-width !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  height: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  position: relative !important;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: transparent !important;
 }
 
-/* Leftmost Brand/Logo Element */
+/* Navigation Brand / Title Alignment */
 .navbar-brand {
-  display: inline-flex !important;
-  align-items: center !important;
-  height: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  z-index: 10000 !important;
-  pointer-events: auto !important;
-  white-space: nowrap !important;
-  color: var(--global-text-color) !important;
-  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color: var(--global-text-color);
+  white-space: nowrap;
 }
 
 .navbar-brand .header-logo,
 .navbar-brand img,
 .navbar-brand .title {
-  height: auto !important;
-  max-height: 32px !important;
-  width: auto !important;
-  max-width: 350px;
+  max-height: 32px;
+  width: auto;
   object-fit: contain;
-  display: block !important;
 }
 
-/* Hide unused gear icon */
-#light-toggle-system,
-button#light-toggle-system,
-.fa-gear,
-.fa-cog,
-.ti-device-desktop {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-/* Desktop Navigation (>= 769px) */
+/* Desktop Alignment (>= 769px) */
 @media (min-width: 769px) {
-  .navbar-toggler {
-    display: none !important;
-  }
-
   .navbar-collapse {
     display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    height: 100% !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    margin-left: auto !important;
-    padding: 0 !important;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
   }
 
   .navbar-nav {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 1.2rem !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100% !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
   }
 
-  .navbar-nav .nav-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    height: 100% !important;
-  }
-
-  .navbar-nav .nav-link,
-  .navbar-nav button.nav-link {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    font-size: 0.95rem !important;
-    line-height: 1 !important;
-    color: var(--global-text-color) !important;
-    cursor: pointer !important;
+  .navbar-nav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    color: var(--global-text-color);
   }
 }
 
-/* Vertical Baseline Alignment for Moon & Search Icons */
+/* Icon Baselines */
 #light-toggle-light,
 #light-toggle-dark,
 .search-toggle,
-.navbar-nav .nav-link i,
-.navbar-nav .nav-link svg {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  vertical-align: middle !important;
-  font-size: 0.95rem !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: translateY(-1px) !important;
+.navbar-nav .nav-link i {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
 }
 
 html[data-theme="dark"] #light-toggle-light { display: none !important; }
@@ -227,100 +138,17 @@ html:not([data-theme="dark"]) #light-toggle-dark { display: none !important; }
 html[data-theme="light"] #light-toggle-light,
 html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !important; }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:hover *,
-.navbar-nav .search-toggle:hover * {
-  color: var(--global-theme-color) !important;
-}
-
-/* Mobile Drawer View (< 769px) */
+/* Mobile View Layout (< 769px) */
 @media (max-width: 768.98px) {
-  .navbar-toggler {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 24px !important;
-    height: 18px !important;
-    padding: 0 !important;
-    border: none !important;
-    outline: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    cursor: pointer !important;
-    position: relative !important;
-    z-index: 10001 !important;
-    margin-left: auto !important;
-  }
-
-  .navbar-toggler:focus,
-  .navbar-toggler:active {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-
-  .navbar-toggler .navbar-toggler-icon {
-    display: none !important;
-  }
-
-  .navbar-toggler::before,
-  .navbar-toggler::after,
-  .navbar-toggler .icon-bar,
-  .navbar-toggler span {
-    content: "" !important;
-    display: block !important;
-    width: 24px !important;
-    height: 2px !important;
-    background-color: var(--global-text-color) !important;
-    border-radius: 2px !important;
-    transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out !important;
-  }
-
-  .navbar-toggler:not(.collapsed)::before {
-    transform: translateY(8px) rotate(45deg) !important;
-  }
-
-  .navbar-toggler:not(.collapsed) .icon-bar,
-  .navbar-toggler:not(.collapsed) span {
-    opacity: 0 !important;
-  }
-
-  .navbar-toggler:not(.collapsed)::after {
-    transform: translateY(-8px) rotate(-45deg) !important;
-  }
-
-  .navbar-collapse:not(.show) {
-    display: none !important;
-  }
-
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
-    position: absolute !important;
-    top: 60px !important;
-    right: 15px !important;
-    width: auto !important;
-    min-width: 170px !important;
-    background-color: var(--global-bg-color) !important;
-    padding: 1rem 1.25rem !important;
-    border-radius: 10px !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    z-index: 10000 !important;
-  }
-
-  .navbar-nav {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    text-align: right !important;
-    gap: 0.8rem !important;
-    margin: 0 !important;
-  }
-
-  .navbar-nav .nav-link {
-    width: 100% !important;
-    text-align: right !important;
-    justify-content: flex-end !important;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: var(--global-bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 }
 
