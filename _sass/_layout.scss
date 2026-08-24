@@ -1,156 +1,138 @@
 /******************************************************************************
- * al-folio Standard Layout & Fixed Header Reset
+ * al-folio Clean Responsive Layout & Navbar Setup
  ******************************************************************************/
 
 @use "variables" as v;
 
-/* Standard Body Offsets to ensure titles sit below the navbar */
+/* Base page spacing */
 body {
-  padding-top: 80px;
+  padding-top: 100px;
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
-
-  &.fixed-top-nav {
-    padding-top: 80px;
-  }
 
   &.sticky-bottom-footer {
     padding-bottom: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    scroll-margin-top: 70px;
+    scroll-margin-top: 80px;
   }
 }
 
-/* Base Page Title Spacing */
-.post-header,
-header.post-header {
-  margin-top: 0;
-  padding-top: 1rem;
-  margin-bottom: 1.5rem;
+/* Page container top offset to prevent header collision */
+.container.mt-5,
+div.container.mt-5,
+header.post-header,
+.post-header {
+  margin-top: 30px !important;
 }
 
-.post-title {
-  font-weight: 500;
-  color: var(--global-text-color);
-}
-
-/* Translucent Navigation Bar Header */
+/* Translucent Fixed Navbar Bar */
 header.fixed-top,
 header#header,
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.45) !important;
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+body.fixed-top-nav header#header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: 60px !important;
+  z-index: 9999 !important;
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 html[data-theme="dark"] header.fixed-top,
 html[data-theme="dark"] header#header,
-html[data-theme="dark"] header {
-  background-color: rgba(18, 18, 18, 0.45) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+html[data-theme="dark"] body.fixed-top-nav header#header {
+  background-color: rgba(20, 20, 20, 0.55) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Navbar Container */
+/* Dynamic Navbar Alignment to Body Margin */
 .navbar {
-  height: 60px;
-  padding: 0;
+  height: 60px !important;
+  padding: 0 !important;
   background: transparent !important;
 }
 
 .navbar > .container,
 .navbar > .container-fluid {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   background: transparent !important;
 }
 
-/* Navigation Brand / Title Alignment */
+/* Math Logo / Navbar Brand */
 .navbar-brand {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  color: var(--global-text-color);
-  white-space: nowrap;
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: var(--global-text-color) !important;
+  white-space: nowrap !important;
 }
 
 .navbar-brand .header-logo,
 .navbar-brand img,
 .navbar-brand .title {
-  max-height: 32px;
-  width: auto;
+  max-height: 32px !important;
+  width: auto !important;
   object-fit: contain;
 }
 
-/* Desktop Alignment (>= 769px) */
+/* Ensure Nav Links retain high contrast & visibility */
+.navbar-nav .nav-link,
+.navbar-nav button.nav-link {
+  color: var(--global-text-color) !important;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.navbar-nav .nav-link:hover {
+  opacity: 1;
+  color: var(--global-theme-color) !important;
+}
+
+/* Desktop Navigation Alignment (>= 769px) */
 @media (min-width: 769px) {
   .navbar-collapse {
     display: flex !important;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100%;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    height: 100% !important;
   }
 
   .navbar-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.2rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  .navbar-nav .nav-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0;
-    color: var(--global-text-color);
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1.2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 
-/* Icon Baselines */
-#light-toggle-light,
-#light-toggle-dark,
-.search-toggle,
-.navbar-nav .nav-link i {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-}
-
-html[data-theme="dark"] #light-toggle-light { display: none !important; }
-html[data-theme="dark"] #light-toggle-dark { display: inline-flex !important; }
-html[data-theme="light"] #light-toggle-dark,
-html:not([data-theme="dark"]) #light-toggle-dark { display: none !important; }
-html[data-theme="light"] #light-toggle-light,
-html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !important; }
-
-/* Mobile View Layout (< 769px) */
+/* Mobile Navigation Alignment (< 769px) */
 @media (max-width: 768.98px) {
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
-    position: absolute;
-    top: 60px;
-    right: 15px;
-    background-color: var(--global-bg-color);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: absolute !important;
+    top: 60px !important;
+    right: 15px !important;
+    background-color: var(--global-bg-color) !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
   }
 }
+
 
 // Content layout uses Bootstrap's grid system with responsive columns
 // Main content flows naturally through container-mt-5 and Bootstrap grid classes
