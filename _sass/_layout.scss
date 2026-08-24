@@ -1,12 +1,12 @@
 /******************************************************************************
- * Content Layout & Header Clearance Fix
+ * Content Layout & Header Alignment Fix
  ******************************************************************************/
 
 @use "variables" as v;
 
-/* Push the main container down so top headings do not clip under the navbar */
+/* Push main body content clear of the fixed navbar */
 body {
-  padding-top: 120px !important;
+  padding-top: 110px !important;
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
@@ -20,7 +20,7 @@ body.sticky-bottom-footer {
   padding-bottom: 0;
 }
 
-/* Force container margins for page titles and post headers */
+/* Align page content max-width */
 main,
 .container,
 header.post-header,
@@ -29,7 +29,9 @@ header.post-header,
 h1.post-title,
 .profile,
 header + div {
-  margin-top: 20px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: v.$max-content-width !important;
   position: relative;
   z-index: 1;
 }
@@ -51,7 +53,7 @@ html[data-theme="dark"] body {
   background-size: cover;
 }
 
-/* Translucent Fixed Navbar Header */
+/* Translucent Fixed Navbar Bar */
 header.fixed-top,
 body.fixed-top-nav header#header,
 header#header {
@@ -63,16 +65,16 @@ header#header {
   height: 60px !important;
   z-index: 9999 !important;
   pointer-events: auto !important;
-  background-color: rgba(255, 255, 255, 0.25) !important;
+  background-color: rgba(255, 255, 255, 0.45) !important;
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 html[data-theme="dark"] header.fixed-top,
 html[data-theme="dark"] body.fixed-top-nav header#header,
 html[data-theme="dark"] header#header {
-  background-color: rgba(15, 15, 15, 0.25) !important;
+  background-color: rgba(20, 20, 20, 0.45) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
@@ -85,9 +87,12 @@ html[data-theme="dark"] header#header {
   border: none !important;
 }
 
+/* Constrain inner navbar bounds to match body text alignment exactly */
 .navbar > .container,
 .navbar > .container-fluid {
   max-width: v.$max-content-width !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
   height: 100% !important;
@@ -97,7 +102,7 @@ html[data-theme="dark"] header#header {
   position: relative !important;
 }
 
-/* Math Logo in Navbar */
+/* Math Logo / Brand Alignment */
 .navbar-brand {
   display: inline-flex !important;
   align-items: center !important;
@@ -178,7 +183,7 @@ button#light-toggle-system,
   }
 }
 
-/* Theme Toggle and Search Bar Alignment */
+/* Vertical Moon & Search Baseline Alignment */
 #light-toggle-light,
 #light-toggle-dark,
 .search-toggle,
@@ -208,7 +213,7 @@ html:not([data-theme="dark"]) #light-toggle-light { display: inline-flex !import
   color: var(--global-theme-color) !important;
 }
 
-/* Mobile Navigation Drawer */
+/* Mobile Drawer View (< 769px) */
 @media (max-width: 768.98px) {
   .navbar-toggler {
     display: flex !important;
