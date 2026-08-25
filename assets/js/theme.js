@@ -2,8 +2,11 @@
 
 // Toggle through light, dark, and system theme settings.
 let toggleThemeSetting = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "dark") {
+  // Check what theme is ACTUALLY active on screen right now
+  let currentTheme = determineComputedTheme();
+
+  // Switch to the opposite theme directly
+  if (currentTheme === "dark") {
     setThemeSetting("light");
   } else {
     setThemeSetting("dark");
