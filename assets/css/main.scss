@@ -39,7 +39,7 @@
 @use "font-awesome/regular";
 
 /* ==========================================================================
-   Custom Header, Image Sizing, Search Alignment & Theme Toggle Overrides
+   Custom Header, Image Sizing, Uniform Spacing & Theme Toggle Overrides
    ========================================================================== */
 
 /* 1. Frosted Translucent Header */
@@ -73,7 +73,30 @@ html[data-theme="dark"] header.fixed-top {
   }
 }
 
-/* 3. Custom Theme Backgrounds */
+/* 3. Navigation Links Uniform Spacing */
+.navbar-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important; /* Uniform gap across ALL nav items */
+}
+
+.navbar-nav .nav-item {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Mobile Menu Vertical Spacing */
+@media (max-width: 768.98px) {
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.85rem !important;
+  }
+}
+
+/* 4. Custom Theme Backgrounds */
 body {
   background-image: url('../img/day_background.png');
   background-repeat: repeat;
@@ -86,7 +109,7 @@ html[data-theme="dark"] body {
   background-attachment: fixed;
 }
 
-/* 4. "⌘ k" Search Baseline Alignment & Hover Sync */
+/* 5. "⌘ k" Search Baseline Alignment & Hover Sync */
 .search-toggle,
 .open-search,
 button.open-search,
@@ -94,7 +117,7 @@ a.open-search {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  height: 100% !important;
+  height: auto !important;
   padding: 0 !important;
   margin: 0 !important;
   line-height: 1 !important;
@@ -124,35 +147,17 @@ button.open-search:hover * {
   color: var(--global-theme-color) !important;
 }
 
-/* 5. Mobile Dark Mode Moon Icon Visibility Fix */
-#light-toggle,
-button#light-toggle,
-.navbar-nav .nav-item #light-toggle {
+/* 6. Clean Theme Toggle Fix (Allows JS switching on single click) */
+#light-toggle {
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  color: var(--global-text-color) !important;
 }
 
-html[data-theme="dark"] #light-toggle-dark {
-  display: inline-flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-html[data-theme="dark"] #light-toggle-light {
-  display: none !important;
-}
-
-html[data-theme="light"] #light-toggle-light,
-html:not([data-theme="dark"]) #light-toggle-light {
-  display: inline-flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-html[data-theme="light"] #light-toggle-dark,
-html:not([data-theme="dark"]) #light-toggle-dark {
-  display: none !important;
+#light-toggle:hover {
+  color: var(--global-theme-color) !important;
 }
