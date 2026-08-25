@@ -171,10 +171,8 @@ button.open-search:hover * {
   color: var(--global-theme-color) !important;
 }
 
-/* 5. Moon/Sun Icon Alignment (Moves icon upward to match text baseline) */
-#light-toggle,
-button#light-toggle,
-.navbar-nav .nav-item #light-toggle {
+/* 5. Theme Toggle Icon (Single-click Sync & Vertical Alignment) */
+#light-toggle {
   cursor: pointer !important;
   padding: 0 !important;
   margin: 0 !important;
@@ -182,7 +180,7 @@ button#light-toggle,
   align-items: center !important;
   justify-content: center !important;
   color: var(--global-text-color) !important;
-  transform: translateY(-2px) !important; /* Shifts icon upward onto text baseline */
+  transform: translateY(1px) !important; /* Moves icon slightly down onto text baseline */
 }
 
 #light-toggle i,
@@ -191,6 +189,16 @@ button#light-toggle,
   padding: 0 !important;
   vertical-align: middle !important;
   line-height: 1 !important;
+  pointer-events: none !important; /* Ensures click event hits the parent button directly */
+}
+
+/* Let JS dictate display state cleanly without CSS overrides interfering */
+#light-toggle .fa-sun,
+#light-toggle .fa-moon,
+#light-toggle-light,
+#light-toggle-dark {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 #light-toggle:hover {
