@@ -37,3 +37,122 @@
 @use "font-awesome/brands";
 @use "font-awesome/solid";
 @use "font-awesome/regular";
+
+/* ==========================================================================
+   Custom Header, Image Sizing, Search Alignment & Theme Toggle Overrides
+   ========================================================================== */
+
+/* 1. Frosted Translucent Header */
+header.fixed-top {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+html[data-theme="dark"] header.fixed-top {
+  background-color: rgba(20, 20, 20, 0.5) !important;
+}
+
+/* 2. Header Equation Image - Fixed Legible Height */
+.navbar-brand .header-logo,
+.navbar-brand img,
+.navbar-brand svg {
+  height: 24px !important;       /* Standard height on desktop */
+  max-height: 24px !important;
+  width: auto !important;
+  max-width: none !important;    /* Prevents shrinking into a micro-bar */
+  object-fit: contain !important;
+}
+
+@media (max-width: 576px) {
+  .navbar-brand .header-logo,
+  .navbar-brand img,
+  .navbar-brand svg {
+    height: 20px !important;    /* Crisp sizing on mobile viewports */
+    max-height: 20px !important;
+  }
+}
+
+/* 3. Custom Theme Backgrounds */
+body {
+  background-image: url('../img/day_background.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+html[data-theme="dark"] body {
+  background-image: url('../img/night_background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* 4. "⌘ k" Search Baseline Alignment & Hover Sync */
+.search-toggle,
+.open-search,
+button.open-search,
+a.open-search {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  color: var(--global-text-color) !important;
+  transition: color 0.2s ease-in-out !important;
+  cursor: pointer !important;
+}
+
+.search-toggle *,
+.open-search *,
+button.open-search *,
+a.open-search * {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  color: inherit !important;
+}
+
+.search-toggle:hover,
+.search-toggle:hover *,
+.open-search:hover,
+.open-search:hover *,
+button.open-search:hover,
+button.open-search:hover * {
+  color: var(--global-theme-color) !important;
+}
+
+/* 5. Mobile Dark Mode Moon Icon Visibility Fix */
+#light-toggle,
+button#light-toggle,
+.navbar-nav .nav-item #light-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] #light-toggle-dark {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] #light-toggle-light {
+  display: none !important;
+}
+
+html[data-theme="light"] #light-toggle-light,
+html:not([data-theme="dark"]) #light-toggle-light {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="light"] #light-toggle-dark,
+html:not([data-theme="dark"]) #light-toggle-dark {
+  display: none !important;
+}
