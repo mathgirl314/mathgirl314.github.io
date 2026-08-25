@@ -39,7 +39,7 @@
 @use "font-awesome/regular";
 
 /* ==========================================================================
-   Custom Header, Image Sizing, Uniform Spacing & Theme Toggle Overrides
+   Custom Header, Nav Spacing & Vertical Alignment Overrides
    ========================================================================== */
 
 /* 1. Frosted Translucent Header */
@@ -53,14 +53,14 @@ html[data-theme="dark"] header.fixed-top {
   background-color: rgba(20, 20, 20, 0.5) !important;
 }
 
-/* 2. Header Equation Image - Fixed Legible Height */
+/* 2. Header Equation Image */
 .navbar-brand .header-logo,
 .navbar-brand img,
 .navbar-brand svg {
-  height: 24px !important;       /* Standard height on desktop */
+  height: 24px !important;
   max-height: 24px !important;
   width: auto !important;
-  max-width: none !important;    /* Prevents shrinking into a micro-bar */
+  max-width: none !important;
   object-fit: contain !important;
 }
 
@@ -68,48 +68,53 @@ html[data-theme="dark"] header.fixed-top {
   .navbar-brand .header-logo,
   .navbar-brand img,
   .navbar-brand svg {
-    height: 20px !important;    /* Crisp sizing on mobile viewports */
+    height: 20px !important;
     max-height: 20px !important;
   }
 }
 
-/* 3. Navigation Links Uniform Spacing */
-.navbar-nav {
-  display: flex !important;
-  align-items: center !important;
-  gap: 1.25rem !important; /* Uniform gap across ALL nav items */
-}
-
-.navbar-nav .nav-item {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* Mobile Menu Vertical Spacing */
-@media (max-width: 768.98px) {
+/* 3. Tight, Consistent Desktop Navigation Spacing */
+@media (min-width: 769px) {
   .navbar-nav {
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    gap: 0.85rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.85rem !important; /* Tightened from 1.25rem for balanced spacing */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
   }
 }
 
-/* 4. Custom Theme Backgrounds */
-body {
-  background-image: url('../img/day_background.png');
-  background-repeat: repeat;
-  background-attachment: fixed;
+/* Mobile Drawer Spacing & Right Alignment Fix */
+@media (max-width: 768.98px) {
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    background-color: var(--global-bg-color) !important;
+    padding: 1rem 1.25rem !important;
+    border-radius: 8px !important;
+  }
+
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.6rem !important; /* Compact spacing on mobile */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 
-html[data-theme="dark"] body {
-  background-image: url('../img/night_background.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-/* 5. "⌘ k" Search Baseline Alignment & Hover Sync */
+/* 4. "⌘ k" Search Alignment & Hover State */
 .search-toggle,
 .open-search,
 button.open-search,
@@ -147,8 +152,10 @@ button.open-search:hover * {
   color: var(--global-theme-color) !important;
 }
 
-/* 6. Clean Theme Toggle Fix (Allows JS switching on single click) */
-#light-toggle {
+/* 5. Moon/Sun Icon Alignment (Moves icon upward to match text baseline) */
+#light-toggle,
+button#light-toggle,
+.navbar-nav .nav-item #light-toggle {
   cursor: pointer !important;
   padding: 0 !important;
   margin: 0 !important;
@@ -156,8 +163,30 @@ button.open-search:hover * {
   align-items: center !important;
   justify-content: center !important;
   color: var(--global-text-color) !important;
+  transform: translateY(-2px) !important; /* Shifts icon upward onto text baseline */
+}
+
+#light-toggle i,
+#light-toggle svg {
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
 }
 
 #light-toggle:hover {
   color: var(--global-theme-color) !important;
+}
+
+/* Backgrounds */
+body {
+  background-image: url('../img/day_background.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+html[data-theme="dark"] body {
+  background-image: url('../img/night_background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
 }
