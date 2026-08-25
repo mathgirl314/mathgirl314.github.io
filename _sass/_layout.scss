@@ -1,48 +1,107 @@
+/******************************************************************************
+ * Custom Header, Equation Logo, Search Alignment & Theme Toggle Fixes
+ ******************************************************************************/
+
 /* 1. Frosted Translucent Header */
 header.fixed-top {
   background-color: rgba(255, 255, 255, 0.4) !important;
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
 }
+
 html[data-theme="dark"] header.fixed-top {
   background-color: rgba(20, 20, 20, 0.5) !important;
 }
 
-/* 2. Responsive Math Brand Logo Image */
+/* 2. Header Equation Image Sizing & Fluid Resizing */
+.navbar-brand .header-logo,
 .navbar-brand img,
 .navbar-brand svg {
-  max-height: 30px;
-  width: auto;
-  max-width: 35vw; /* Smoothly shrinks as viewport narrows */
-  object-fit: contain;
+  height: auto !important;
+  max-height: 24px !important;  /* Caps image height when fully expanded */
+  width: auto !important;
+  max-width: min(300px, 35vw) !important; /* Prevents shrink-down to micro-size */
+  object-fit: contain !important;
 }
 
-/* 3. Custom Backgrounds */
+/* 3. Custom Theme Backgrounds */
 body {
   background-image: url('../img/day_background.png');
   background-repeat: repeat;
   background-attachment: fixed;
 }
+
 html[data-theme="dark"] body {
   background-image: url('../img/night_background.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
 
+/* 4. "⌘ k" Search Alignment */
+.search-toggle,
+.open-search,
+button.open-search {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
 
-// Content layout uses Bootstrap's grid system with responsive columns
-// Main content flows naturally through container-mt-5 and Bootstrap grid classes
-// See _layouts/default.liquid and _includes/projects.liquid for examples
+.search-toggle *,
+.open-search * {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+/* 5. Dark Mode Moon Toggle Icon Fix (Ensures visibility on initial mobile load) */
+#light-toggle,
+button#light-toggle,
+.navbar-nav .nav-item #light-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Force active theme icon visibility without needing a tap */
+html[data-theme="dark"] #light-toggle-dark {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] #light-toggle-light {
+  display: none !important;
+}
+
+html[data-theme="light"] #light-toggle-light,
+html:not([data-theme="dark"]) #light-toggle-light {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="light"] #light-toggle-dark,
+html:not([data-theme="dark"]) #light-toggle-dark {
+  display: none !important;
+}
 
 /******************************************************************************
- * Publications
+ * Layout Notes
  ******************************************************************************/
 
-// Publications layout is defined in _includes/bib_search.liquid
-// Uses jekyll-scholar for BibTeX parsing and Bootstrap cards for display
+/* Content layout uses Bootstrap's grid system with responsive columns.
+   Main content flows naturally through container-mt-5 and Bootstrap grid classes.
+   See _layouts/default.liquid and _includes/projects.liquid for examples. */
 
-/*****************************************************************************
-* Projects
-*****************************************************************************/
+/******************************************************************************
+ * Publications & Projects
+ ******************************************************************************/
 
-// TODO: redefine projects layout.
+/* Publications layout is defined in _includes/bib_search.liquid.
+   Uses jekyll-scholar for BibTeX parsing and Bootstrap cards for display. */
