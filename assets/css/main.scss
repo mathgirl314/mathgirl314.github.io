@@ -75,19 +75,25 @@ html[data-theme="dark"] header.fixed-top {
 
 /* 3. Responsive Navigation & Hamburger Toggle Breakpoint */
 
-/* Desktop view (Large screens): Force single row */
-@media (min-width: 992px) {
+/* Desktop view: Force single horizontal row without wrapping */
+@media (min-width: 1200px) {
+  button.navbar-toggler,
   .navbar-toggler {
     display: none !important;
   }
 
-  .navbar-collapse {
+  .navbar-collapse,
+  #navbarNav {
     display: flex !important;
     flex-basis: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .navbar-nav {
+    display: flex !important;
     flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Prevents vertical stacking on mid-size windows */
     align-items: center !important;
     gap: 0.75rem !important;
   }
@@ -95,33 +101,46 @@ html[data-theme="dark"] header.fixed-top {
   .navbar-nav .nav-item {
     margin: 0 !important;
     padding: 0 !important;
+    white-space: nowrap !important;
   }
 
   .navbar-nav .nav-link {
     padding: 0 0.15rem !important;
-    white-space: nowrap !important;
   }
 }
 
-/* Mobile & Tablet view (< 992px): Show hamburger and hide menu drawer when closed */
-@media (max-width: 991.98px) {
+/* Medium & Small view (< 1200px): Force collapse into hamburger icon */
+@media (max-width: 1199.98px) {
+  button.navbar-toggler,
   .navbar-toggler {
-    display: inline-block !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  /* Force menu drawer completely hidden unless Bootstrap explicitly adds .show */
-  .navbar-collapse:not(.show) {
+  /* Keep collapsed drawer hidden until toggled open */
+  .navbar-collapse:not(.show),
+  #navbarNav:not(.show) {
     display: none !important;
   }
 
-  .navbar-collapse.show {
+  .navbar-collapse.show,
+  #navbarNav.show {
     display: block !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 1rem !important;
+    width: auto !important;
+    min-width: 160px !important;
     background-color: var(--global-bg-color) !important;
     padding: 1rem 1.25rem !important;
     border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    z-index: 1000 !important;
   }
 
   .navbar-nav {
+    display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
     gap: 0.6rem !important;
