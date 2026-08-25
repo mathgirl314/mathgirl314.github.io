@@ -73,12 +73,24 @@ html[data-theme="dark"] header.fixed-top {
   }
 }
 
-/* 3. Tight, Consistent Desktop Navigation Spacing */
-@media (min-width: 769px) {
+/* 3. Responsive Navigation & Hamburger Toggle Breakpoint */
+
+/* Desktop view: Only display inline horizontally on large screens (>= 992px) */
+@media (min-width: 992px) {
+  .navbar-expand-md .navbar-toggler {
+    display: none !important; /* Hide hamburger icon on wide screens */
+  }
+
+  .navbar-expand-md .navbar-collapse {
+    display: flex !important;
+    basis: auto !important;
+  }
+
   .navbar-nav {
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
-    gap: 0.85rem !important; /* Tightened from 1.25rem for balanced spacing */
+    gap: 0.85rem !important;
   }
 
   .navbar-nav .nav-item {
@@ -92,8 +104,16 @@ html[data-theme="dark"] header.fixed-top {
   }
 }
 
-/* Mobile Drawer Spacing & Right Alignment Fix */
-@media (max-width: 768.98px) {
+/* Tablet & Mobile view (< 992px): Force hamburger button & dropdown drawer */
+@media (max-width: 991.98px) {
+  .navbar-expand-md .navbar-toggler {
+    display: inline-block !important; /* Force hamburger icon to show */
+  }
+
+  .navbar-expand-md .navbar-collapse:not(.show) {
+    display: none !important; /* Hide unexpanded menu items */
+  }
+
   .navbar-collapse.show,
   .navbar-collapse.collapsing {
     background-color: var(--global-bg-color) !important;
@@ -105,7 +125,7 @@ html[data-theme="dark"] header.fixed-top {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
-    gap: 0.6rem !important; /* Compact spacing on mobile */
+    gap: 0.6rem !important;
   }
 
   .navbar-nav .nav-item {
