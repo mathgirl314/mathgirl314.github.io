@@ -44,7 +44,7 @@
 
 /* 1. Frosted Translucent Header Override */
 
-/* Clear inner bootstrap elements */
+/* Clear any nested background colors inside the header */
 header nav.navbar,
 header .navbar,
 header .bg-body,
@@ -54,7 +54,7 @@ header .navbar-dark {
   background-color: transparent !important;
 }
 
-/* Apply distinct frosted glass bar */
+/* Apply strong, visible frosted glass panel */
 header.fixed-top {
   position: fixed !important;
   top: 0 !important;
@@ -63,24 +63,24 @@ header.fixed-top {
   width: 100% !important;
   z-index: 1030 !important;
 
-  /* Noticeable translucent white fill layer */
-  background: rgba(255, 255, 255, 0.12) !important;
-  background-color: rgba(255, 255, 255, 0.12) !important;
+  /* Elevated white tint for high visibility against dark backgrounds */
+  background: rgba(255, 255, 255, 0.28) !important;
+  background-color: rgba(255, 255, 255, 0.28) !important;
 
-  /* Strong frosted glass blur effect */
-  backdrop-filter: blur(12px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  /* Frosted glass distortion & magnification blur */
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
 
-  /* Subtle top/bottom glass edge highlight */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  /* Crisp translucent border and drop shadow */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Light theme adjustments */
 html[data-theme="light"] header.fixed-top {
-  background: rgba(255, 255, 255, 0.65) !important;
-  background-color: rgba(255, 255, 255, 0.65) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 /* 2. Header Equation Image */
