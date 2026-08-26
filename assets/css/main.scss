@@ -136,6 +136,7 @@ header nav.navbar .container-fluid {
     height: 0 !important;
   }
 
+  /* Floating Card Container */
   header nav.navbar .navbar-collapse.show {
     display: block !important;
     position: absolute !important;
@@ -146,13 +147,25 @@ header nav.navbar .container-fluid {
     max-width: calc(100vw - 2rem) !important;
     margin-top: 0.5rem !important;
     padding: 1rem 1.25rem !important;
+    
+    /* Hardware acceleration for GPU blur rendering */
+    transform: translateZ(0);
+    
+    /* Dynamic Glass Styling */
     background-color: var(--glass-bg-color) !important;
-    backdrop-filter: blur(18px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
     border-radius: 12px !important;
     border: 1px solid var(--glass-border-color) !important;
     box-shadow: var(--glass-shadow) !important;
     z-index: 1050 !important;
+  }
+
+  /* Prevent inner nav lists from rendering solid backgrounds */
+  header nav.navbar .navbar-collapse.show .navbar-nav,
+  header nav.navbar .navbar-collapse.show .nav-item {
+    background: transparent !important;
+    background-color: transparent !important;
   }
 
   header nav.navbar .navbar-collapse.show .navbar-nav {
@@ -251,26 +264,30 @@ html[data-theme="dark"] body {
   background-attachment: fixed;
 }
 
-/* 7. Search Modal Backdrop & Box Glassmorphic Styling */
+/* 7. Search Modal Backdrop & Shadow DOM Glassmorphic Styling */
 
-/* Darkened background overlay with blur effect behind the modal */
-ninja-keys::part(backdrop),
-ninja-keys::part(overlay) {
-  background-color: rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-/* Web Component CSS variables */
 ninja-keys {
+  /* Override Internal Ninja-Keys CSS Variables Directly */
   --ninja-background-color: var(--glass-bg-color) !important;
   --ninja-modal-background: var(--glass-bg-color) !important;
   --ninja-text-color: var(--global-text-color) !important;
   --ninja-selected-background: rgba(120, 120, 128, 0.2) !important;
+  --ninja-secondary-text-color: var(--global-text-color-light) !important;
+  --ninja-placeholder-color: var(--global-text-color-light) !important;
 }
 
-/* The actual Search Box Container with blur, saturation, and dynamic glass */
-ninja-keys::part(ninja) {
+/* Modal Overlay / Backdrop */
+ninja-keys::part(backdrop),
+ninja-keys::part(overlay) {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Modal Search Box Container */
+ninja-keys::part(ninja),
+ninja-keys::part(modal),
+ninja-keys::part(search) {
   background-color: var(--glass-bg-color) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
@@ -279,6 +296,7 @@ ninja-keys::part(ninja) {
   box-shadow: var(--glass-shadow) !important;
 }
 
+/* Highlighted Item Hover State */
 ninja-keys::part(ninja-selected-item) {
   background-color: rgba(120, 120, 128, 0.2) !important;
 }
