@@ -44,9 +44,7 @@
 
 /* 1. Frosted Translucent Header Override */
 
-/* Kill all theme background colors on the navbar and its inner components */
-header,
-header.fixed-top,
+/* Clear inner bootstrap elements */
 header nav.navbar,
 header .navbar,
 header .bg-body,
@@ -56,7 +54,7 @@ header .navbar-dark {
   background-color: transparent !important;
 }
 
-/* Apply the translucent frosted glass directly to the fixed container */
+/* Apply distinct frosted glass bar */
 header.fixed-top {
   position: fixed !important;
   top: 0 !important;
@@ -65,21 +63,23 @@ header.fixed-top {
   width: 100% !important;
   z-index: 1030 !important;
 
-  /* Semi-transparent white tint (adjust 0.15 to change lightness) */
-  background-color: rgba(255, 255, 255, 0.15) !important;
+  /* Noticeable translucent white fill layer */
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
 
-  /* Frosted glass blur & magnification distortion */
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  /* Strong frosted glass blur effect */
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
 
-  /* Subtle bottom glass accent edge */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  /* Subtle top/bottom glass edge highlight */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Light theme tweak for brighter backgrounds */
+/* Light theme adjustments */
 html[data-theme="light"] header.fixed-top {
-  background-color: rgba(255, 255, 255, 0.45) !important;
+  background: rgba(255, 255, 255, 0.65) !important;
+  background-color: rgba(255, 255, 255, 0.65) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
