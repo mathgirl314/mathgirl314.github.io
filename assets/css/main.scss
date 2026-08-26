@@ -7,14 +7,12 @@
 @use "sass:math";
 @use "sass:string";
 
-/* Configure your design tokens BEFORE loading any of your partials.
-   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+/* Configure your design tokens BEFORE loading any of your partials. */
 @use "variables" with (
   $max-content-width: {{ site.max_width | default:  "930px" }}
 );
 
-/* Your project partials — convert these files to `@use "variables";`
-   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+/* Your project partials */
 @use "themes";
 @use "layout";
 
@@ -42,9 +40,7 @@
    Custom Header, Nav Spacing & Vertical Alignment Overrides
    ========================================================================== */
 
-/* 1. Frosted Translucent Header Override */
-
-/* Override al-folio theme variables directly on the header */
+/* 1. Sticky Frosted Header Shell */
 header.fixed-top {
   position: fixed !important;
   top: 0 !important;
@@ -52,33 +48,17 @@ header.fixed-top {
   right: 0 !important;
   width: 100% !important;
   z-index: 1030 !important;
+}
 
-  /* Force frosted glass background & override theme variables */
-  --global-bg-color: rgba(255, 255, 255, 0.15) !important;
-  --global-header-bg-color: rgba(255, 255, 255, 0.15) !important;
-  background-color: rgba(255, 255, 255, 0.15) !important;
-
-  /* Frosted magnifying glass distortion */
+header nav.navbar {
+  /* Inherits --global-header-bg-color set dynamically in _themes.scss */
+  background-color: var(--global-header-bg-color) !important;
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-
-  /* Glass bottom edge accent */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  border-bottom: 1px solid var(--global-divider-color) !important;
 }
 
-/* Ensure inner navigation containers stay transparent without hiding icon graphics */
-header.fixed-top nav.navbar {
-  background: transparent !important;
-  background-color: transparent !important;
-}
-
-/* Restore hamburger toggle icon color visibility */
-.navbar-toggler-icon {
-  filter: invert(1) !important; /* Ensures the icon stays crisp white on dark backgrounds */
-}
-
-/* 2. Header Equation Image */
+/* 2. Header Logo/Equation Sizing */
 .navbar-brand .header-logo,
 .navbar-brand img,
 .navbar-brand svg {
@@ -97,25 +77,14 @@ header.fixed-top nav.navbar {
     max-height: 20px !important;
   }
 }
-/* 3. Floating Hamburger Dropdown & Sticky Nav Fixes */
 
-/* Keep header fixed to top of viewport */
-header.fixed-top {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  z-index: 1030 !important;
-}
-
-/* Make inner container the exact anchor point for absolute positioning */
+/* 3. Navigation Anchor & Responsiveness */
 header nav.navbar .container,
 header nav.navbar .container-fluid {
   position: relative !important;
 }
 
-/* DESKTOP (>= 992px): Normal inline navigation */
+/* DESKTOP (>= 992px): Standard inline row */
 @media (min-width: 992px) {
   .navbar-toggler {
     display: none !important;
@@ -128,6 +97,8 @@ header nav.navbar .container-fluid {
     border: none !important;
     padding: 0 !important;
     background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .navbar-nav {
@@ -141,33 +112,33 @@ header nav.navbar .container-fluid {
   }
 }
 
-/* MOBILE & TABLET (< 992px): Toggler and Floating Card logic */
+/* MOBILE & TABLET (< 992px): Floating Frosted Menu Card */
 @media (max-width: 991.98px) {
   .navbar-toggler {
     display: inline-block !important;
   }
 
-  /* Prevent closed menu from creating vertical height */
   header nav.navbar .navbar-collapse:not(.show) {
     display: none !important;
     height: 0 !important;
   }
 
-  /* Floating Menu Card aligned flush with the container's right margin */
   header nav.navbar .navbar-collapse.show {
     display: block !important;
     position: absolute !important;
     top: 100% !important;
-    right: 0 !important; /* Flushes right edge directly with the toggler button margin */
+    right: 0 !important;
     left: auto !important;
     width: 200px !important;
     max-width: calc(100vw - 2rem) !important;
-    margin-top: 0.5rem !important; /* Clean vertical gap below header */
+    margin-top: 0.5rem !important;
     padding: 1rem 1.25rem !important;
-    background-color: var(--global-bg-color) !important;
+    background-color: rgba(20, 20, 22, 0.75) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
     border-radius: 12px !important;
-    border: 1px solid var(--global-divider-color) !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
     z-index: 1050 !important;
   }
 
@@ -191,7 +162,7 @@ header nav.navbar .container-fluid {
   }
 }
 
-/* 4. "⌘ k" Search Alignment & Hover State */
+/* 4. Search Trigger Styling */
 .search-toggle,
 .open-search,
 button.open-search,
@@ -229,7 +200,7 @@ button.open-search:hover * {
   color: var(--global-theme-color) !important;
 }
 
-/* 5. Theme Toggle Icon (Single-click Sync & Vertical Alignment) */
+/* 5. Theme Toggle Icon Adjustments */
 #light-toggle {
   cursor: pointer !important;
   padding: 0 !important;
@@ -238,7 +209,7 @@ button.open-search:hover * {
   align-items: center !important;
   justify-content: center !important;
   color: var(--global-text-color) !important;
-  transform: translateY(1px) !important; /* Moves icon slightly down onto text baseline */
+  transform: translateY(1px) !important;
 }
 
 #light-toggle i,
@@ -247,23 +218,14 @@ button.open-search:hover * {
   padding: 0 !important;
   vertical-align: middle !important;
   line-height: 1 !important;
-  pointer-events: none !important; /* Ensures click event hits the parent button directly */
-}
-
-/* Let JS dictate display state cleanly without CSS overrides interfering */
-#light-toggle .fa-sun,
-#light-toggle .fa-moon,
-#light-toggle-light,
-#light-toggle-dark {
-  opacity: 1 !important;
-  visibility: visible !important;
+  pointer-events: none !important;
 }
 
 #light-toggle:hover {
   color: var(--global-theme-color) !important;
 }
 
-/* Backgrounds */
+/* 6. Background Images */
 body {
   background-image: url('../img/day_background.png');
   background-repeat: repeat;
@@ -276,33 +238,15 @@ html[data-theme="dark"] body {
   background-attachment: fixed;
 }
 
-/* Translucent Glass Aesthetic for Dropdowns & Search Modal */
-
-/* 6. Mobile Navigation Dropdown Menu */
-.navbar .dropdown-menu,
-.navbar-collapse {
-  background-color: rgba(20, 20, 22, 0.65) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
-}
-
-/* 7. Ninja Keys Search Box (Modal Shadow DOM Wrapper) */
+/* 7. Ninja Keys Search Modal Styling */
 ninja-keys {
-  --ninja-background-color: rgba(20, 20, 22, 0.65) !important;
-  --ninja-backdrop-filter: blur(16px) saturate(180%) !important;
-  --ninja-modal-background: rgba(20, 20, 22, 0.65) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  --ninja-background-color: rgba(20, 20, 22, 0.75);
+  --ninja-backdrop-filter: blur(16px) saturate(180%);
+  --ninja-modal-background: rgba(20, 20, 22, 0.75);
 }
 
-/* Target the inner container of the search modal */
-ninja-keys::part(ninja),
-ninja-keys::part(modal),
-.ninja-modal {
-  background-color: rgba(20, 20, 22, 0.65) !important;
+ninja-keys::part(ninja) {
+  background-color: rgba(20, 20, 22, 0.75) !important;
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
@@ -310,7 +254,6 @@ ninja-keys::part(modal),
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Ensure active/hover items inside search stays translucent */
 ninja-keys::part(ninja-selected-item) {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
