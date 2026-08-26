@@ -41,22 +41,21 @@
 /* ==========================================================================
    Custom Header, Nav Spacing & Vertical Alignment Overrides
    ========================================================================== */
-
 /* 1. Frosted Translucent Header Override */
 
-/* Completely wipe all solid theme backgrounds on header components */
+/* 1. Strip background colors and pseudo-element overlays from all header children */
 html body header,
-html body header.fixed-top,
-html body header nav.navbar,
-html body header .navbar,
-html body header .bg-body,
-html body header .navbar-light,
-html body header .navbar-dark {
-  background: none !important;
+html body header *,
+html body header::before,
+html body header::after,
+html body nav.navbar::before,
+html body nav.navbar::after {
+  background: transparent !important;
   background-color: transparent !important;
+  box-shadow: none !important;
 }
 
-/* Force translucent frosted glass panel onto fixed header */
+/* 2. Apply the frosted glass effect directly to the fixed header wrapper */
 html body header.fixed-top {
   position: fixed !important;
   top: 0 !important;
@@ -65,17 +64,17 @@ html body header.fixed-top {
   width: 100% !important;
   z-index: 1030 !important;
 
-  /* High contrast white tint overlay */
-  background: rgba(255, 255, 255, 0.35) !important;
-  background-color: rgba(255, 255, 255, 0.35) !important;
+  /* Frosted white tint background overlay */
+  background: rgba(255, 255, 255, 0.25) !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
 
-  /* Frosted glass distortion effect */
-  backdrop-filter: blur(20px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(200%) !important;
+  /* Backdrop blur and saturation for magnifying glass distortion */
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
 
-  /* Visible glass border and shadow separator */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  /* Glass panel edge border and subtle shadow */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* 2. Header Equation Image */
