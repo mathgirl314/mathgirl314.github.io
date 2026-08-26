@@ -275,3 +275,42 @@ html[data-theme="dark"] body {
   background-size: cover;
   background-attachment: fixed;
 }
+
+/* Translucent Glass Aesthetic for Dropdowns & Search Modal */
+
+/* 6. Mobile Navigation Dropdown Menu */
+.navbar .dropdown-menu,
+.navbar-collapse {
+  background-color: rgba(20, 20, 22, 0.65) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 7. Ninja Keys Search Box (Modal Shadow DOM Wrapper) */
+ninja-keys {
+  --ninja-background-color: rgba(20, 20, 22, 0.65) !important;
+  --ninja-backdrop-filter: blur(16px) saturate(180%) !important;
+  --ninja-modal-background: rgba(20, 20, 22, 0.65) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+}
+
+/* Target the inner container of the search modal */
+ninja-keys::part(ninja),
+ninja-keys::part(modal),
+.ninja-modal {
+  background-color: rgba(20, 20, 22, 0.65) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Ensure active/hover items inside search stays translucent */
+ninja-keys::part(ninja-selected-item) {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
