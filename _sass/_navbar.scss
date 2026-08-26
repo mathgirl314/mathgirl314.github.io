@@ -189,3 +189,14 @@
     color: var(--global-hover-color);
   }
 }
+
+/* Mobile Nav Glassmorphism Override */
+@media (max-width: 991.98px) {
+  .navbar-collapse.show {
+    background-color: var(--glass-bg-color) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid var(--glass-border-color) !important;
+    box-shadow: var(--glass-shadow) !important;
+  }
+}
