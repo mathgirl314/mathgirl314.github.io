@@ -7,12 +7,12 @@
 @use "sass:math";
 @use "sass:string";
 
-/* Configure your design tokens BEFORE loading any of your partials. */
+/* Configure design tokens */
 @use "variables" with (
   $max-content-width: {{ site.max_width | default:  "930px" }}
 );
 
-/* Your project partials */
+/* Project partials */
 @use "themes";
 @use "layout";
 
@@ -37,7 +37,7 @@
 @use "font-awesome/regular";
 
 /* ==========================================================================
-   Custom Header, Nav Spacing & Vertical Alignment Overrides
+   Custom Header, Nav Spacing & Glassmorphic Overrides
    ========================================================================== */
 
 /* 1. Sticky Frosted Header Shell */
@@ -51,7 +51,7 @@ header.fixed-top {
 }
 
 header nav.navbar {
-  /* Inherits --global-header-bg-color set dynamically in _themes.scss */
+  /* Dynamic header color from _themes.scss */
   background-color: var(--global-header-bg-color) !important;
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
@@ -133,12 +133,13 @@ header nav.navbar .container-fluid {
     max-width: calc(100vw - 2rem) !important;
     margin-top: 0.5rem !important;
     padding: 1rem 1.25rem !important;
-    background-color: rgba(20, 20, 22, 0.75) !important;
+    /* Uses dynamic theme background variable for mode-aware glass effect */
+    background-color: var(--global-header-bg-color) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
     border-radius: 12px !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid var(--global-divider-color) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
     z-index: 1050 !important;
   }
 
@@ -238,22 +239,33 @@ html[data-theme="dark"] body {
   background-attachment: fixed;
 }
 
-/* 7. Ninja Keys Search Modal Styling */
+/* 7. Search Modal Backdrop & Box Glassmorphic Styling */
+
+/* Make the full-screen search backdrop transparent and blurred */
+ninja-keys::part(backdrop),
+ninja-keys::part(overlay) {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Inner search modal container styled with dynamic theme glass */
 ninja-keys {
-  --ninja-background-color: rgba(20, 20, 22, 0.75);
-  --ninja-backdrop-filter: blur(16px) saturate(180%);
-  --ninja-modal-background: rgba(20, 20, 22, 0.75);
+  --ninja-background-color: var(--global-header-bg-color) !important;
+  --ninja-modal-background: var(--global-header-bg-color) !important;
+  --ninja-text-color: var(--global-text-color) !important;
+  --ninja-selected-background: rgba(120, 120, 128, 0.2) !important;
 }
 
 ninja-keys::part(ninja) {
-  background-color: rgba(20, 20, 22, 0.75) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+  background-color: var(--global-header-bg-color) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid var(--global-divider-color) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25) !important;
 }
 
 ninja-keys::part(ninja-selected-item) {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(120, 120, 128, 0.18) !important;
 }
