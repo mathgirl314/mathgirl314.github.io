@@ -259,3 +259,16 @@ ul.task-list input[type="checkbox"] {
 .d2h-diff-table {
   position: relative;
 }
+
+/* Ninja-Keys Glassmorphism & Shadow DOM Override */
+ninja-keys {
+  --ninja-background-color: var(--glass-bg-color) !important;
+  --ninja-modal-background: var(--glass-bg-color) !important;
+}
+
+ninja-keys::part(ninja) {
+  background-color: var(--glass-bg-color) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid var(--glass-border-color) !important;
+}
