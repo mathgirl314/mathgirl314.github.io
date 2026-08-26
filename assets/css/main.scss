@@ -73,15 +73,16 @@ html[data-theme="dark"] header.fixed-top {
   }
 }
 
-/* 3. Responsive Navigation & Hamburger Toggle */
+/* 3. Floating Hamburger Dropdown & Responsive Alignment Fixes */
 
-/* Ensure navbar acts as the absolute positioning root */
-nav.navbar,
-header .navbar {
+/* Force navbar container to act as absolute positioning root */
+header nav.navbar,
+nav.navbar .container,
+nav.navbar .container-fluid {
   position: relative !important;
 }
 
-/* DESKTOP VIEW (>= 992px): Standard horizontal top menu */
+/* DESKTOP (>= 992px): Normal inline navigation */
 @media (min-width: 992px) {
   .navbar-toggler {
     display: none !important;
@@ -89,12 +90,11 @@ header .navbar {
 
   .navbar-collapse {
     display: flex !important;
-    flex-basis: auto !important;
     position: static !important;
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
-    background-color: transparent !important;
+    background: transparent !important;
   }
 
   .navbar-nav {
@@ -103,65 +103,61 @@ header .navbar {
     gap: 0.75rem !important;
   }
 
-  .navbar-nav .nav-item {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: auto !important;
-    text-align: left !important;
-  }
-
   .navbar-nav .nav-link {
-    display: inline-block !important;
-    padding: 0 0.15rem !important;
     white-space: nowrap !important;
   }
 }
 
-/* MOBILE & TABLET (< 992px) */
+/* MOBILE & TABLET (< 992px): Toggler and Floating Card logic */
 @media (max-width: 991.98px) {
   .navbar-toggler {
     display: inline-block !important;
   }
 
-  /* Completely collapse menu container when closed */
-  .navbar-collapse:not(.show) {
+  /* Prevent closed menu from reserving vertical height or stretching container */
+  header nav.navbar .navbar-collapse:not(.show) {
     display: none !important;
+    height: 0 !important;
   }
-}
 
-/* FLOATING DROPDOWN CARD (Right-aligned flush with toggle button) */
-.navbar-collapse.show {
-  display: block !important;
-  position: absolute !important;
-  top: 100% !important;
-  right: 0 !important; /* Align flush with the right padding boundary of the navbar */
-  left: auto !important;
-  width: 200px !important;
-  max-width: calc(100vw - 2rem) !important;
-  background-color: var(--global-bg-color) !important;
-  padding: 1rem 1.25rem !important;
-  border-radius: 12px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
-  border: 1px solid var(--global-divider-color) !important;
-  z-index: 1050 !important;
-}
+  /* Detached Floating Menu Card */
+  header nav.navbar .navbar-collapse.show {
+    display: block !important;
+    position: absolute !important;
+    top: 100% !important; /* Drops cleanly below fixed header bar */
+    right: 0.75rem !important; /* Align right border perfectly under the X icon edge */
+    left: auto !important;
+    width: 200px !important;
+    max-width: calc(100vw - 2rem) !important;
+    margin: 0 !important;
+    padding: 1rem 1.25rem !important;
+    background-color: var(--global-bg-color) !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--global-divider-color) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+    z-index: 1050 !important;
+    float: right !important;
+  }
 
-.navbar-collapse.show .navbar-nav {
-  flex-direction: column !important;
-  align-items: flex-end !important;
-  gap: 0.75rem !important;
-}
+  /* Internal list item alignments inside floating card */
+  header nav.navbar .navbar-collapse.show .navbar-nav {
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
 
-.navbar-collapse.show .navbar-nav .nav-item {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  text-align: right !important;
-}
+  header nav.navbar .navbar-collapse.show .nav-item {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    text-align: right !important;
+  }
 
-.navbar-collapse.show .navbar-nav .nav-link {
-  display: block !important;
-  padding: 0.2rem 0 !important;
+  header nav.navbar .navbar-collapse.show .nav-link {
+    display: block !important;
+    padding: 0.2rem 0 !important;
+  }
 }
 
 /* 4. "⌘ k" Search Alignment & Hover State */
