@@ -260,15 +260,72 @@ ul.task-list input[type="checkbox"] {
   position: relative;
 }
 
-/* Ninja-Keys Glassmorphism & Shadow DOM Override */
+/* ==========================================================================
+   Glassmorphism Overrides & Theme Variables
+   ========================================================================== */
+
+/* Define explicit translucent glass variables for Light Mode */
+:root {
+  --glass-bg-color: rgba(255, 255, 255, 0.55);
+  --glass-border-color: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Define explicit translucent glass variables for Dark Mode */
+html[data-theme="dark"] {
+  --glass-bg-color: rgba(20, 20, 25, 0.65);
+  --glass-border-color: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* 1. Mobile & Tablet Floating Frosted Nav Menu Override */
+@media (max-width: 991.98px) {
+  header nav.navbar .navbar-collapse.show {
+    display: block !important;
+    background-color: var(--glass-bg-color) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid var(--glass-border-color) !important;
+    box-shadow: var(--glass-shadow) !important;
+    border-radius: 12px !important;
+    transform: translateZ(0); /* Hardware acceleration for GPU blur */
+  }
+
+  header nav.navbar .navbar-collapse.show .navbar-nav,
+  header nav.navbar .navbar-collapse.show .nav-item {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+}
+
+/* 2. Ninja-Keys Search Modal Glassmorphism & Shadow DOM Override */
 ninja-keys {
   --ninja-background-color: var(--glass-bg-color) !important;
   --ninja-modal-background: var(--glass-bg-color) !important;
+  --ninja-text-color: var(--global-text-color) !important;
+  --ninja-selected-background: rgba(120, 120, 128, 0.2) !important;
+  --ninja-secondary-text-color: var(--global-text-color-light) !important;
+  --ninja-placeholder-color: var(--global-text-color-light) !important;
 }
 
-ninja-keys::part(ninja) {
+ninja-keys::part(backdrop),
+ninja-keys::part(overlay) {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+ninja-keys::part(ninja),
+ninja-keys::part(modal),
+ninja-keys::part(search) {
   background-color: var(--glass-bg-color) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   border: 1px solid var(--glass-border-color) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+ninja-keys::part(ninja-selected-item) {
+  background-color: rgba(120, 120, 128, 0.2) !important;
 }
