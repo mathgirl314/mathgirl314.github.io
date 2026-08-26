@@ -72,10 +72,9 @@ html[data-theme="dark"] header.fixed-top {
     max-height: 20px !important;
   }
 }
-
 /* 3. Floating Hamburger Dropdown & Sticky Nav Fixes */
 
-/* Keep the entire header fixed to top of viewport on scroll */
+/* Keep header fixed to top of viewport */
 header.fixed-top {
   position: fixed !important;
   top: 0 !important;
@@ -85,8 +84,9 @@ header.fixed-top {
   z-index: 1030 !important;
 }
 
-/* Ensure navbar wrapper allows absolute positioning relative to header */
-header.fixed-top nav.navbar {
+/* Make inner container the exact anchor point for absolute positioning */
+header nav.navbar .container,
+header nav.navbar .container-fluid {
   position: relative !important;
 }
 
@@ -122,22 +122,22 @@ header.fixed-top nav.navbar {
     display: inline-block !important;
   }
 
-  /* Prevent closed menu from creating vertical height or pushing layout */
+  /* Prevent closed menu from creating vertical height */
   header nav.navbar .navbar-collapse:not(.show) {
     display: none !important;
     height: 0 !important;
   }
 
-  /* Detached Floating Menu Card attached below header */
+  /* Floating Menu Card aligned flush with the container's right margin */
   header nav.navbar .navbar-collapse.show {
     display: block !important;
     position: absolute !important;
-    top: 100% !important; /* Positions card right under fixed header */
-    right: 0.75rem !important;
+    top: 100% !important;
+    right: 0 !important; /* Flushes right edge directly with the toggler button margin */
     left: auto !important;
     width: 200px !important;
     max-width: calc(100vw - 2rem) !important;
-    margin: 0 !important;
+    margin-top: 0.5rem !important; /* Clean vertical gap below header */
     padding: 1rem 1.25rem !important;
     background-color: var(--global-bg-color) !important;
     border-radius: 12px !important;
