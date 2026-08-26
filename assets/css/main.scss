@@ -42,18 +42,21 @@
    Custom Header, Nav Spacing & Vertical Alignment Overrides
    ========================================================================== */
 
-/* 1. Frosted Translucent Header */
+/* 1. Frosted Translucent Header Override */
 
-/* Remove Bootstrap's default background from inner navbar elements */
-header.fixed-top nav.navbar,
-header.fixed-top .bg-body,
-header.fixed-top .navbar-light,
-header.fixed-top .navbar-dark {
-  background-color: transparent !important;
+/* Kill all theme background colors on the navbar and its inner components */
+header,
+header.fixed-top,
+header nav.navbar,
+header .navbar,
+header .bg-body,
+header .navbar-light,
+header .navbar-dark {
   background: transparent !important;
+  background-color: transparent !important;
 }
 
-/* Apply translucent white tint & glass blur to main header container */
+/* Apply the translucent frosted glass directly to the fixed container */
 header.fixed-top {
   position: fixed !important;
   top: 0 !important;
@@ -62,22 +65,22 @@ header.fixed-top {
   width: 100% !important;
   z-index: 1030 !important;
 
-  /* Slightly white-tinted translucent background */
-  background-color: rgba(255, 255, 255, 0.12) !important;
+  /* Semi-transparent white tint (adjust 0.15 to change lightness) */
+  background-color: rgba(255, 255, 255, 0.15) !important;
 
-  /* Frosted glass distortion effect */
+  /* Frosted glass blur & magnification distortion */
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
 
-  /* Subtle bottom border highlight */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  /* Subtle bottom glass accent edge */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Dark mode adjustment */
-html[data-theme="dark"] header.fixed-top {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+/* Light theme tweak for brighter backgrounds */
+html[data-theme="light"] header.fixed-top {
+  background-color: rgba(255, 255, 255, 0.45) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 /* 2. Header Equation Image */
