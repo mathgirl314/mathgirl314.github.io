@@ -40,6 +40,20 @@
    Custom Header, Nav Spacing & Glassmorphic Overrides
    ========================================================================== */
 
+/* Define explicit translucent glass variables for Light Mode */
+:root {
+  --glass-bg-color: rgba(255, 255, 255, 0.55);
+  --glass-border-color: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Define explicit translucent glass variables for Dark Mode */
+html[data-theme="dark"] {
+  --glass-bg-color: rgba(20, 20, 25, 0.65);
+  --glass-border-color: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
 /* 1. Sticky Frosted Header Shell */
 header.fixed-top {
   position: fixed !important;
@@ -51,11 +65,10 @@ header.fixed-top {
 }
 
 header nav.navbar {
-  /* Dynamic header color from _themes.scss */
-  background-color: var(--global-header-bg-color) !important;
+  background-color: var(--glass-bg-color) !important;
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border-bottom: 1px solid var(--global-divider-color) !important;
+  border-bottom: 1px solid var(--glass-border-color) !important;
 }
 
 /* 2. Header Logo/Equation Sizing */
@@ -133,13 +146,12 @@ header nav.navbar .container-fluid {
     max-width: calc(100vw - 2rem) !important;
     margin-top: 0.5rem !important;
     padding: 1rem 1.25rem !important;
-    /* Uses dynamic theme background variable for mode-aware glass effect */
-    background-color: var(--global-header-bg-color) !important;
-    backdrop-filter: blur(16px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    background-color: var(--glass-bg-color) !important;
+    backdrop-filter: blur(18px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
     border-radius: 12px !important;
-    border: 1px solid var(--global-divider-color) !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid var(--glass-border-color) !important;
+    box-shadow: var(--glass-shadow) !important;
     z-index: 1050 !important;
   }
 
@@ -241,31 +253,32 @@ html[data-theme="dark"] body {
 
 /* 7. Search Modal Backdrop & Box Glassmorphic Styling */
 
-/* Make the full-screen search backdrop transparent and blurred */
+/* Darkened background overlay with blur effect behind the modal */
 ninja-keys::part(backdrop),
 ninja-keys::part(overlay) {
-  background-color: rgba(0, 0, 0, 0.35) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
 }
 
-/* Inner search modal container styled with dynamic theme glass */
+/* Web Component CSS variables */
 ninja-keys {
-  --ninja-background-color: var(--global-header-bg-color) !important;
-  --ninja-modal-background: var(--global-header-bg-color) !important;
+  --ninja-background-color: var(--glass-bg-color) !important;
+  --ninja-modal-background: var(--glass-bg-color) !important;
   --ninja-text-color: var(--global-text-color) !important;
   --ninja-selected-background: rgba(120, 120, 128, 0.2) !important;
 }
 
+/* The actual Search Box Container with blur, saturation, and dynamic glass */
 ninja-keys::part(ninja) {
-  background-color: var(--global-header-bg-color) !important;
+  background-color: var(--glass-bg-color) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid var(--global-divider-color) !important;
+  border: 1px solid var(--glass-border-color) !important;
   border-radius: 14px !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: var(--glass-shadow) !important;
 }
 
 ninja-keys::part(ninja-selected-item) {
-  background-color: rgba(120, 120, 128, 0.18) !important;
+  background-color: rgba(120, 120, 128, 0.2) !important;
 }
