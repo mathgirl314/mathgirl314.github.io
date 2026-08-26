@@ -43,6 +43,17 @@
    ========================================================================== */
 
 /* 1. Frosted Translucent Header */
+
+/* Remove Bootstrap's default background from inner navbar elements */
+header.fixed-top nav.navbar,
+header.fixed-top .bg-body,
+header.fixed-top .navbar-light,
+header.fixed-top .navbar-dark {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Apply translucent white tint & glass blur to main header container */
 header.fixed-top {
   position: fixed !important;
   top: 0 !important;
@@ -50,20 +61,20 @@ header.fixed-top {
   right: 0 !important;
   width: 100% !important;
   z-index: 1030 !important;
-  
-  /* Tinted white translucent background */
+
+  /* Slightly white-tinted translucent background */
   background-color: rgba(255, 255, 255, 0.12) !important;
-  
-  /* Glassmorphism blur (frosted magnifying effect) */
+
+  /* Frosted glass distortion effect */
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  
-  /* Subtle bottom border to separate header from body content */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+
+  /* Subtle bottom border highlight */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Dark mode adjustment: maintaining a subtle white tint */
+/* Dark mode adjustment */
 html[data-theme="dark"] header.fixed-top {
   background-color: rgba(255, 255, 255, 0.08) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
