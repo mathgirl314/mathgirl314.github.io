@@ -218,88 +218,32 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <style>
-/* Glassmorphism Direct Injection & Layout Adjustments */
+/* Universal Glass Override */
 :root {
-  --glass-bg-color: rgba(255, 255, 255, 0.55) !important;
-  --glass-border-color: rgba(255, 255, 255, 0.7) !important;
-  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  --glass-bg: rgba(255, 255, 255, 0.5) !important;
+  --glass-border: rgba(255, 255, 255, 0.6) !important;
 }
 
 html[data-theme="dark"] {
-  --glass-bg-color: rgba(20, 20, 25, 0.65) !important;
-  --glass-border-color: rgba(255, 255, 255, 0.15) !important;
-  --glass-shadow: 0 12px 35px rgba(0, 0, 0, 0.5) !important;
+  --glass-bg: rgba(20, 20, 25, 0.6) !important;
+  --glass-border: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* 1. Header & Navigation Overrides */
+/* Force navbar and every internal wrapper to drop solid fills */
+header,
+header *,
+nav.navbar,
+nav.navbar * {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Apply glass blur strictly to the top header container */
 header.fixed-top,
-header.fixed-top *,
-header nav.navbar,
-.navbar,
-.bg-navbar {
-  --bs-navbar-bg: transparent !important;
-  --bs-bg-opacity: 0 !important;
-  background-color: var(--glass-bg-color) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border-bottom: 1px solid var(--glass-border-color) !important;
-  box-shadow: var(--glass-shadow) !important;
-}
-
-/* Force body content to slide under header so text/images are visible through the blur */
-body {
-  padding-top: 0 !important;
-}
-
-body > .container {
-  padding-top: 5rem !important;
-}
-
-/* 2. Mobile Dropdown Floating Glass Card */
-@media (max-width: 991.98px) {
-  header nav.navbar .navbar-collapse.show {
-    display: block !important;
-    background-color: var(--glass-bg-color) !important;
-    backdrop-filter: blur(20px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-    border: 1px solid var(--glass-border-color) !important;
-    border-radius: 12px !important;
-    box-shadow: var(--glass-shadow) !important;
-    padding: 1rem !important;
-  }
-
-  header nav.navbar .navbar-collapse.show * {
-    background: transparent !important;
-  }
-}
-
-/* 3. Ninja-Keys Search Modal Override */
-ninja-keys {
-  --ninja-background-color: var(--glass-bg-color) !important;
-  --ninja-modal-background: var(--glass-bg-color) !important;
-  --ninja-text-color: var(--global-text-color) !important;
-  --ninja-selected-background: rgba(120, 120, 128, 0.2) !important;
-}
-
-ninja-keys::part(backdrop),
-ninja-keys::part(overlay) {
-  background-color: rgba(0, 0, 0, 0.35) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-}
-
-ninja-keys::part(ninja),
-ninja-keys::part(modal),
-ninja-keys::part(search) {
-  background-color: var(--glass-bg-color) !important;
+nav.navbar.fixed-top {
+  background-color: var(--glass-bg) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid var(--glass-border-color) !important;
-  border-radius: 14px !important;
-  box-shadow: var(--glass-shadow) !important;
-}
-
-ninja-keys::part(ninja-selected-item) {
-  background-color: rgba(120, 120, 128, 0.2) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
 }
 </style>
