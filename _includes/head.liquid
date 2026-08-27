@@ -216,73 +216,71 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <style>
-/* Glassmorphism Variables */
+/* 1. Shared Glass Design System */
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.65) !important;
-  --glass-border: rgba(255, 255, 255, 0.7) !important;
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12) !important;
+  --glass-bg: rgba(255, 255, 255, 0.45) !important;
+  --glass-border: rgba(255, 255, 255, 0.6) !important;
+  --glass-blur: blur(20px) saturate(180%) !important;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
 }
 
 html[data-theme="dark"] {
-  --glass-bg: rgba(20, 20, 25, 0.7) !important;
+  --glass-bg: rgba(20, 20, 25, 0.55) !important;
   --glass-border: rgba(255, 255, 255, 0.15) !important;
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45) !important;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
 }
 
-/* 1. Main Navbar Banner */
+/* 2. Top Navigation Banner */
 header.fixed-top,
 header.fixed-top nav.navbar {
   background-color: var(--glass-bg) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
   border-bottom: 1px solid var(--glass-border) !important;
   box-shadow: var(--glass-shadow) !important;
 }
 
-/* Clear solid backgrounds inside header wrappers */
 header nav.navbar div:not(.dropdown-menu),
 header nav.navbar ul:not(.dropdown-menu) {
   background: transparent !important;
 }
 
-/* 2. Nav Submenus & Mobile Dropdown Box */
+/* 3. Dropdown Menus (Matches Header Glass Exactly) */
+.dropdown-menu,
 header .dropdown-menu,
 header nav.navbar .navbar-collapse.show {
   background-color: var(--glass-bg) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
   border: 1px solid var(--glass-border) !important;
   border-radius: 12px !important;
   box-shadow: var(--glass-shadow) !important;
-  overflow: hidden !important;
 }
 
-/* Dropdown item hover highlights */
-header .dropdown-menu .dropdown-item:hover,
-header .dropdown-menu .dropdown-item:focus {
-  background-color: rgba(120, 120, 128, 0.15) !important;
+.dropdown-item {
+  color: var(--global-text-color) !important;
 }
 
-/* 3. Ninja-Keys Search Modal & Backdrop */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: rgba(120, 120, 128, 0.2) !important;
+}
+
+/* 4. Ninja-Keys Search Modal (Force Glass inside Shadow DOM) */
 ninja-keys {
-  --ninja-background-color: transparent !important;
-  --ninja-modal-background: transparent !important;
-  --ninja-selected-background: rgba(120, 120, 128, 0.2) !important;
+  --ninja-background-color: var(--glass-bg) !important;
+  --ninja-modal-background: var(--glass-bg) !important;
+  --ninja-backdrop-filter: blur(20px) saturate(180%) !important;
+  --ninja-overflow-background: transparent !important;
+  --ninja-selected-background: rgba(120, 120, 128, 0.25) !important;
+  --ninja-text-color: var(--global-text-color) !important;
 }
 
-/* Darken backdrop behind search box */
-ninja-keys::part(backdrop) {
-  background-color: rgba(0, 0, 0, 0.4) !important;
-  backdrop-filter: blur(6px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-}
-
-/* Apply blur box directly to search modal card */
 ninja-keys::part(ninja),
 ninja-keys::part(modal) {
   background-color: var(--glass-bg) !important;
-  backdrop-filter: blur(24px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
   border: 1px solid var(--glass-border) !important;
   border-radius: 16px !important;
   box-shadow: var(--glass-shadow) !important;
