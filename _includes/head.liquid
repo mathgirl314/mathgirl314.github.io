@@ -2,8 +2,6 @@
 {% include metadata.liquid %}
 
 <!-- Security: Content Security Policy -->
-<!-- Permissive CSP suitable for academic websites. Allows external images, videos, and common embed services. -->
-<!-- To customize for your needs, see: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
 <meta
   http-equiv="Content-Security-Policy"
   content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"
@@ -218,32 +216,54 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <style>
-/* Universal Glass Override */
+/* Glassmorphism Color Variables */
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.5) !important;
-  --glass-border: rgba(255, 255, 255, 0.6) !important;
+  --glass-bg: rgba(255, 255, 255, 0.65) !important;
+  --glass-border: rgba(255, 255, 255, 0.7) !important;
+  --glass-dropdown-bg: rgba(255, 255, 255, 0.85) !important;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
 }
 
 html[data-theme="dark"] {
-  --glass-bg: rgba(20, 20, 25, 0.6) !important;
+  --glass-bg: rgba(20, 20, 25, 0.7) !important;
   --glass-border: rgba(255, 255, 255, 0.15) !important;
+  --glass-dropdown-bg: rgba(25, 25, 30, 0.9) !important;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Force navbar and every internal wrapper to drop solid fills */
-header,
-header *,
-nav.navbar,
-nav.navbar * {
+/* Base Navigation Container */
+header.fixed-top,
+header.fixed-top nav.navbar {
+  background-color: var(--glass-bg) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+/* Remove internal solid backgrounds while keeping layout */
+header nav.navbar div:not(.dropdown-menu),
+header nav.navbar ul:not(.dropdown-menu) {
   background-color: transparent !important;
   background-image: none !important;
 }
 
-/* Apply glass blur strictly to the top header container */
-header.fixed-top,
-nav.navbar.fixed-top {
-  background-color: var(--glass-bg) !important;
+/* Dropdown Menus (Fixes Submenus & Mobile Navigation) */
+header .dropdown-menu,
+header nav.navbar .navbar-collapse.show {
+  background-color: var(--glass-dropdown-bg) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border-bottom: 1px solid var(--glass-border) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+/* Mobile Layout Padding Fix */
+@media (max-width: 991.98px) {
+  header nav.navbar .navbar-collapse.show {
+    padding: 0.75rem 1rem !important;
+    margin-top: 0.5rem !important;
+  }
 }
 </style>
