@@ -18,7 +18,7 @@ html[data-theme="dark"] header.fixed-top {
 .navbar-brand img,
 .navbar-brand svg {
   height: auto !important;
-  max-height: 24px !important;  /* Caps image height when fully expanded */
+  max-height: 24px !important; /* Caps image height when fully expanded */
   width: auto !important;
   max-width: min(300px, 35vw) !important; /* Prevents shrink-down to micro-size */
   object-fit: contain !important;
@@ -26,13 +26,13 @@ html[data-theme="dark"] header.fixed-top {
 
 /* 3. Custom Theme Backgrounds */
 body {
-  background-image: url('../img/day_background.png');
+  background-image: url("../img/day_background.png");
   background-repeat: repeat;
   background-attachment: fixed;
 }
 
 html[data-theme="dark"] body {
-  background-image: url('../img/night_background.jpg');
+  background-image: url("../img/night_background.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
