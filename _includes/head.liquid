@@ -274,3 +274,18 @@ ninja-keys::part(modal) {
   box-shadow: var(--glass-shadow) !important;
 }
 </style>
+
+/* 4. Header Logo Dark Mode Swap */
+.header-logo-light {
+  display: inline-block !important;
+}
+.header-logo-dark {
+  display: none !important;
+}
+
+html[data-theme="dark"] .header-logo-light {
+  display: none !important;
+}
+html[data-theme="dark"] .header-logo-dark {
+  display: inline-block !important;
+}
