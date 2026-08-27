@@ -2,7 +2,6 @@
 {% include metadata.liquid %}
 
 <!-- Security: Content Security Policy -->
-<!-- Updated to permit Cloudflare, Altmetric, and standard CDN assets used by al-folio -->
 <meta
   http-equiv="Content-Security-Policy"
   content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"
@@ -217,22 +216,20 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <style>
-/* Glassmorphism Color Variables */
+/* Glassmorphism Variables */
 :root {
   --glass-bg: rgba(255, 255, 255, 0.65) !important;
   --glass-border: rgba(255, 255, 255, 0.7) !important;
-  --glass-dropdown-bg: rgba(255, 255, 255, 0.85) !important;
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 html[data-theme="dark"] {
   --glass-bg: rgba(20, 20, 25, 0.7) !important;
   --glass-border: rgba(255, 255, 255, 0.15) !important;
-  --glass-dropdown-bg: rgba(25, 25, 30, 0.9) !important;
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45) !important;
 }
 
-/* Base Navigation Container */
+/* 1. Main Navbar Banner */
 header.fixed-top,
 header.fixed-top nav.navbar {
   background-color: var(--glass-bg) !important;
@@ -242,29 +239,52 @@ header.fixed-top nav.navbar {
   box-shadow: var(--glass-shadow) !important;
 }
 
-/* Remove internal solid backgrounds while keeping layout */
+/* Clear solid backgrounds inside header wrappers */
 header nav.navbar div:not(.dropdown-menu),
 header nav.navbar ul:not(.dropdown-menu) {
-  background-color: transparent !important;
-  background-image: none !important;
+  background: transparent !important;
 }
 
-/* Dropdown Menus (Fixes Submenus & Mobile Navigation) */
+/* 2. Nav Submenus & Mobile Dropdown Box */
 header .dropdown-menu,
 header nav.navbar .navbar-collapse.show {
-  background-color: var(--glass-dropdown-bg) !important;
+  background-color: var(--glass-bg) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   border: 1px solid var(--glass-border) !important;
   border-radius: 12px !important;
   box-shadow: var(--glass-shadow) !important;
+  overflow: hidden !important;
 }
 
-/* Mobile Layout Padding Fix */
-@media (max-width: 991.98px) {
-  header nav.navbar .navbar-collapse.show {
-    padding: 0.75rem 1rem !important;
-    margin-top: 0.5rem !important;
-  }
+/* Dropdown item hover highlights */
+header .dropdown-menu .dropdown-item:hover,
+header .dropdown-menu .dropdown-item:focus {
+  background-color: rgba(120, 120, 128, 0.15) !important;
+}
+
+/* 3. Ninja-Keys Search Modal & Backdrop */
+ninja-keys {
+  --ninja-background-color: transparent !important;
+  --ninja-modal-background: transparent !important;
+  --ninja-selected-background: rgba(120, 120, 128, 0.2) !important;
+}
+
+/* Darken backdrop behind search box */
+ninja-keys::part(backdrop) {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+/* Apply blur box directly to search modal card */
+ninja-keys::part(ninja),
+ninja-keys::part(modal) {
+  background-color: var(--glass-bg) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--glass-shadow) !important;
 }
 </style>
