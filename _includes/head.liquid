@@ -216,3 +216,42 @@
   <meta name="twitter:image" content="{{ site.url }}{{ site.og_image }}" />
 {% endif %}
 <meta name="twitter:card" content="summary_large_image" />
+
+<style>
+/* Glassmorphism Direct Injection */
+:root {
+  --glass-bg-color: rgba(255, 255, 255, 0.55) !important;
+  --glass-border-color: rgba(255, 255, 255, 0.7) !important;
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="dark"] {
+  --glass-bg-color: rgba(20, 20, 25, 0.65) !important;
+  --glass-border-color: rgba(255, 255, 255, 0.15) !important;
+  --glass-shadow: 0 12px 35px rgba(0, 0, 0, 0.5) !important;
+}
+
+header.fixed-top nav.navbar,
+.navbar.fixed-top {
+  background-color: var(--glass-bg-color) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-bottom: 1px solid var(--glass-border-color) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+ninja-keys {
+  --ninja-background-color: var(--glass-bg-color) !important;
+  --ninja-modal-background: var(--glass-bg-color) !important;
+  --ninja-text-color: var(--global-text-color) !important;
+}
+
+ninja-keys::part(ninja),
+ninja-keys::part(modal),
+ninja-keys::part(search) {
+  background-color: var(--glass-bg-color) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid var(--glass-border-color) !important;
+}
+</style>
