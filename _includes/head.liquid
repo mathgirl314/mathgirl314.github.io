@@ -216,20 +216,20 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <style>
-/* 1. Global Glass Colors */
+/* 1. Global Translucent Styling */
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.65) !important;
-  --glass-border: rgba(255, 255, 255, 0.7) !important;
+  --glass-bg: rgba(255, 255, 255, 0.75) !important;
+  --glass-border: rgba(255, 255, 255, 0.8) !important;
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
 html[data-theme="dark"] {
-  --glass-bg: rgba(20, 20, 25, 0.7) !important;
+  --glass-bg: rgba(25, 25, 30, 0.8) !important;
   --glass-border: rgba(255, 255, 255, 0.15) !important;
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45) !important;
 }
 
-/* 2. Top Navigation Banner */
+/* 2. Top Navigation Banner (Keeps Blur) */
 header.fixed-top,
 header.fixed-top nav.navbar {
   background-color: var(--glass-bg) !important;
@@ -244,11 +244,33 @@ header nav.navbar ul:not(.dropdown-menu) {
   background: transparent !important;
 }
 
-/* 3. Ninja-Keys Search: Remove dark background overlay and apply transparency */
+/* 3. Ninja-Keys Search Modal: Unblurred, Shaded, & See-Through Overlay */
 ninja-keys {
-  --ninja-backdrop-background: transparent !important;
+  /* Removes backdrop blur behind the search box */
+  --ninja-backdrop-filter: none !important;
+  
+  /* Creates a subtle dark dim across the screen that leaves text readable */
+  --ninja-backdrop-background: rgba(0, 0, 0, 0.25) !important;
+  
+  /* Semi-transparent background for the search box itself */
   --ninja-background-color: var(--glass-bg) !important;
   --ninja-modal-background: var(--glass-bg) !important;
-  --ninja-backdrop-filter: blur(12px) !important;
+}
+
+/* Hard-override shadow DOM elements inside the web component */
+ninja-keys::part(backdrop) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+ninja-keys::part(ninja),
+ninja-keys::part(modal) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--glass-shadow) !important;
 }
 </style>
