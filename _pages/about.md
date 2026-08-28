@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: MathQuantum Fellow | Polymath Jr. Undergraduate Math Researcher | Math Major, Minoring in Quantum Science + Engineering <a href='https://umd.edu'>@ UMD</a>
+subtitle: MathQuantum Fellow | Polymath Jr. Undergraduate Math Researcher | Mathematics <a href='https://umd.edu'>@ UMD</a>
 
 profile:
   align: right
