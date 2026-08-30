@@ -301,37 +301,57 @@ ninja-keys::part(ninja-selected-item) {
   background-color: rgba(120, 120, 128, 0.2) !important;
 }
 
-/* Target social icons section */
+/* ==========================================================================
+   8. Social Icons & Contact Text Alignment Fix
+   ========================================================================== */
 .social {
-  /* Center the icon container vertically within the footer padding */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin: 1.5rem 0 !important;
 
+  /* Formats contact text to stay cleanly above the icons */
+  .contact-note {
+    text-align: center !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 0.95rem !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Icons row container */
   .contact-icons {
-    /* Slightly bigger than before (2.2rem is a solid middle ground) */
-    font-size: 2.2rem; 
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem; /* Keeps even spacing between icons */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    font-size: 2.2rem !important; /* Adjust size here if needed */
+    line-height: 1 !important;
 
-    /* Force links and wrapper elements to use flex alignment */
     a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-decoration: none !important;
+      height: 1em !important;
+      line-height: 1 !important;
     }
 
-    /* Force custom image icons (like the Einstein photo) to match standard icon height */
-    img {
-      height: 1em; /* 1em dynamically ties image height directly to font-size (2.2rem) */
-      width: auto;
-      object-fit: cover;
-      vertical-align: middle;
-      border-radius: 2px; /* Optional: subtle rounding to match icon corners */
+    /* Force ALL nested custom images to strictly match the 2.2rem height */
+    img, 
+    a img, 
+    i img,
+    span img {
+      height: 1em !important;
+      max-height: 1em !important;
+      width: auto !important;
+      max-width: 1em !important;
+      object-fit: cover !important;
+      vertical-align: middle !important;
+      display: inline-block !important;
+      border-radius: 2px;
     }
   }
 }
