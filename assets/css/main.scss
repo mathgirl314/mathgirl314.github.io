@@ -300,3 +300,23 @@ ninja-keys::part(search) {
 ninja-keys::part(ninja-selected-item) {
   background-color: rgba(120, 120, 128, 0.2) !important;
 }
+
+/* Target social icons in the footer and main profile sections */
+.social {
+  .contact-icons {
+    font-size: 1.75rem; /* Default is usually 2.5rem or 3rem. Adjust as needed. */
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Keep image-based icons uniform in size */
+    img {
+      height: 1.75rem; 
+      width: auto;
+      vertical-align: middle;
+    }
+  }
+}
