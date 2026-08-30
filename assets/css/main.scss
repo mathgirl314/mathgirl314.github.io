@@ -310,7 +310,6 @@ ninja-keys::part(ninja-selected-item) {
   align-items: center !important;
   justify-content: center !important;
   width: 100% !important;
-  /* Adds spacing above the icons, below the icons, and breathing room before the footer */
   margin-top: 2rem !important;
   margin-bottom: 3rem !important; 
   padding-bottom: 1rem !important;
@@ -318,7 +317,7 @@ ninja-keys::part(ninja-selected-item) {
   /* Spacing for the note text underneath the icons */
   .contact-note {
     text-align: center !important;
-    margin-top: 1.25rem !important; /* Spacing between icons and text */
+    margin-top: 1.25rem !important;
     margin-bottom: 0 !important;
     font-size: 0.95rem !important;
     display: block !important;
@@ -334,7 +333,7 @@ ninja-keys::part(ninja-selected-item) {
     font-size: 2.2rem !important;
     line-height: 1 !important;
 
-    /* Ensure link wrappers don't add default text alignment offset */
+    /* Link wrapper alignment */
     a {
       display: inline-flex !important;
       align-items: center !important;
@@ -350,20 +349,21 @@ ninja-keys::part(ninja-selected-item) {
       vertical-align: middle !important;
     }
 
-    /* Exact alignment and sizing fix for custom image icons */
+    /* Target custom image icons and nudge DOWN */
     img, 
     a img, 
     i img,
     span img {
-      height: 2.2rem !important;       /* Matches font-size exactly */
-      width: 2.2rem !important;        /* Makes image square so alignment stays uniform */
+      height: 2.2rem !important;
+      width: 2.2rem !important;
       max-height: 2.2rem !important;
       max-width: 2.2rem !important;
-      object-fit: cover !important;     /* Prevents image distortion */
-      display: block !important;
+      object-fit: cover !important;
+      display: inline-block !important;
+      border-radius: 4px !important;
       vertical-align: middle !important;
-      border-radius: 4px;              /* Soft edges to match icon style */
-      transform: translateY(-1px);     /* Fine-tunes exact pixel alignment with font baseline */
+      transform: translateY(4px) !important; /* Pulls Einstein down into alignment */
+      margin-top: 0 !important;
     }
   }
 }
