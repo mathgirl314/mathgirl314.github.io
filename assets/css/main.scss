@@ -301,22 +301,37 @@ ninja-keys::part(ninja-selected-item) {
   background-color: rgba(120, 120, 128, 0.2) !important;
 }
 
-/* Target social icons in the footer and main profile sections */
+/* Target social icons section */
 .social {
-  .contact-icons {
-    font-size: 1.75rem; /* Default is usually 2.5rem or 3rem. Adjust as needed. */
+  /* Center the icon container vertically within the footer padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
 
+  .contact-icons {
+    /* Slightly bigger than before (2.2rem is a solid middle ground) */
+    font-size: 2.2rem; 
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* Keeps even spacing between icons */
+
+    /* Force links and wrapper elements to use flex alignment */
     a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      text-decoration: none;
     }
 
-    /* Keep image-based icons uniform in size */
+    /* Force custom image icons (like the Einstein photo) to match standard icon height */
     img {
-      height: 1.75rem; 
+      height: 1em; /* 1em dynamically ties image height directly to font-size (2.2rem) */
       width: auto;
+      object-fit: cover;
       vertical-align: middle;
+      border-radius: 2px; /* Optional: subtle rounding to match icon corners */
     }
   }
 }
