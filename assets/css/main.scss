@@ -300,7 +300,6 @@ ninja-keys::part(search) {
 ninja-keys::part(ninja-selected-item) {
   background-color: rgba(120, 120, 128, 0.2) !important;
 }
-
 /* ==========================================================================
    8. Social Icons & Contact Text Final Alignment Fix
    ========================================================================== */
@@ -314,12 +313,12 @@ ninja-keys::part(ninja-selected-item) {
   margin-bottom: 3rem !important; 
   padding-bottom: 1rem !important;
 
-  /* Spacing for the note text underneath the icons */
+  /* Spacing and reduced font size for the note text underneath */
   .contact-note {
     text-align: center !important;
     margin-top: 1.25rem !important;
     margin-bottom: 0 !important;
-    font-size: 0.95rem !important;
+    font-size: 0.85rem !important; /* Slightly smaller text */
     display: block !important;
     width: 100% !important;
   }
@@ -349,7 +348,7 @@ ninja-keys::part(ninja-selected-item) {
       vertical-align: middle !important;
     }
 
-    /* Target custom image icons and nudge DOWN */
+    /* Target custom image icons and nudge down further */
     img, 
     a img, 
     i img,
@@ -362,7 +361,7 @@ ninja-keys::part(ninja-selected-item) {
       display: inline-block !important;
       border-radius: 4px !important;
       vertical-align: middle !important;
-      transform: translateY(4px) !important; /* Pulls Einstein down into alignment */
+      transform: translateY(8px) !important; /* Nudges the icon down a bit more */
       margin-top: 0 !important;
     }
   }
