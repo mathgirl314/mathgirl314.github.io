@@ -302,7 +302,7 @@ ninja-keys::part(ninja-selected-item) {
 }
 
 /* ==========================================================================
-   8. Social Icons & Contact Text Alignment Fix
+   8. Social Icons & Contact Text Final Alignment Fix
    ========================================================================== */
 .social {
   display: flex !important;
@@ -310,12 +310,16 @@ ninja-keys::part(ninja-selected-item) {
   align-items: center !important;
   justify-content: center !important;
   width: 100% !important;
-  margin: 1.5rem 0 !important;
+  /* Adds spacing above the icons, below the icons, and breathing room before the footer */
+  margin-top: 2rem !important;
+  margin-bottom: 3rem !important; 
+  padding-bottom: 1rem !important;
 
-  /* Formats contact text to stay cleanly above the icons */
+  /* Spacing for the note text underneath the icons */
   .contact-note {
     text-align: center !important;
-    margin-bottom: 0.75rem !important;
+    margin-top: 1.25rem !important; /* Spacing between icons and text */
+    margin-bottom: 0 !important;
     font-size: 0.95rem !important;
     display: block !important;
     width: 100% !important;
@@ -326,32 +330,40 @@ ninja-keys::part(ninja-selected-item) {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.75rem !important;
-    font-size: 2.2rem !important; /* Adjust size here if needed */
+    gap: 0.85rem !important;
+    font-size: 2.2rem !important;
     line-height: 1 !important;
 
+    /* Ensure link wrappers don't add default text alignment offset */
     a {
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
       text-decoration: none !important;
-      height: 1em !important;
+      height: 2.2rem !important;
       line-height: 1 !important;
+      vertical-align: middle !important;
     }
 
-    /* Force ALL nested custom images to strictly match the 2.2rem height */
+    /* Target standard font icons and SVG wrappers */
+    i, svg {
+      vertical-align: middle !important;
+    }
+
+    /* Exact alignment and sizing fix for custom image icons */
     img, 
     a img, 
     i img,
     span img {
-      height: 1em !important;
-      max-height: 1em !important;
-      width: auto !important;
-      max-width: 1em !important;
-      object-fit: cover !important;
+      height: 2.2rem !important;       /* Matches font-size exactly */
+      width: 2.2rem !important;        /* Makes image square so alignment stays uniform */
+      max-height: 2.2rem !important;
+      max-width: 2.2rem !important;
+      object-fit: cover !important;     /* Prevents image distortion */
+      display: block !important;
       vertical-align: middle !important;
-      display: inline-block !important;
-      border-radius: 2px;
+      border-radius: 4px;              /* Soft edges to match icon style */
+      transform: translateY(-1px);     /* Fine-tunes exact pixel alignment with font baseline */
     }
   }
 }
