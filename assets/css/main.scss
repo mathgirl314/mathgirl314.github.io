@@ -366,3 +366,37 @@ ninja-keys::part(ninja-selected-item) {
     }
   }
 }
+
+/* ==========================================================================
+   CV Sidebar Navigation Single Column Alignment
+   ========================================================================== */
+/* Targets the sticky scrollspy navigation menu in the CV page */
+#navigation,
+.cv-sidebar,
+nav#scrollspy,
+.col-md-3 nav {
+  ul,
+  .nav {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+
+    li,
+    .nav-item {
+      width: 100% !important;
+      display: block !important;
+      max-width: 100% !important;
+      flex: 0 0 100% !important;
+    }
+
+    a,
+    .nav-link {
+      display: block !important;
+      width: 100% !important;
+      white-space: normal !important; /* Allows long subsection names to wrap naturally */
+      text-align: left !important;
+    }
+  }
+}
