@@ -367,57 +367,55 @@ ninja-keys::part(ninja-selected-item) {
     }
   }
 }
+
 /* ==========================================================================
-   9. Consolidated Dynamic TOC Sidebar Fixed-Width Layout
+   9. CSS Grid Fix for TOC Sidebar & Main Content Alignment
    ========================================================================== */
 
-/* 1. Freeze the Bootstrap Sidebar Wrapper Column Width */
-.container > .row > .col-sm-3,
-.container > .row > .col-md-3,
-.container > .row > .col-lg-3 {
-  flex: 0 0 160px !important;  /* Locks horizontal width to exactly 160px */
-  max-width: 160px !important;
-  width: 160px !important;
-  padding-right: 0.5rem !important;
-}
-
-/* 2. Allow Content Column to Expand and Fill Remaining Space */
-.container > .row > .col-sm-9,
-.container > .row > .col-md-9,
-.container > .row > .col-lg-9 {
-  flex: 1 1 calc(100% - 160px) !important;
-  max-width: calc(100% - 160px) !important;
-  width: calc(100% - 160px) !important;
-}
-
-/* 3. Break inner row horizontal grid splitting */
-#toc-sidebar .row,
-.post .col-sm-3 .row,
-.cv-container .row,
-.toc-sidebar .row,
-nav#toc .row,
-#toc .row,
-#markdown-toc .row {
-  display: block !important;
+/* 1. Override parent Bootstrap row to use CSS Grid */
+.container > .row:has(#toc-sidebar) {
+  display: grid !important;
+  grid-template-columns: 170px 1fr !important; /* Locks sidebar to 170px, main content gets remainder */
+  gap: 2rem !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
-/* 4. Force List Container & Links to Stay Compact */
+/* Fallback for browsers without :has support */
+.container > .row {
+  &:has(.col-sm-3 #toc-sidebar),
+  &:has(#toc-sidebar) {
+    display: grid !important;
+    grid-template-columns: 170px 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* 2. Reset Bootstrap Column behaviors inside the Grid container */
+.container > .row > .col-sm-3,
+.container > .row > .col-md-3,
+.container > .row > .col-lg-3,
+.container > .row > .col-sm-9,
+.container > .row > .col-md-9,
+.container > .row > .col-lg-9 {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  flex: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 3. Compact Vertical Formatting for Sidebar Items */
 #toc-sidebar,
+.toc-sidebar,
 #toc,
 nav#toc,
-.toc-sidebar,
-#markdown-toc,
-.col-sm-3 nav,
-.cv-sidebar {
+#markdown-toc {
   width: 100% !important;
 
-  &, 
-  ul, 
-  ol, 
-  .nav,
-  .toc-list {
+  &, ul, ol, .nav, .toc-list {
     display: flex !important;
     flex-direction: column !important;
     flex-wrap: nowrap !important;
@@ -428,28 +426,23 @@ nav#toc,
     list-style: none !important;
   }
 
-  /* Force vertical item stacking & compact text sizing */
   li,
   a,
   .nav-item,
   .nav-link,
   .toc-link,
   div,
-  .col-6,
-  .col-12,
-  .col-md-6,
   [class*="col-"] {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 100% !important;
-    flex: 0 0 100% !important;
     float: none !important;
     white-space: normal !important;
     text-align: left !important;
     box-sizing: border-box !important;
     
-    /* Text Lock & Compact Spacing */
+    /* Compact sizing and typography */
     font-size: 0.825rem !important;
     line-height: 1.25 !important;
     padding: 0.15rem 0 !important;
