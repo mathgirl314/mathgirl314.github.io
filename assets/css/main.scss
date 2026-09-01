@@ -367,11 +367,30 @@ ninja-keys::part(ninja-selected-item) {
     }
   }
 }
-
 /* ==========================================================================
-   9. Consolidated Dynamic TOC Sidebar Single-Column Fix
+   9. Consolidated Dynamic TOC Sidebar Fixed-Width Layout
    ========================================================================== */
-/* Break Bootstrap row horizontal grid splitting */
+
+/* 1. Freeze the Bootstrap Sidebar Wrapper Column Width */
+.container > .row > .col-sm-3,
+.container > .row > .col-md-3,
+.container > .row > .col-lg-3 {
+  flex: 0 0 160px !important;  /* Locks horizontal width to exactly 160px */
+  max-width: 160px !important;
+  width: 160px !important;
+  padding-right: 0.5rem !important;
+}
+
+/* 2. Allow Content Column to Expand and Fill Remaining Space */
+.container > .row > .col-sm-9,
+.container > .row > .col-md-9,
+.container > .row > .col-lg-9 {
+  flex: 1 1 calc(100% - 160px) !important;
+  max-width: calc(100% - 160px) !important;
+  width: calc(100% - 160px) !important;
+}
+
+/* 3. Break inner row horizontal grid splitting */
 #toc-sidebar .row,
 .post .col-sm-3 .row,
 .cv-container .row,
@@ -384,14 +403,7 @@ nav#toc .row,
   margin-right: 0 !important;
 }
 
-/* Sidebar Outer Container Sizing & Sticky Behavior */
-#toc-sidebar,
-.toc-sidebar,
-.col-sm-3 nav {
-  max-width: 180px !important; /* Locks sidebar width from expanding too much */
-}
-
-/* Force list containers and links to be compact and static in size */
+/* 4. Force List Container & Links to Stay Compact */
 #toc-sidebar,
 #toc,
 nav#toc,
@@ -399,6 +411,8 @@ nav#toc,
 #markdown-toc,
 .col-sm-3 nav,
 .cv-sidebar {
+  width: 100% !important;
+
   &, 
   ul, 
   ol, 
@@ -414,7 +428,7 @@ nav#toc,
     list-style: none !important;
   }
 
-  /* Force items and links into compact vertical layout */
+  /* Force vertical item stacking & compact text sizing */
   li,
   a,
   .nav-item,
@@ -435,10 +449,10 @@ nav#toc,
     text-align: left !important;
     box-sizing: border-box !important;
     
-    /* Lock font sizing & tighten spacing */
-    font-size: 0.825rem !important;  /* Locked font size regardless of screen scaling */
-    line-height: 1.25 !important;    /* Tight line spacing */
-    padding: 0.15rem 0 !important;   /* Minimal top/bottom padding */
-    margin-bottom: 0.2rem !important; /* Tight spacing between markers */
+    /* Text Lock & Compact Spacing */
+    font-size: 0.825rem !important;
+    line-height: 1.25 !important;
+    padding: 0.15rem 0 !important;
+    margin-bottom: 0.2rem !important;
   }
 }
