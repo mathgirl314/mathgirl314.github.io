@@ -300,6 +300,7 @@ ninja-keys::part(search) {
 ninja-keys::part(ninja-selected-item) {
   background-color: rgba(120, 120, 128, 0.2) !important;
 }
+
 /* ==========================================================================
    8. Social Icons & Contact Text Final Alignment Fix
    ========================================================================== */
@@ -368,33 +369,45 @@ ninja-keys::part(ninja-selected-item) {
 }
 
 /* ==========================================================================
-   Jekyll TOC Sidebar Single Column Alignment Fix
+   9. CV Layout Parent & TOC Navigation Force Single Column
    ========================================================================== */
+/* Break row horizontal grid splitting for TOC containers */
+.post .col-md-3 .row,
+.cv-container .row,
+.toc-sidebar .row,
+nav#toc .row,
+#toc .row,
+#markdown-toc .row {
+  display: block !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Force list containers and grid items inside TOC nav to stack vertically */
 #toc,
 nav#toc,
 .toc-sidebar,
-#markdown-toc {
-  /* Force the nav list and any internal grid rows to lay out vertically */
+#markdown-toc,
+.col-md-3 nav,
+.cv-sidebar {
   &, 
   ul, 
   ol, 
-  .row {
+  .nav {
     display: flex !important;
     flex-direction: column !important;
-    flex-wrap: nowrap !important;
     align-items: flex-start !important;
     width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
     padding-left: 0 !important;
+    margin-left: 0 !important;
   }
 
-  /* Force all menu items, bootstrap columns, and anchor links to 100% width */
   li,
   a,
   .nav-item,
   .nav-link,
   .col-6,
+  .col-12,
   .col-md-6,
   div[class*="col-"] {
     display: block !important;
