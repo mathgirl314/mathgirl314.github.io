@@ -23,25 +23,19 @@
     <!-- Content -->
     <div class="container mt-5" role="main">
       {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
-          <div class="row">
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
+        <div class="row justify-content-between">
+          {% if page.toc.sidebar == 'right' %}
+            <div class="col-12 col-lg-10">{{ content }}</div>
+            <div class="col-12 col-lg-2 d-none d-lg-block">
               <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
-          </div>
-        {% else %}
-          <div class="row">
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
+          {% else %}
+            <div class="col-12 col-lg-2 d-none d-lg-block">
               <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-          </div>
-        {% endif %}
+            <div class="col-12 col-lg-10">{{ content }}</div>
+          {% endif %}
+        </div>
       {% else %}
         {{ content }}
       {% endif %}
