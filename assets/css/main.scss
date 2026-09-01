@@ -396,10 +396,10 @@ ninja-keys::part(ninja-selected-item) {
     text-align: left !important;
     box-sizing: border-box !important;
     
-    /* Compact typography & tight spacing */
-    font-size: 0.825rem !important;
-    line-height: 1.25 !important;
-    padding: 0.15rem 0 !important;
-    margin-bottom: 0.2rem !important;
+    /* Compact typography & tight vertical padding */
+    font-size: 0.8rem !important;
+    line-height: 1.15 !important;
+    padding: 0.1rem 0 !important;
+    margin-bottom: 0.15rem !important;
   }
 }
