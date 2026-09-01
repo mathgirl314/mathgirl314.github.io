@@ -369,10 +369,11 @@ ninja-keys::part(ninja-selected-item) {
 }
 
 /* ==========================================================================
-   9. CV Layout Parent & TOC Navigation Force Single Column
+   9. Consolidated Dynamic TOC Sidebar Single-Column Fix
    ========================================================================== */
-/* Break row horizontal grid splitting for TOC containers */
-.post .col-md-3 .row,
+/* Break Bootstrap row horizontal grid splitting */
+#toc-sidebar .row,
+.post .col-sm-3 .row,
 .cv-container .row,
 .toc-sidebar .row,
 nav#toc .row,
@@ -383,33 +384,40 @@ nav#toc .row,
   margin-right: 0 !important;
 }
 
-/* Force list containers and grid items inside TOC nav to stack vertically */
+/* Force all list containers within the sidebar to stack items vertically */
+#toc-sidebar,
 #toc,
 nav#toc,
 .toc-sidebar,
 #markdown-toc,
-.col-md-3 nav,
+.col-sm-3 nav,
 .cv-sidebar {
   &, 
   ul, 
   ol, 
-  .nav {
+  .nav,
+  .toc-list {
     display: flex !important;
     flex-direction: column !important;
+    flex-wrap: nowrap !important;
     align-items: flex-start !important;
     width: 100% !important;
     padding-left: 0 !important;
     margin-left: 0 !important;
+    list-style: none !important;
   }
 
+  /* Force all generated items, links, and grid elements to full width */
   li,
   a,
   .nav-item,
   .nav-link,
+  .toc-link,
+  div,
   .col-6,
   .col-12,
   .col-md-6,
-  div[class*="col-"] {
+  [class*="col-"] {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -419,5 +427,6 @@ nav#toc,
     white-space: normal !important;
     text-align: left !important;
     box-sizing: border-box !important;
+    margin-bottom: 0.25rem !important;
   }
 }
