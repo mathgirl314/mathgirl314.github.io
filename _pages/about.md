@@ -26,6 +26,7 @@ latest_posts:
 
 As the world shut down during the COVID-19 pandemic, this was when I first discovered my love for mathematics. To me, it was about generating new conceptual ideas, immersing yourself in complex theory, and taking on the challenge for the love of the game.
 
-And ever since those moments, I’ve found love not just for the concepts and theories themselves, but for the process of learning and growing, as I had been led by the hand. And if there exists an infinite source of time, I wish to continue dancing among this waltz of numbers, equations, and expressions.
+And ever since those moments, I’ve found love not just for the concepts and theories themselves, but for the process of learning and growing, having been led by the hand. And if there exists an infinite amount of time, I wish to continue dancing among this waltz of numbers, equations, and expressions.
 
 The way you can derive so many patterns from the system of numbers in $\mathbb{Z}$ and $\mathbb{R}$, and how you can draw connections between fields such as analysis and algebraic geometry, is fascinatingly and captivatingly beautiful. <3
+
