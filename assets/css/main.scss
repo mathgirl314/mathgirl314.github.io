@@ -251,17 +251,21 @@ button.open-search:hover * {
   color: var(--global-theme-color) !important;
 }
 
-/* 6. Background Images */
+/* 6. Background Images (Texture & Zooming Fixes) */
 body {
-  background-image: url('../img/day_background.png');
-  background-repeat: repeat;
-  background-attachment: fixed;
+  background-image: url('../img/day_background.png') !important;
+  background-repeat: repeat !important;
+  background-size: 300px auto !important;
+  background-position: top center !important;
+  background-attachment: scroll !important;
 }
 
 html[data-theme="dark"] body {
-  background-image: url('../img/night_background.jpg');
-  background-size: cover;
-  background-attachment: fixed;
+  background-image: url('../img/night_background.jpg') !important;
+  background-repeat: repeat !important;
+  background-size: 400px auto !important;
+  background-position: top center !important;
+  background-attachment: scroll !important;
 }
 
 /* 7. Search Modal Backdrop & Shadow DOM Glassmorphic Styling */
