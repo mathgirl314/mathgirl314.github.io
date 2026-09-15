@@ -251,28 +251,45 @@ button.open-search:hover * {
   color: var(--global-theme-color) !important;
 }
 
-/* 6. Background Images (Full Coverage & Responsive Scaling) */
+/* 6. Locked Stationary Background via Pseudo-Element */
 body {
+  position: relative !important;
+  background-color: transparent !important;
+}
+
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -100 !important;
+  pointer-events: none !important;
+
+  /* Light Mode Background */
   background-image: url('../img/day_background.png') !important;
   background-repeat: no-repeat !important;
-  background-size: cover !important; /* Covers entire viewport height without cutoffs */
+  background-size: cover !important;
   background-position: center top !important;
-  background-attachment: scroll !important;
 }
 
-html[data-theme="dark"] body {
+html[data-theme="dark"] body::before {
+  /* Dark Mode Background */
   background-image: url('../img/night_background.jpg') !important;
   background-repeat: no-repeat !important;
-  background-size: cover !important; /* Spans full height on desktop, fixing dark mode gap */
+  background-size: cover !important;
   background-position: center top !important;
-  background-attachment: scroll !important;
 }
 
-/* iPhone/Mobile adjustments: Zooms in light mode paper lines so grid details stand out */
+/* Mobile responsive sizing: Keeps graph paper grid zoomed in & legible */
 @media (max-width: 768px) {
-  body {
-    background-size: 250% auto !important; /* Enlarges light mode graph grid on mobile */
-    background-position: top center !important;
+  body::before {
+    background-size: 250% auto !important;
+  }
+  
+  html[data-theme="dark"] body::before {
+    background-size: cover !important;
   }
 }
 
