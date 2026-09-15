@@ -282,17 +282,6 @@ html[data-theme="dark"] body::before {
   background-position: center top !important;
 }
 
-/* Mobile responsive sizing: Keeps graph paper grid zoomed in & legible */
-@media (max-width: 768px) {
-  body::before {
-    background-size: 250% auto !important;
-  }
-  
-  html[data-theme="dark"] body::before {
-    background-size: cover !important;
-  }
-}
-
 /* 7. Search Modal Backdrop & Shadow DOM Glassmorphic Styling */
 
 ninja-keys {
