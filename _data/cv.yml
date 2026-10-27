@@ -1,121 +1,176 @@
 cv:
   name: Jamie Le
-  label: Aspiring Mathematician
+  label: Mathematics Undergraduate
   email: jamie314@terpmail.umd.edu
-  location: "College Park, Maryland"
+  location: College Park, MD
   image: ""
-  summary: Mathematics student with a penchant for learning and finding new solutions to problems.
-  
+  summary: Mathematics major at the University of Maryland, College Park, interested in number theory, arithmetic geometry, and quantum computing
+
   social_networks:
+    - network: GitHub
+      username: mathgirl314
     - network: LinkedIn
       username: jamie314
-
-  address:
-    street: ""
-    city: "College Park"
-    region: "Maryland"
-    postalCode: ""
-    countryCode: "US"
 
   sections:
     Education:
       - institution: University of Maryland
-        location: College Park, Maryland
-        area: Math Major, Minor in Quantum Science and Engineering
-        degree: Bachelor of Science
-        start_date: Fall 2023
-        end_date: Spring 2027 (expected)
+        location: College Park, MD
+        area: Mathematics, Minor in Quantum Science and Engineering
+        studyType: Major
+        start_date: 2023
+        end_date: 2027
+        score: ""
+        courses: "MATH403 Introduction to Abstract Algebra (A), MATH404 Field Theory (B), MATH406 Introduction to Number Theory (A-), MATH405 Linear Algebra (B), STAT410 Introduction to Probability Theory (A+), MATH462 Partial Differential Equations (A+), MATH410 Advanced Calculus I (B+), PHYS360 Introduction to Quantum Mechanics (A), PHYS457 Introduction to Quantum Computing (B+)"
         highlights:
-          - "GPA: 3.8/4.0"
-          - "Relevant Coursework: Advanced Number Theory, Field Theory, Abstract Algebra, Linear Algebra, Introduction to Quantum Mechanics"
+          - "Current GPA: 3.8/4.0"
+          - Expected graduation May 2027
+          - "In progress (Fall 2026): MATH600 Abstract Algebra I (audit), MATH407 Advanced Number Theory, MATH411 Advanced Calculus II"
 
     Experience:
-      - company: University of Maryland Department of Mathematics
-        position: Grader for Introduction to Number Theory (MATH406)
-        location: College Park, Maryland
-        start_date: Sept 2025
-        end_date: Dec 2025
-        highlights:
-          - Graded proof-based homework and provided detailed written feedback to students.
-          - Communicated recurring conceptual difficulties to the course instructor.
-
-      - company: University of Maryland Department of Mathematics
-        position: Tutor for Linear Algebra (MATH240/461)
-        location: College Park, Maryland
-        start_date: Sept 2026
-        end_date: Current
+      - company: Department of Mathematics, University of Maryland
+        position: Tutor, Linear Algebra (MATH240/461)
+        location: College Park, MD
+        start_date: 2026-09-01
+        end_date: present
         highlights:
           - Provide tutoring and conceptual support to undergraduate students in linear algebra.
 
+      - company: Department of Mathematics, University of Maryland
+        position: Grader, Introduction to Number Theory (MATH406)
+        location: College Park, MD
+        start_date: 2025-09-01
+        end_date: 2025-12-01
+        highlights:
+          - Graded proof-based homework and provided detailed written feedback.
+          - Communicated recurring conceptual difficulties to the course instructor.
+
       - company: Varsity Tutors
         position: Calculus 2 and Calculus 3 Tutor
-        location: College Park, Maryland
-        start_date: Sept 2025
-        end_date: Dec 2025
+        location: College Park, MD
+        start_date: 2025-09-01
+        end_date: 2025-12-01
         highlights:
           - Tutored undergraduate mathematics including Calculus 2 and 3.
 
-    Research:
-      - name: Polymath Jr. Undergraduate Research Project
-        area: Undergraduate Researcher
-        date: June 2026 – Current
+    Volunteer:
+      - company: MathQuantum (UMD Maryland Day Event)
+        position: Student Volunteer
+        location: College Park, MD
+        start_date: 2026-04-01
+        end_date: 2026-04-01
+        highlights:
+          - Guided Maryland Day participants through quantum-themed puzzles.
+
+      - company: Q3Initiative (Quantum and Art Hackathon)
+        position: Logistics Lead Organizer
+        location: College Park, MD
+        start_date: 2025-01-01
+        end_date: 2025-09-01
+        highlights:
+          - Led logistics coordination for a multidisciplinary quantum and art hackathon, managing communication and task execution.
+
+      - company: Math Club Reading Group
+        position: Discussion Leader
+        location: College Park, MD
+        start_date: 2025-01-01
+        end_date: 2025-04-01
+        highlights:
+          - Co-led a small reading group of four students reading papers in model theory, algebra, and number theory.
+
+      - company: MMATHS Competition
+        position: Test Grader and Proctor
+        location: College Park, MD
+        start_date: 2024-10-01
+        end_date: 2025-11-01
+        summary: Two competitions, October 2024 and November 2025.
+        highlights:
+          - Proctored exams and graded submissions for a regional mathematics competition.
+
+    Awards:
+      - title: MathQuantum Undergraduate (NSF Stipend) Fellowship
+        date: 2026
+        awarder: University of Maryland
+        summary: Spring 2026
+
+      - title: Dean's Honor
+        date: 2025
+        awarder: University of Maryland
+        summary: Fall 2023, Spring 2024, Fall 2024, and Fall 2025
+
+      - title: Academic Achievement and Community Service Award
+        date: 2023
+        awarder: Maryland Vietnamese Mutual Association, Montgomery County Public Schools
+        summary: Spring 2023
+
+    Publications:
+      - title: Representing Quantum Operators and States
+        authors:
+          - Jamie Le
+        publisher: MathQuantum High School Summer Program (guest lecture)
+        releaseDate: 2026-07-01
+        summary: Delivered a guest lecture to high school MathQuantum summer fellows on the Spectral Theorem and Schmidt Decomposition, emphasizing mathematical understanding through proofs and exercises. Prepared a LaTeX slide deck using Overleaf to support the hour-long lecture.
+
+      - title: A First Look at the Theory Behind Calculus
+        authors:
+          - Jamie Le
+        publisher: Undergraduate Expository Mathematics Project (revised Sept 2026)
+        releaseDate: 2025-12-01
+        summary: Interviewed Math Department Advisor Dr. Ida Chan and a Math + Computer Science double major to identify challenges students face in transitioning to proof-based mathematics. Designed a theory-focused Calculus I–II handout to help students transition toward proof-based mathematics.
+
+      - title: "Exploring Infinity: The Beauty and Structure of Ordinals"
+        authors:
+          - Jamie Le
+        publisher: Direct Reading Program, University of Maryland (presentation)
+        releaseDate: 2024-12-01
+        summary: Collaborated weekly with a graduate mentor on a reading project in Set Theory and Ordinals. Designed and delivered a Google Slides presentation on findings to an audience of graduate and undergraduate students.
+
+    Skills:
+      - name: Programming
+        icon: fa-solid fa-code
+        keywords: "Python, C, HTML, MATLAB"
+
+      - name: Mathematical Tools
+        icon: fa-solid fa-calculator
+        keywords: "Overleaf, LaTeX"
+
+    Languages:
+      - name: English
+
+      - name: Vietnamese
+
+    Interests:
+      - name: Mathematical Interests
+        icon: fa-solid fa-tag
+        keywords: "Number Theory, Arithmetic Geometry, Quantum Computing"
+
+    Certificates:
+      - name: Quantum Computing Summer Short Course
+        date: 2026-06-01
+        issuer: LPS
+        icon: fa-solid fa-tag
+
+    Projects:
+      - name: Murmurations of 3F2 Hypergeometric Families
+        summary: Polymath Jr. Undergraduate Research Project
         highlights:
           - Studied recent literature on murmurations arising from averages of hypergeometric function values over elliptic curves.
           - Explored connections between representation theory and arithmetic geometry.
           - Contributing to a research manuscript and investigating a more explicit expression for the local factor in the GL(3) case.
+        start_date: 2026-06-01
+        end_date: present
 
-      - name: Math Quantum Undergraduate Research Fellowship
-        area: Undergraduate Researcher
-        date: Jan 2026 – April 2026
+      - name: Algebraic Cryptanalysis of the SNOVA Signature Scheme
+        summary: MathQuantum Undergraduate Research Fellowship
         highlights:
-          - Investigated algebraic structures underlying post-quantum signature schemes under the guidance of Prof. Carl Miller.
-          - Focused on understanding the mathematical foundations of the SNOVA construction.
-          - Analyzed structural properties and algorithmic behavior.
+          - Investigated algebraic structures underlying post-quantum signature schemes, with a focus on understanding the mathematical foundations of the SNOVA construction.
+          - Worked under Prof. Carl Miller to analyze structural properties and algorithmic behavior.
+        start_date: 2026-01-01
+        end_date: 2026-04-01
 
-      - name: Undergraduate Quantum Computing Research Project
-        area: Undergraduate Researcher
-        date: Jan 2026 – May 2026
+      - name: Extensions of Quantum Developments to Classical Automata
+        summary: Undergraduate Quantum Computing Research Project
         highlights:
-          - Investigated quantum analogues of classical computational models.
-          - Reviewed literature on quantum finite automata, probabilistic finite automata, and quantum pushdown automata.
-
-    Awards:
-      - name: MathQuantum Undergraduate (NSF Stipend) Fellowship — University of Maryland
-        date: Spring 2026
-        highlights:
-          - Fellowship awarded for undergraduate research and study in quantum mathematics.
-
-      - name: Dean's Honor — University of Maryland
-        date: Fall 2023 – Fall 2025
-        highlights:
-          - Recognized for academic excellence.
-
-      - name: Maryland Vietnamese Mutual Association Academic Achievement and Community Service Award — MCPS
-        date: Spring 2023
-        highlights:
-          - Awarded for academic achievement and community service contributions.
-
-    Presentations:
-      - name: Representing Quantum Operators and States
-        date: July 2026
-        highlights:
-          - Delivered a guest lecture to high school summer fellows on the Spectral Theorem and Schmidt Decomposition using LaTeX/Overleaf slides (MathQuantum High School Summer Program).
-
-      - name: Exploring Infinity: The Beauty and Structure of Ordinals
-        date: Dec 2024
-        highlights:
-          - Designed and delivered a presentation on set theory and ordinals to an audience of graduate and undergraduate students (UMD Direct Reading Program).
-
-    Skills:
-      - label: Mathematics & Theory
-        details: Number Theory, Arithmetic Geometry, Abstract Algebra, Field Theory
-
-      - label: Programming & Tools
-        details: Python, C, HTML, MATLAB, Overleaf, LaTeX
-
-      - label: Languages
-        details: English, Vietnamese
-
-    Interests:
-      - label: Mathematical Interests
-        details: Number Theory, Arithmetic Geometry, Quantum Computing
+          - Investigated quantum analogues of classical computational models, including quantum finite automata, probabilistic finite automata, and quantum pushdown automata, through a review of the literature.
+        start_date: 2026-01-01
+        end_date: 2026-05-01
