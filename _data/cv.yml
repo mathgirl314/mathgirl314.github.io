@@ -2,188 +2,132 @@ cv:
   name: Jamie Le
   label: Aspiring Mathematician
   email: jamie314@terpmail.umd.edu
-  location: ""
+  location: "College Park, Maryland"
   image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
-
+  summary: Mathematics student with a penchant for learning and finding new solutions to problems.
+  
   social_networks:
-    - network: X
-      username: AlbertEinstein
-    - network: GitHub
-      username: example
     - network: LinkedIn
-      username: example
+      username: jamie314
 
   address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+    street: ""
+    city: "College Park"
+    region: "Maryland"
+    postalCode: ""
+    countryCode: "US"
 
   sections:
     Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
+      - institution: University of Maryland
+        location: College Park, Maryland
+        url: https://www.umd.edu/
+        area: Math Major, Minor in Quantum Science and Engineering
+        studyType: Bachelor of Science
+        start_date: Fall 2023
+        end_date: Spring 2027 (expected)
+        score: "GPA: 3.8/4.0"
         highlights:
-          - Description 1.
-          - Description 2.
-
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
-        highlights:
-          - Description 1.
-          - Description 2.
+          - "Relevant Coursework: Advanced Number Theory, Field Theory, Abstract Algebra, Linear Algebra, Introduction to Quantum Mechanics"
 
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: University of Maryland Department of Mathematics
+        position: Grader for Introduction to Number Theory (MATH406)
+        location: College Park, Maryland
+        start_date: Sept 2025
+        end_date: Dec 2025
+        summary: Graded proof-based homework and provided detailed written feedback to students.
         highlights:
-          - Relativity
-          - Description 2.
+          - Communicated recurring conceptual difficulties to the course instructor.
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
+      - company: University of Maryland Department of Mathematics
+        position: Tutor for Linear Algebra (MATH240/461)
+        location: College Park, Maryland
+        start_date: Sept 2026
+        end_date: Current
+        summary: Provide tutoring and conceptual support to undergraduate students in linear algebra.
+
+      - company: Varsity Tutors
+        position: Calculus 2 and Calculus 3 Tutor
+        location: College Park, Maryland
+        start_date: Sept 2025
+        end_date: Dec 2025
+        summary: Tutored undergraduate mathematics including Calculus 2 and 3.
+
+    Research:
+      - company: Polymath Jr. Undergraduate Research Project
+        position: Undergraduate Researcher
+        location: Online / Remote
+        start_date: June 2026
+        end_date: Current
+        summary: Studied recent literature on murmurations arising from averages of hypergeometric function values over elliptic curves.
         highlights:
-          - Description 1.
-          - Description 2.
+          - Explored connections between representation theory and arithmetic geometry.
+          - Contributing to a research manuscript and investigating a more explicit expression for the local factor in the GL(3) case.
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
+      - company: Math Quantum Undergraduate Research Fellowship
+        position: Undergraduate Researcher
+        location: College Park, Maryland
+        start_date: Jan 2026
+        end_date: April 2026
+        summary: Investigated algebraic structures underlying post-quantum signature schemes under the guidance of Prof. Carl Miller.
         highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - Focused on understanding the mathematical foundations of the SNOVA construction.
+          - Analyzed structural properties and algorithmic behavior.
+
+      - company: Undergraduate Quantum Computing Research Project
+        position: Undergraduate Researcher
+        location: College Park, Maryland
+        start_date: Jan 2026
+        end_date: May 2026
+        summary: Investigated quantum analogues of classical computational models.
+        highlights:
+          - Reviewed literature on quantum finite automata, probabilistic finite automata, and quantum pushdown automata.
 
     Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
+      - title: MathQuantum Undergraduate (NSF Stipend) Fellowship
+        date: Spring 2026
+        awarder: University of Maryland
+        summary: Fellowship awarded for undergraduate research and study in quantum mathematics.
 
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - title: Dean's Honor
+        date: Fall 2023 - Fall 2025
+        awarder: University of Maryland
+        summary: Recognized for academic excellence.
 
-    Publications:
-      - title: Zur Elektrodynamik bewegter Körper
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
+      - title: Maryland Vietnamese Mutual Association Academic Achievement and Community Service Award
+        date: Spring 2023
+        awarder: Montgomery County Public Schools
+        summary: Awarded for academic achievement and community service contributions.
 
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
+    Presentations:
+      - title: Representing Quantum Operators and States
+        date: July 2026
+        awarder: MathQuantum High School Summer Program
+        summary: Delivered a guest lecture to high school summer fellows on the Spectral Theorem and Schmidt Decomposition using LaTeX/Overleaf slides.
 
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
+      - title: Exploring Infinity: The Beauty and Structure of Ordinals
+        date: Dec 2024
+        awarder: Direct Reading Program at UMD
+        summary: Designed and delivered a presentation on set theory and ordinals to an audience of graduate and undergraduate students.
 
     Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: Mathematics & Theory
+        level: Advanced
+        icon: fa-solid fa-square-root-variable
+        keywords: "Number Theory, Arithmetic Geometry, Abstract Algebra, Field Theory"
 
-    Languages:
-      - name: German
-        summary: "Native speaker"
+      - name: Programming & Tools
+        level: Intermediate
+        icon: fa-solid fa-code
+        keywords: "Python, C, HTML, MATLAB, Overleaf, LaTeX"
 
-      - name: English
-        summary: "Fluent"
+      - name: Languages
+        level: Fluent
+        icon: fa-solid fa-language
+        keywords: "English, Vietnamese"
 
     Interests:
-      - name: Physics
+      - name: Mathematical Interests
         icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
-
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
-
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
-
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
-
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+        keywords: "Number Theory, Arithmetic Geometry, Quantum Computing"
