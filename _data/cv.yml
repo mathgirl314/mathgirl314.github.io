@@ -21,13 +21,12 @@ cv:
     Education:
       - institution: University of Maryland
         location: College Park, Maryland
-        url: https://www.umd.edu/
         area: Math Major, Minor in Quantum Science and Engineering
         studyType: Bachelor of Science
         start_date: Fall 2023
         end_date: Spring 2027 (expected)
-        score: "GPA: 3.8/4.0"
         highlights:
+          - "GPA: 3.8/4.0"
           - "Relevant Coursework: Advanced Number Theory, Field Theory, Abstract Algebra, Linear Algebra, Introduction to Quantum Mechanics"
 
     Experience:
@@ -36,8 +35,8 @@ cv:
         location: College Park, Maryland
         start_date: Sept 2025
         end_date: Dec 2025
-        summary: Graded proof-based homework and provided detailed written feedback to students.
         highlights:
+          - Graded proof-based homework and provided detailed written feedback to students.
           - Communicated recurring conceptual difficulties to the course instructor.
 
       - company: University of Maryland Department of Mathematics
@@ -45,14 +44,16 @@ cv:
         location: College Park, Maryland
         start_date: Sept 2026
         end_date: Current
-        summary: Provide tutoring and conceptual support to undergraduate students in linear algebra.
+        highlights:
+          - Provide tutoring and conceptual support to undergraduate students in linear algebra.
 
       - company: Varsity Tutors
         position: Calculus 2 and Calculus 3 Tutor
         location: College Park, Maryland
         start_date: Sept 2025
         end_date: Dec 2025
-        summary: Tutored undergraduate mathematics including Calculus 2 and 3.
+        highlights:
+          - Tutored undergraduate mathematics including Calculus 2 and 3.
 
     Research:
       - company: Polymath Jr. Undergraduate Research Project
@@ -60,8 +61,8 @@ cv:
         location: Online / Remote
         start_date: June 2026
         end_date: Current
-        summary: Studied recent literature on murmurations arising from averages of hypergeometric function values over elliptic curves.
         highlights:
+          - Studied recent literature on murmurations arising from averages of hypergeometric function values over elliptic curves.
           - Explored connections between representation theory and arithmetic geometry.
           - Contributing to a research manuscript and investigating a more explicit expression for the local factor in the GL(3) case.
 
@@ -70,8 +71,8 @@ cv:
         location: College Park, Maryland
         start_date: Jan 2026
         end_date: April 2026
-        summary: Investigated algebraic structures underlying post-quantum signature schemes under the guidance of Prof. Carl Miller.
         highlights:
+          - Investigated algebraic structures underlying post-quantum signature schemes under the guidance of Prof. Carl Miller.
           - Focused on understanding the mathematical foundations of the SNOVA construction.
           - Analyzed structural properties and algorithmic behavior.
 
@@ -80,36 +81,36 @@ cv:
         location: College Park, Maryland
         start_date: Jan 2026
         end_date: May 2026
-        summary: Investigated quantum analogues of classical computational models.
         highlights:
+          - Investigated quantum analogues of classical computational models.
           - Reviewed literature on quantum finite automata, probabilistic finite automata, and quantum pushdown automata.
 
     Awards:
-      - title: MathQuantum Undergraduate (NSF Stipend) Fellowship
+      - name: MathQuantum Undergraduate (NSF Stipend) Fellowship, University of Maryland
         date: Spring 2026
-        awarder: University of Maryland
-        summary: Fellowship awarded for undergraduate research and study in quantum mathematics.
+        highlights:
+          - Fellowship awarded for undergraduate research and study in quantum mathematics.
 
-      - title: Dean's Honor
+      - name: Dean's Honor, University of Maryland
         date: Fall 2023 - Fall 2025
-        awarder: University of Maryland
-        summary: Recognized for academic excellence.
+        highlights:
+          - Recognized for academic excellence.
 
-      - title: Maryland Vietnamese Mutual Association Academic Achievement and Community Service Award
+      - name: Maryland Vietnamese Mutual Association Academic Achievement and Community Service Award, MCPS
         date: Spring 2023
-        awarder: Montgomery County Public Schools
-        summary: Awarded for academic achievement and community service contributions.
+        highlights:
+          - Awarded for academic achievement and community service contributions.
 
     Presentations:
-      - title: Representing Quantum Operators and States
+      - name: Representing Quantum Operators and States (MathQuantum High School Summer Program)
         date: July 2026
-        awarder: MathQuantum High School Summer Program
-        summary: Delivered a guest lecture to high school summer fellows on the Spectral Theorem and Schmidt Decomposition using LaTeX/Overleaf slides.
+        highlights:
+          - Delivered a guest lecture to high school summer fellows on the Spectral Theorem and Schmidt Decomposition using LaTeX/Overleaf slides.
 
-      - title: Exploring Infinity: The Beauty and Structure of Ordinals
+      - name: Exploring Infinity: The Beauty and Structure of Ordinals (UMD Direct Reading Program)
         date: Dec 2024
-        awarder: Direct Reading Program at UMD
-        summary: Designed and delivered a presentation on set theory and ordinals to an audience of graduate and undergraduate students.
+        highlights:
+          - Designed and delivered a presentation on set theory and ordinals to an audience of graduate and undergraduate students.
 
     Skills:
       - name: Mathematics & Theory
