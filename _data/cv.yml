@@ -22,7 +22,7 @@ cv:
       - institution: University of Maryland
         location: College Park, Maryland
         area: Math Major, Minor in Quantum Science and Engineering
-        studyType: Bachelor of Science
+        degree: Bachelor of Science
         start_date: Fall 2023
         end_date: Spring 2027 (expected)
         highlights:
@@ -56,79 +56,66 @@ cv:
           - Tutored undergraduate mathematics including Calculus 2 and 3.
 
     Research:
-      - company: Polymath Jr. Undergraduate Research Project
-        position: Undergraduate Researcher
-        location: Online / Remote
-        start_date: June 2026
-        end_date: Current
+      - name: Polymath Jr. Undergraduate Research Project
+        area: Undergraduate Researcher
+        date: June 2026 – Current
         highlights:
           - Studied recent literature on murmurations arising from averages of hypergeometric function values over elliptic curves.
           - Explored connections between representation theory and arithmetic geometry.
           - Contributing to a research manuscript and investigating a more explicit expression for the local factor in the GL(3) case.
 
-      - company: Math Quantum Undergraduate Research Fellowship
-        position: Undergraduate Researcher
-        location: College Park, Maryland
-        start_date: Jan 2026
-        end_date: April 2026
+      - name: Math Quantum Undergraduate Research Fellowship
+        area: Undergraduate Researcher
+        date: Jan 2026 – April 2026
         highlights:
           - Investigated algebraic structures underlying post-quantum signature schemes under the guidance of Prof. Carl Miller.
           - Focused on understanding the mathematical foundations of the SNOVA construction.
           - Analyzed structural properties and algorithmic behavior.
 
-      - company: Undergraduate Quantum Computing Research Project
-        position: Undergraduate Researcher
-        location: College Park, Maryland
-        start_date: Jan 2026
-        end_date: May 2026
+      - name: Undergraduate Quantum Computing Research Project
+        area: Undergraduate Researcher
+        date: Jan 2026 – May 2026
         highlights:
           - Investigated quantum analogues of classical computational models.
           - Reviewed literature on quantum finite automata, probabilistic finite automata, and quantum pushdown automata.
 
     Awards:
-      - name: MathQuantum Undergraduate (NSF Stipend) Fellowship, University of Maryland
+      - name: MathQuantum Undergraduate (NSF Stipend) Fellowship — University of Maryland
         date: Spring 2026
         highlights:
           - Fellowship awarded for undergraduate research and study in quantum mathematics.
 
-      - name: Dean's Honor, University of Maryland
-        date: Fall 2023 - Fall 2025
+      - name: Dean's Honor — University of Maryland
+        date: Fall 2023 – Fall 2025
         highlights:
           - Recognized for academic excellence.
 
-      - name: Maryland Vietnamese Mutual Association Academic Achievement and Community Service Award, MCPS
+      - name: Maryland Vietnamese Mutual Association Academic Achievement and Community Service Award — MCPS
         date: Spring 2023
         highlights:
           - Awarded for academic achievement and community service contributions.
 
     Presentations:
-      - name: Representing Quantum Operators and States (MathQuantum High School Summer Program)
+      - name: Representing Quantum Operators and States
         date: July 2026
         highlights:
-          - Delivered a guest lecture to high school summer fellows on the Spectral Theorem and Schmidt Decomposition using LaTeX/Overleaf slides.
+          - Delivered a guest lecture to high school summer fellows on the Spectral Theorem and Schmidt Decomposition using LaTeX/Overleaf slides (MathQuantum High School Summer Program).
 
-      - name: Exploring Infinity: The Beauty and Structure of Ordinals (UMD Direct Reading Program)
+      - name: Exploring Infinity: The Beauty and Structure of Ordinals
         date: Dec 2024
         highlights:
-          - Designed and delivered a presentation on set theory and ordinals to an audience of graduate and undergraduate students.
+          - Designed and delivered a presentation on set theory and ordinals to an audience of graduate and undergraduate students (UMD Direct Reading Program).
 
     Skills:
-      - name: Mathematics & Theory
-        level: Advanced
-        icon: fa-solid fa-square-root-variable
-        keywords: "Number Theory, Arithmetic Geometry, Abstract Algebra, Field Theory"
+      - label: Mathematics & Theory
+        details: Number Theory, Arithmetic Geometry, Abstract Algebra, Field Theory
 
-      - name: Programming & Tools
-        level: Intermediate
-        icon: fa-solid fa-code
-        keywords: "Python, C, HTML, MATLAB, Overleaf, LaTeX"
+      - label: Programming & Tools
+        details: Python, C, HTML, MATLAB, Overleaf, LaTeX
 
-      - name: Languages
-        level: Fluent
-        icon: fa-solid fa-language
-        keywords: "English, Vietnamese"
+      - label: Languages
+        details: English, Vietnamese
 
     Interests:
-      - name: Mathematical Interests
-        icon: fa-solid fa-tag
-        keywords: "Number Theory, Arithmetic Geometry, Quantum Computing"
+      - label: Mathematical Interests
+        details: Number Theory, Arithmetic Geometry, Quantum Computing
